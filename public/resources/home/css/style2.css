@@ -1,0 +1,144 @@
+img{max-width: 100%;}
+.seconed a.n2{color: #bbdaf2;display: block;margin-top: 13px;padding:0 15px;width: 150px;}
+
+.slicks dd .txt .more {
+  display: block;
+  width: 180px;
+  height: 50px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+  background: #2ecc71;
+  margin-top: 88px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.texts-bot .ques{position: relative;padding-left: 15px;}
+.texts-bot .ques i{position: absolute;left: 0;top: 3px;}
+.texts-bot .ques a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display: block;}
+
+.martlist ul li a{color: #333;}
+.conBanner2 {
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 600px;
+}
+.conBanner2 .conText {
+  width: 1180px;
+  margin: 0 auto;
+  display: table;
+  text-align: center;
+  height: 100%;
+}
+
+.conBanner2 .conText h4 {
+  font-size: 28px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.conBanner2 .conText h1 {
+  font-size: 58px;
+  color: #ffffff;
+  font-weight: bold;
+  list-style: 1.6;
+  margin:22px auto;
+}
+
+.conBanner2 .conText .txt {
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+
+}
+
+.conBanner2 .conText .txt span {
+  color: #a8abaf;
+  margin: 0 20px;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.conBanner2 .baoming{position: absolute;width: 231px;height: 116px;background: url(../images/img2.png) no-repeat;bottom: 0;left: 50%;margin-left: -115px;cursor: pointer;}
+.mi-teb dl dd a{color: #333;}
+
+.mi-teh .table table{width: 100%;}
+.teiBox .text {line-height: 42px;}
+
+/*.teiBox .pic{width: 600px;height: 310px;}*/
+.teiBox .allmap{width: 100%;height: 100%;}
+.teiBox .allmap img{max-width: inherit;width: auto;}
+.contact_map{height: 480px;}
+.contact_map img{max-width: inherit;width: auto;}
+
+.main-box .forms .mx .img{width: 98px;height: 34px;display: inline-block;}
+.mang-main .my .img{width: 98px;height: 34px;display: inline-block;}
+.mang-main .my .gongsi{margin-bottom: 17px;}
+.mang-main .my .add-btn{float: right;}
+.sign-up-mark{z-index: 10009;}
+.sign-up-first{z-index: 10010;}
+.many-sign{z-index: 10010;}
+.qrCode{z-index: 10010;}
+.inlists{padding-right: 15px;}
+.bdlist dl dd .pic img{width: 100%;}
+.mibox dl dd .box{text-align: center;background-color: #fff;}
+.mibox dl dd img{width: 40%;}
+.sa{word-break: break-all;}
+.sa3{text-align: center;}
+.sa3 img{margin:0 auto;}
+.m-btn2 li.on{background: #0093dd;}
+
+
+.caelise dd .text h4{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right: 30px;}
+.caelise dd .text .txt{overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}
+.caelise dd .text{position: relative;}
+.caelise dd .text .shouchang{position: absolute;right: 0;top: 0;border: 0;padding: 0;width: auto;height: auto;cursor:pointer;line-height: 1.5;}
+.caelise dd .text .shouchang:hover{color:#0068b7;background: none;}
+.caelise dd .text .shouchang.on{color:#0068b7;background: none;}
+.nmain .timesw span.praise.on{color: #0091dd;}
+
+.showbox .mz input.text50{width: 100px;}
+.showbox .mz input.get-msg{float: right;}
+
+.catelist li a{display: block;color: #000;}
+
+.foter span a{color: #fff;}
+/*.nslick dd .title{}
+.nslick dd .text{overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp:7; -webkit-box-orient: vertical;}*/
+
+#toTop .bdshare-button-style0-16 .bds_more{padding: 0;margin: 0;background: none;}
+#toTop .bdshare-button-style0-16 .bds_more:hover{background: #0093dd;}
+.bdshare_popup_bg{display: none!important;}
+.bdshare_popup_box{display: none!important;}
+
+#toTop a.icon-yduixingxingshixin{color: #0093dd;}
+#toTop a.icon-yduixingxingshixin:hover{color: #fff;}
+@media screen and (max-width: 1180px) {
+  .conBanner2{height:500px}
+  .conBanner2 .conText{width:96%;padding:0 2%}
+  .conBanner2 .conText h1{font-size:32px}
+  .conBanner2 .baoming{width: 180px;height: 60px;bottom: 15%;background-size: cover;margin-left: -90px;}
+  .caelise dd .text .shouchang{line-height: 1;}
+  
+}
+@media screen and (max-width: 768px) {
+  .contact_map{height: 250px;}
+  .conBanner2{height:300px}
+  .conBanner2 .conText{width:96%;padding:0 2%}
+  .conBanner2 .conText h1{font-size:20px}
+  .conBanner2 .baoming{width: 120px;height: 60px;bottom: 1%;background-size: cover;margin-left: -60px;}
+  .conBanner2 .conText .txt span{font-size:14px;}
+  .conBanner2 .conText h4{font-size:16px}
+  .caelise dd .text .shouchang{font-size: 20px;}
+}
+@media screen and (max-width: 460px) {
+
+  .conBanner2 .conText h1{font-size:18px}
+  
+}

@@ -158,6 +158,13 @@ class ActivityController extends Controller
                 'off' => ['value' => 0, 'text' => '否', 'color' => 'danger'],
             ];
             $form->switch('is_top','推荐')->states($states);
+
+            $states = [
+                'on'  => ['value' => 1, 'text' => '是', 'color' => 'success'],
+                'off' => ['value' => 0, 'text' => '否', 'color' => 'danger'],
+            ];
+            $form->switch('is_apply','报名')->states($states);
+
             $form->editor('content','内容');
             $form->image('img','图片')->move('/uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片量尺寸377*158');
             $form->text('alt','图片alt');
@@ -189,6 +196,9 @@ class ActivityController extends Controller
             $form->multipleSelect('news_related',"专题报道")->options($news_related_list);
             // }
 
+            $form->image('banner','banner图')->move('/uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片量尺寸1920*600');
+            $form->image('mobile_banner','手机banner图')->move('/uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片量尺寸750*545');
+
             $form->saving(function (Form $form) {
                 if($form->video){
                     $form->video = upload_file($form->video);
@@ -200,6 +210,8 @@ class ActivityController extends Controller
                 // $caregory_info = ArticleCategory::find($form->cate_id);
                 $form->img = Image($form->img,377,158,"uploads/Activity/".date("Ymd")."/");
                 $form->img2 = Image($form->img2,680,310,"uploads/Activity/".date("Ymd")."/");
+                $form->banner = Image($form->banner,1920,600,"uploads/Activity/".date("Ymd")."/");
+                $form->mobile_banner = Image($form->mobile_banner,750,545,"uploads/Activity/".date("Ymd")."/");
             });
             $form->saved(function (Form $form) {
                 //链接推送

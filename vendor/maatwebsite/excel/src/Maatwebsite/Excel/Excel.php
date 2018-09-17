@@ -1,5 +1,4 @@
-<?php 
-namespace Maatwebsite\Excel;
+<?php namespace Maatwebsite\Excel;
 
 use Closure;
 use Maatwebsite\Excel\Readers\Batch;

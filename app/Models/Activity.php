@@ -47,7 +47,7 @@ class Activity extends Model
             $list = $list->where('is_top',$attributes['is_top']);
         }
 
-        if(isset($attributes['keyword'])&&trim($attributes['keyword'])!=''){
+        if((isset($attributes['keyword'])&&trim($attributes['keyword'])!='')||(isset($attributes['search_type'])&&trim($attributes['search_type']))){
             if(isset($attributes['search_type'])&&trim($attributes['search_type'])){
                 switch ($attributes['search_type']) {
                     case '1':
@@ -58,7 +58,7 @@ class Activity extends Model
                         });
                         break;
                     case '3':
-                        $list = $list->where('activity_time2',">",date("Y-m-d",strtotime($attributes['keyword'])))->where('activity_time',"<",date("Y-m-d",strtotime("+1day",strtotime($attributes['keyword']))));
+                        $list = $list->where('activity_time2',">",date("Y-m-d",strtotime($attributes['start_time'])))->where('activity_time',"<",date("Y-m-d",strtotime("+1day",strtotime($attributes['end_time']))));
                         break;
                     default:
                         $list = $list->where('title',"like","%".$attributes['keyword']."%");

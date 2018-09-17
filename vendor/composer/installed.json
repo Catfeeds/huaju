@@ -4989,28 +4989,28 @@
     },
     {
         "name": "symfony/polyfill-php56",
-        "version": "v1.9.0",
-        "version_normalized": "1.9.0.0",
+        "version": "v1.8.0",
+        "version_normalized": "1.8.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/polyfill-php56.git",
-            "reference": "7b4fc009172cc0196535b0328bd1226284a28000"
+            "reference": "af98553c84912459db3f636329567809d639a8f6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/7b4fc009172cc0196535b0328bd1226284a28000",
-            "reference": "7b4fc009172cc0196535b0328bd1226284a28000",
+            "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/af98553c84912459db3f636329567809d639a8f6",
+            "reference": "af98553c84912459db3f636329567809d639a8f6",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.3",
             "symfony/polyfill-util": "~1.0"
         },
-        "time": "2018-08-06T14:22:27+00:00",
+        "time": "2018-04-26T10:06:28+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.9-dev"
+                "dev-master": "1.8-dev"
             }
         },
         "installation-source": "dist",
@@ -5104,27 +5104,27 @@
     },
     {
         "name": "symfony/polyfill-util",
-        "version": "v1.9.0",
-        "version_normalized": "1.9.0.0",
+        "version": "v1.8.0",
+        "version_normalized": "1.8.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/polyfill-util.git",
-            "reference": "8e15d04ba3440984d23e7964b2ee1d25c8de1581"
+            "reference": "1a5ad95d9436cbff3296034fe9f8d586dce3fb3a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/8e15d04ba3440984d23e7964b2ee1d25c8de1581",
-            "reference": "8e15d04ba3440984d23e7964b2ee1d25c8de1581",
+            "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/1a5ad95d9436cbff3296034fe9f8d586dce3fb3a",
+            "reference": "1a5ad95d9436cbff3296034fe9f8d586dce3fb3a",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.3"
         },
-        "time": "2018-08-06T14:22:27+00:00",
+        "time": "2018-04-26T10:06:28+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.9-dev"
+                "dev-master": "1.8-dev"
             }
         },
         "installation-source": "dist",

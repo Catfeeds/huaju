@@ -1,8 +1,7 @@
 @extends('admin::index')
 
 @section('content')
-    @if(isset($header)&&isset($description))
-    @else
+    @if(isset($header)&&!empty($header)&&isset($description)&&!empty($description))
     <section class="content-header">
         <h1>
             {{ $header or trans('admin.title') }}
@@ -35,8 +34,8 @@
         </ol>
         @endif
         <!-- breadcrumb end -->
-
     </section>
+    @else
     @endif
     <section class="content">
 

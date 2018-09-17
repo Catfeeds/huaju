@@ -23,18 +23,21 @@ class LogController extends Controller
             $content->description(trans('admin.list'));
 
             $grid = Admin::grid(OperationLog::class, function (Grid $grid) {
-                $grid->model()->orderBy('id', 'DESC');
+                $grid->model()->where('method',"<>","GET")->orderBy('id', 'DESC');
+
+                $grid->disableExport();//禁止导出
 
                 $grid->id('ID')->sortable();
-                $grid->user()->name('User');
-                $grid->method()->display(function ($method) {
+                $grid->user()->name('管理员');
+                $grid->method("方法")->display(function ($method) {
                     $color = array_get(OperationLog::$methodColors, $method, 'grey');
-
-                    return "<span class=\"badge bg-$color\">$method</span>";
+                    return "<span class=\"badge bg-$color\">".trans('admin.log.method.'.$method)."</span>";
                 });
-                $grid->path()->label('info');
+                $grid->path("请求")->label('info')->display(function($data){
+                    return str_replace(trans('admin.log.url'),trans('admin.log.title'),$data);
+                });
                 $grid->ip()->label('primary');
-                $grid->input()->display(function ($input) {
+                $grid->input("数据")->display(function ($input) {
                     $input = json_decode($input, true);
                     $input = array_except($input, ['_pjax', '_token', '_method', '_previous_']);
                     if (empty($input)) {
@@ -53,9 +56,9 @@ class LogController extends Controller
                 $grid->disableCreation();
 
                 $grid->filter(function ($filter) {
-                    $filter->equal('user_id', 'User')->select(Administrator::all()->pluck('name', 'id'));
-                    $filter->equal('method')->select(array_combine(OperationLog::$methods, OperationLog::$methods));
-                    $filter->like('path');
+                    $filter->equal('user_id','管理员')->select(Administrator::all()->pluck('name', 'id'));
+                    $filter->equal('method')->select(trans('admin.log.method'));
+                    $filter->like('请求');
                     $filter->equal('ip');
                 });
             });

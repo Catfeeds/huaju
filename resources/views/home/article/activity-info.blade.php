@@ -3,7 +3,7 @@
     @parent
 @endsection
 @section('content')
-    <div class="conBanner2" style="background-image: url({{asset('resources/home/images/img1.jpg')}});">
+    <div class="conBanner2 pc_box" style="background-image: url({{asset($info['banner'])}});">
         <div class="conText">
             <div class="txt">
                 <h4>{{$info['title']}}</h4>
@@ -12,20 +12,35 @@
                     <span>{{date('Y · m · d',strtotime($info['activity_time']))}}</span>
                     <span> 中国 {{$info['CityTo']['region_name']}}</span>
                 </div>
-                @if($info['activity_time']>date("Y-m-d H:i:s"))
+                @if($info['activity_time']>date("Y-m-d H:i:s")&&$info['is_apply']==1)
+                    <a @if(!empty($info['url'])) href="{{$info['url']}}" @endif class="baoming @if(empty($info['url'])) apply @endif"></a>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="conBanner2 mobile_box" style="background-image: url({{asset($info['mobile_banner'])}});">
+        <div class="conText">
+            <div class="txt">
+                <h4>{{$info['title']}}</h4>
+                <h1>{{$info['title2']}}</h1>
+                <div class="time">
+                    <span>{{date('Y · m · d',strtotime($info['activity_time']))}}</span>
+                    <span> 中国 {{$info['CityTo']['region_name']}}</span>
+                </div>
+                @if($info['activity_time']>date("Y-m-d H:i:s")&&$info['is_apply']==1)
                     <a @if(!empty($info['url'])) href="{{$info['url']}}" @endif class="baoming @if(empty($info['url'])) apply @endif"></a>
                 @endif
             </div>
         </div>
     </div>
     <div class="markts">
-        <div class="mitem mi-tem slideUp animated">
+        <div class="mitem mi-tem fadeInUp wow">
             <div class="mar-title">活动背景</div>
             <div class="text content_con">
                 {!!$info['content']!!}
             </div>
         </div>
-        <div class="mitem mi-teb slideUp animated">
+        <div class="mitem mi-teb fadeInUp wow">
             <div class="mar-title">演讲内容</div>
             <dl>
                 @foreach($info['MoreActivityMany1'] as $v)
@@ -43,7 +58,7 @@
             </dl>
         </div>
         @if($info['activity_time']>date("Y-m-d H:i:s"))
-        <div class="mitem mi-teg slideUp animated">
+        <div class="mitem mi-teg fadeInUp wow">
             <div class="mar-title">合作伙伴</div>
             <div class="mar-trhee clearfix">
                 <ul>
@@ -51,8 +66,7 @@
                     @if($k%2==0)
                     <li>
                         <div class="col">
-                            <div class="pt">
-                                <img src="{{asset($v['image'])}}">
+                            <div class="pt" style="background-image: url({{asset($v['image'])}});">
                             </div>
                             <h6>{{$v['desc']}}</h6>
                             <h3>{{$v['title']}}</h3>
@@ -79,125 +93,13 @@
                 </ul>
             </div>
         </div>
-        <div class="mitem mi-teh slideUp animated">
+        <div class="mitem mi-teh fadeInUp wow">
             <div class="mar-title">会议议程</div>
             <div class="table">
                 {!!$info['content2']!!}
-                {{--<table>
-                    <tr>
-                        <th style="background: #0091dd;padding: 10px 13px;color: #fff;border-right: 1px solid #fff;width:20%;text-align: left;">时间</th>
-                        <th style="background: #0091dd;padding: 10px 13px;color: #fff;border-right: 1px solid #fff;width:40%;text-align: left;">主题</th>
-                        <th style="background: #0091dd;padding: 10px 13px;color: #fff;border-right: 1px solid #fff;width:40%;text-align: left;">嘉宾</th>
-                    </tr>
-                    <tr>
-                        <td style="background: #fff;padding: 10px 13px;border-right: 1px solid #fff">2018-05-23 09:00--09:30</td>
-                        <td style="background: #fff;padding: 10px 13px;border-right: 1px solid #fff">签到</td>
-                        <td style="background: #fff;padding: 10px 13px;border-right: 1px solid #fff">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td style="background: #e2f5ff;padding: 10px 13px;border-right: 1px solid #fff">2018-05-23 09:00--09:30</td>
-                        <td style="background: #e2f5ff;padding: 10px 13px;border-right: 1px solid #fff">致辞</td>
-                        <td style="background: #e2f5ff;padding: 10px 13px;border-right: 1px solid #fff">主办方</td>
-                    </tr>
-                    <tr>
-                        <td style="background: #fff;padding: 10px 13px;border-right: 1px solid #fff">2018-05-23 09:00--09:30</td>
-                        <td style="background: #fff;padding: 10px 13px;border-right: 1px solid #fff">打造大数据时代的核心竞争力：数据资产管理最新理 </td>
-                        <td style="background: #fff;padding: 10px 13px;border-right: 1px solid #fff">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td style="background: #e2f5ff;padding: 10px 13px;border-right: 1px solid #fff">2018-05-23 09:00--09:30</td>
-                        <td style="background: #e2f5ff;padding: 10px 13px;border-right: 1px solid #fff">致辞</td>
-                        <td style="background: #e2f5ff;padding: 10px 13px;border-right: 1px solid #fff">上海市信委主任 复旦大学信息院 郑有成教授</td>
-                    </tr>
-                    <tr>
-                        <td style="background: #fff;padding: 10px 13px;border-right: 1px solid #fff">2018-05-23 09:00--09:30</td>
-                        <td style="background: #fff;padding: 10px 13px;border-right: 1px solid #fff">打造大数据时代的核心竞争力：数据资产管理最新理 </td>
-                        <td style="background: #fff;padding: 10px 13px;border-right: 1px solid #fff">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td style="background: #e2f5ff;padding: 10px 13px;border-right: 1px solid #fff">2018-05-23 09:00--09:30</td>
-                        <td style="background: #e2f5ff;padding: 10px 13px;border-right: 1px solid #fff">致辞</td>
-                        <td style="background: #e2f5ff;padding: 10px 13px;border-right: 1px solid #fff">上海市信委主任 复旦大学信息院 郑有成教授</td>
-                    </tr>
-                </table>
-                <div class="title">
-                    <span>时间</span>
-                    <span>主题</span>
-                    <span>嘉宾</span>
-                </div>
-                <dl>
-                    <dd>
-                        
-                    </dd>
-                    <dd>
-                        
-                    </dd>
-                    <dd>
-
-                    </dd>
-                </dl>
-                <dl>
-                    <dd>
-                        2018-05-23 09:00--09:30
-                    </dd>
-                    <dd>
-                        致辞
-                    </dd>
-                    <dd>
-                        主办方
-                    </dd>
-                </dl>
-                <dl>
-                    <dd>
-                        2018-05-23 09:00--09:30
-                    </dd>
-                    <dd>
-                        打造大数据时代的核心竞争力：数据资产管理最新理 念与落地 打造大数据时代的核心竞争力：数据资产管理最新理 念与落地
-
-                    </dd>
-                    <dd>
-                        上海市信委主任 复旦大学信息院 郑有成教授
-                    </dd>
-                </dl>
-                <dl>
-                    <dd>
-                        2018-05-23 09:00--09:30
-                    </dd>
-                    <dd>
-                        打造大数据时代的核心竞争力：数据资产管理最新理 念与落地 打造大数据时代的核心竞争力：数据资产管理最新理 念与落地
-
-                    </dd>
-                    <dd>
-                        上海市信委主任 复旦大学信息院 郑有成教授
-                    </dd>
-                </dl>
-                <dl>
-                    <dd>
-                        2018-05-23 09:00--09:30
-                    </dd>
-                    <dd>
-                        打造大数据时代的核心竞争力：数据资产管理最新理 念与落地 打造大数据时代的核心竞争力：数据资产管理最新理 念与落地
-
-                    </dd>
-                    <dd>
-                        上海市信委主任 复旦大学信息院 郑有成教授
-                    </dd>
-                </dl>
-                <dl>
-                    <dd>
-                        2018-05-23 09:00--09:30
-                    </dd>
-                    <dd>
-                        打造大数据时代的核心竞争力：数据资产管理最新理 念与落地 打造大数据时代的核心竞争力：数据资产管理最新理 念与落地
-
-                    </dd>
-                    <dd>
-                        上海市信委主任 复旦大学信息院 郑有成教授
-                    </dd>
-                </dl>--}}
             </div>
         </div>
-        <div class="mitem mi-tei slideUp animated">
+        <div class="mitem mi-tei fadeInUp wow">
             <div class="mar-title">参会指引</div>
             <div class="teiBox clearfix">
                 <div class="pic " >
@@ -228,7 +130,7 @@
         if(!empty($info['news_related'])){
             $info['article'] = \App\Models\Article::ArticleList([
                 'id_in'=>explode(",",$info['news_related']),
-                'take'=>3,
+                'paginate'=>0,
             ]);
         }else{
             $info['article'] = array();
@@ -245,7 +147,7 @@
                                 <img  src="{{asset($v['img'])}}" alt="{{$v['alt']}}">
                             </div>
                             <h4>{{$v['title']}}</h4>
-                            <div class="text">{!!nl2br($v['cat_desc'])!!}</div>
+                            <div class="text">{!!nl2br($v['desc'])!!}</div>
                             <div class="txt">
                                 <span>{{$v['editor']}} </span>
                                 <span>{{date('Y-m-d',strtotime($v['add_time']))}} </span>
@@ -282,7 +184,7 @@
                         <div class="center" style="background-image: url({{asset($v['image'])}});">
                         @endif
                         <figure itemscope itemtype="">
-                            <a href="{{asset($v['image'])}}" itemprop="contentUrl" data-size="" >
+                            <a class="pic_btn" data-src="{{asset($v['image'])}}" itemprop="contentUrl" data-size="" data-title="{{$v['title']}}" >
                                 <img src="{{asset($v['image'])}}" itemprop="thumbnail" alt="" / >
                             </a>
                         </figure>
@@ -296,88 +198,6 @@
                 </div>
                 @endif
                 @endforeach
-                <!-- <div class="pf clearfix">
-                    @if($v)
-                    <div class="left" style="background-image: url({{asset($v['image'])}});">
-                        <figure itemscope itemtype="">
-                            <a href="{{asset($v['image'])}}" itemprop="contentUrl" data-size="" >
-                                <img src="{{asset($v['image'])}}" itemprop="thumbnail" alt="" / >
-                            </a>
-                        </figure>
-                    </div>
-                    @endif
-                    <div class="right">
-                        @if($info['MoreImageMany'][1])
-                        <div class="top" style="background-image: url({{asset($info['MoreImageMany'][1]['image'])}});">
-                            <figure itemscope itemtype="">
-                                <a href="{{asset($info['MoreImageMany'][1]['image'])}}" itemprop="contentUrl" data-size="" >
-                                    <img src="{{asset($info['MoreImageMany'][1]['image'])}}" itemprop="thumbnail" alt="" / >
-                                </a>
-                            </figure>
-                        </div>
-                        @endif
-                        @if($info['MoreImageMany'][2])
-                        <div class="bot" style="background-image: url({{asset($info['MoreImageMany'][2]['image'])}});">
-                            <figure itemscope itemtype="">
-                                <a href="{{asset($info['MoreImageMany'][2]['image'])}}" itemprop="contentUrl" data-size="" >
-                                    <img src="{{asset($info['MoreImageMany'][2]['image'])}}" itemprop="thumbnail" alt="" / >
-                                </a>
-                            </figure>
-                        </div>
-                        @endif
-                    </div>
-                </div>
-                <div class="pr clearfix">
-                    <div class="left">
-                        @if($info['MoreImageMany'][3])
-                        <div class="top" style="background-image: url({{asset($info['MoreImageMany'][3]['image'])}});">
-                            <figure itemscope itemtype="">
-                                <a href="{{asset($info['MoreImageMany'][3]['image'])}}" itemprop="contentUrl" data-size="" >
-                                    <img src="{{asset($info['MoreImageMany'][3]['image'])}}" itemprop="thumbnail" alt="" / >
-                                </a>
-                            </figure>
-                        </div>
-                        @endif
-                        @if($info['MoreImageMany'][4])
-                        <div class="bot" style="background-image: url({{asset($info['MoreImageMany'][4]['image'])}});">
-                            <figure itemscope itemtype="">
-                                <a href="{{asset($info['MoreImageMany'][4]['image'])}}" itemprop="contentUrl" data-size="" >
-                                    <img src="{{asset($info['MoreImageMany'][4]['image'])}}" itemprop="thumbnail" alt="" / >
-                                </a>
-                            </figure>
-                        </div>
-                        @endif
-                    </div>
-                    <div class="right" >
-                        @if($info['MoreImageMany'][5])
-                        <div class="top" style="background-image: url({{asset($info['MoreImageMany'][5]['image'])}});">
-                            <figure itemscope itemtype="">
-                                <a href="{{asset($info['MoreImageMany'][5]['image'])}}" itemprop="contentUrl" data-size="" >
-                                    <img src="{{asset($info['MoreImageMany'][5]['image'])}}" itemprop="thumbnail" alt="" / >
-                                </a>
-                            </figure>
-                        </div>
-                        @endif
-                        @if($info['MoreImageMany'][6])
-                        <div class="center" style="background-image: url({{asset($info['MoreImageMany'][6]['image'])}})">
-                            <figure itemscope itemtype="">
-                                <a href="{{asset($info['MoreImageMany'][6]['image'])}}" itemprop="contentUrl" data-size="" >
-                                    <img src="{{asset($info['MoreImageMany'][6]['image'])}}" itemprop="thumbnail" alt="" / >
-                                </a>
-                            </figure>
-                        </div>
-                        @endif
-                        @if($info['MoreImageMany'][7])
-                        <div class="bot" style="background-image: url({{asset($info['MoreImageMany'][7]['image'])}});">
-                            <figure itemscope itemtype="">
-                                <a href="{{asset($info['MoreImageMany'][7]['image'])}}" itemprop="contentUrl" data-size="" >
-                                    <img src="{{asset($info['MoreImageMany'][7]['image'])}}" itemprop="thumbnail" alt="" / >
-                                </a>
-                            </figure>
-                        </div>
-                        @endif
-                    </div>
-                </div> -->
             </div>
         </div>
         <div class="mitem mi-tef">
@@ -500,6 +320,11 @@
             <span>扫一扫，关注“翻译培训会”微信号，最新消息早知道~~</span>
         </div>
     </div>
+    <div class="pic_fix_bg"></div>
+    <div class="pic_fix">
+        <div class="img"><img src=""></div>
+        <div class="text">高端会员制电商平台品志获数千万Pre-A轮融资，上川创投基金投资</div>
+    </div>
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="pswp__bg"></div>
         <div class="pswp__scroll-wrap">
@@ -581,6 +406,16 @@
     </script>
     <script>
     $(function(){
+        $(".pic_btn").click(function(){
+            $(".pic_fix_bg").show();
+            $(".pic_fix").show();
+            $(".pic_fix img").attr('src',$(this).attr("data-src"));
+            $(".pic_fix .text").html($(this).attr("data-title"));
+        })
+        $(".pic_fix_bg").click(function(){
+            $(".pic_fix_bg").hide();
+            $(".pic_fix").hide();
+        })
         $('.iWant .close').click(function(){
             $('.iWant').fadeOut()
         })
@@ -811,7 +646,7 @@
             openPhotoSwipe( hashData.pid - 1 ,  galleryElements[ hashData.gid - 1 ], true );
         }
     }
-        initPhotoSwipeFromDOM('.my-simple-gallery');
+        // initPhotoSwipeFromDOM('.my-simple-gallery');
 
     </script>
     <script type="text/javascript">

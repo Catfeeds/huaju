@@ -1,4 +1,5 @@
 @section('script')
+    <script type="text/javascript" src="{{asset('resources/home/js/wow.min.js')}}?version={{env('VERSION')}}"></script>
     <script type="text/javascript" src="{{asset('resources/home/js/ifie8.js')}}?version={{env('VERSION')}}"></script>
     <script type="text/javascript" src="{{asset('resources/home/js/fastclick.js')}}?version={{env('VERSION')}}"></script>
     <script type="text/javascript" src="{{asset('resources/home/js/_swiper.min.js')}}?version={{env('VERSION')}}"></script>
@@ -13,5 +14,6 @@
     <script type="text/javascript" src="{{asset('resources/home/js/moment.min.js')}}?version={{env('VERSION')}}"></script>
     <script type="text/javascript" src="{{asset('resources/home/js/moment.zh-cn.js')}}?version={{env('VERSION')}}"></script>
     <script type="text/javascript" src="{{asset('resources/home/js/ion.calendar.min.js')}}?version={{env('VERSION')}}"></script>
+    <script type="text/javascript" src="{{asset('resources/home/js/bootstrap-datepicker.min.js')}}?version={{env('VERSION')}}"></script>
     <script type="text/javascript" src="{{asset('resources/home/js/js.js')}}?version={{env('VERSION')}}"></script>
 @show

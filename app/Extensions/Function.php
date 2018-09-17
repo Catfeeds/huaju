@@ -155,7 +155,7 @@ function nav($type=0){
     // if (\Cache::has('nav_'.$type)) {
     //     $nav_list = \Cache::get('nav_'.$type);
     // }else{
-        $nav_list = Nav::where('type',$type)->orderBy('order',"ASC")->get()->toArray();
+        $nav_list = Nav::where('type',$type)->orderBy('order',"ASC")->orderBy('id',"ASC")->get()->toArray();
         
         if($nav_list){
             $nav_list = getTree($nav_list);

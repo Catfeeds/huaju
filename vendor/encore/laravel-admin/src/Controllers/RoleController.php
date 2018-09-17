@@ -67,6 +67,10 @@ class RoleController extends Controller
     {
         return Admin::grid(Role::class, function (Grid $grid) {
             $grid->id('ID')->sortable();
+            
+            $grid->disableExport();//禁止导出
+            $grid->disableFilter();//禁止筛选
+            
             $grid->slug(trans('admin.slug'));
             $grid->name(trans('admin.name'));
 

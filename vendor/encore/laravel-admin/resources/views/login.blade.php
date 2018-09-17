@@ -21,6 +21,10 @@
   <script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <style type="text/css">
+    .captcha{position: absolute;right: 0;bottom: 0;height: 34px;}
+    .captcha img{height: 100%;}
+  </style>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -54,6 +58,17 @@
         <input type="password" class="form-control" placeholder="{{ trans('admin.password') }}" name="password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
+      <div class="form-group has-feedback {!! !$errors->has('captcha') ?: 'has-error' !!}">
+        @if($errors->has('captcha'))
+          @foreach($errors->get('captcha') as $message)
+            <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i>{{$message}}</label></br>
+          @endforeach
+        @endif
+        <input type="captcha" class="form-control" placeholder="{{ trans('admin.captcha') }}" name="captcha">
+        <div class="captcha">
+          {!!captcha_img()!!}
+        </div>
+      </div>
       <div class="row">
 
         <!-- /.col -->
@@ -83,6 +98,9 @@
       radioClass: 'iradio_square-blue',
       increaseArea: '20%' // optional
     });
+    $(".captcha").click(function(){
+      $(".captcha").find("img").attr('src',"{{captcha_src()}}"+Math.random());
+    })
   });
 </script>
 </body>

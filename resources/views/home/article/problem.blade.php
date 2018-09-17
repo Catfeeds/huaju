@@ -37,7 +37,7 @@
         $(document).ready(function(){
             $('.all_q li .top').on('click',function(){
                 $(this).siblings().stop(false,true).slideToggle().parents('li').toggleClass('on');
-                $(this).parents('li').siblings().removeClass('on').find('.con').slideUp();
+                $(this).parents('li').siblings().removeClass('on').find('.con').fadeInUp();
             })
         });
     </script>

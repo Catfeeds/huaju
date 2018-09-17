@@ -75,30 +75,31 @@ $(function () {
     });
 
     $('[data-toggle="popover"]').popover();
+    $(document).on('change','.upload_file', function () {
+        // var _this=$(this);
+        // var fd = new FormData();
+        // var size = _this.get(0).files[0].size;
+        // fd.append("upfile", _this.get(0).files[0]);
+        // var url = _this.attr('data-url');
+        // $.ajax({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     },
+        //     url: url,
+        //     type: "POST",
+        //     processData: false,
+        //     contentType: false,
+        //     data: fd,
+        //     success: function(d) {
+                
+        //     }
+        // });
+        // $(this).val('');
+        // return false;
+        $(this).parents("form").submit();
+    })
 });
-$(".upload_file").change(function(){
-    // var _this=$(this);
-    // var fd = new FormData();
-    // var size = _this.get(0).files[0].size;
-    // fd.append("upfile", _this.get(0).files[0]);
-    // var url = _this.attr('data-url');
-    // $.ajax({
-    //     headers: {
-    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //     },
-    //     url: url,
-    //     type: "POST",
-    //     processData: false,
-    //     contentType: false,
-    //     data: fd,
-    //     success: function(d) {
-            
-    //     }
-    // });
-    // $(this).val('');
-    // return false;
-    $(this).parents("form").submit();
-})
+
 (function ($) {
     $.fn.admin = LA;
     $.admin = LA;

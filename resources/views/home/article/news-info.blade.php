@@ -50,4 +50,28 @@
     .newslist .bdshare-button-style0-16 .bds_more{color: #aab2bd!important;padding:0!important;margin:0!important;background: none!important;}
     .newslist .bdshare-button-style0-16 a, .newslist .bdshare-button-style0-16 .bds_more{line-height: inherit!important;font-size: 100%!important;}
     </style>
+    <script type="text/javascript">
+        $(".newslist").on("click",".praise",function(){
+            if(!$(this).is(".on")){
+                _this = $(this);
+                var id = _this.attr("data-id");
+                _this.addClass("on");
+                _this.find("font").html(parseInt(_this.find("font").html())+1);
+                $.ajax({
+                    headers: {
+                      'X-CSRF-TOKEN': $("meta[name='csrf-token']").attr("content")
+                    },
+                    url: "{{URL('praise')}}/"+id,
+                    type:"POST",
+                    data:"",
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        // longPolling();
+                    },
+                    success: function (res) {
+                        
+                    }
+                });
+            }
+        })
+    </script>
 @endsection

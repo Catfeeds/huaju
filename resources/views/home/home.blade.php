@@ -11,15 +11,17 @@ $banner = ads_image(25);
     <dl class="slicks">
         @foreach($banner as $v)
         <dd style="background-image: url({{asset($v['image'])}})">
-            <div class="txt">
-                <div class="title">{{$v['title']}}</div>
-                <div class="text">{{$v['desc']}}</div>
-                @if(!empty($v['url'])&&!empty($v['btn_title']))
-                <a href="{{$v['url']}}"  class="more">{{$v['btn_title']}}
-                    <i class="iconfont">&#xe649;</i>
-                </a>
-                @endif
-            </div>
+            <a @if(!empty($v['url'])) href="{{$v['url']}}" @endif>
+                <div class="txt">
+                    <div class="title">{{$v['title']}}</div>
+                    <div class="text">{{$v['desc']}}</div>
+                    @if(!empty($v['btn_title']))
+                    <span>{{$v['btn_title']}}
+                        <i class="iconfont">&#xe649;</i>
+                    </span>
+                    @endif
+                </div>
+            </a>
         </dd>
         @endforeach
     </dl>
@@ -27,24 +29,28 @@ $banner = ads_image(25);
 @endif
 <?php 
     //获取推荐文章
-    $a1 = \App\Models\Article::ArticleList([
-        'cate_id'=>432,
-        'take'=>5,
-        'is_top'=>1,
-    ]);
+    $a1 = \App\Models\ArticleCategory::select("article.id","article.title","article.desc","article.add_time")->where("template","news")->where("article.is_top",1)->leftjoin("article","article.cate_id","=","article_category.id")->orderBy('sort','DESC')->orderBy("add_time","DESC")->orderBy("id","DESC")->get();
 ?>
 <div class="in-news">
-    <dl class="nslick">
-        @foreach($a1 as $k=>$v)
-        <dd class="animated slideUp" data-time="{{($k+1)*100}}">
-            <a href="{{URL('article',$v['id'])}}" >
-                <div class="title">{{$v['title']}}</div>
-                <div class="time">{{date("Y-m-d",strtotime($v['add_time']))}}</div>
-                <div class="text">{!!nl2br($v['desc'])!!}</div>
-            </a>
-        </dd>
-        @endforeach
-    </dl>
+    @foreach($a1 as $k=>$v)
+        @if($k%3==0)
+        <dl class="nslick">
+        @endif
+            <dd class="wow  fadeInUp" data-wow-delay="{{($k+1)/10}}s">
+                <a href="{{URL('article',$v['id'])}}">
+                    <div class="title">
+                        {{$v['title']}}
+                    </div>
+                    <div class="time">{{date("Y-m-d",strtotime($v['add_time']))}}</div>
+                    <div class="text">
+                        {!!nl2br($v['desc'])!!}
+                    </div>
+                </a>
+            </dd>
+        @if($k%3==2||count($a1)-1==$k)
+        </dl>
+        @endif
+    @endforeach
 </div>
 <?php 
     //获取产品
@@ -58,12 +64,12 @@ $banner = ads_image(25);
 <div class="in-pro">
     <div class="com-title">{{$procude['title']}}</div>
     <div class="pro-con">
-        <div class="pic animated slideRight" style="background-image: url({{asset($procude['img'])}})"></div>
+        <div class="pic wow fadeInRightBig" style="background-image: url({{asset($procude['img'])}})"></div>
         <ul class="catelist clearfix">
             @foreach($procude['child'] as $c_v)
                 @foreach($c_v['child'] as $k=>$v)
                     @if($p_k < 9)
-                    <li class="animated slideUp" data-time="{{($p_k+1)*100}}">
+                    <li class="wow fadeInUp" data-time="{{($p_k+1)/10}}s">
                         <a href="{{URL('category',$v['id'])}}" >
                             <div class="icon">
                                 <span></span>
@@ -97,7 +103,7 @@ $banner = ads_image(25);
         <ul class="case-nav">
             @foreach($case['child']['0']['child'] as $k=>$v)
             @if($k < 3)
-            <li class="animated slideLeft" data-time="{{($k+1)*100}}">
+            <li class="wow fadeInLeftBig" data-wow-delay="{{($k+1)/10}}s">
                 <a href="{{url('category',$v['id'])}}" title="{{$v['title']}}">{{$v['title']}}</a>
             </li>
             @endif
@@ -108,7 +114,7 @@ $banner = ads_image(25);
         <dl class="catePic">
             @foreach($case['child']['1']['child'] as $k=>$v)
             @if($k < 6)
-            <dd class="animated slideUp" data-time="{{($k+1)*100}}">
+            <dd class="wow fadeInUp" data-wow-delay="{{($k+1)/10}}s">
                 <a href="{{url('category',$v['id'])}}" title="{{$v['title']}}">
                     <div class="pic">
                         <img src="{{asset($v['img2'])}}" alt="{{$v['alt2']}}">
@@ -146,7 +152,7 @@ $banner = ads_image(25);
     <dl class="serlist clearfix">
         @foreach($server['child'] as $k=>$v)
         @if($k < 3)
-        <dd class="animated slideUp" data-time="{{($k+1)*100}}">
+        <dd class="wow fadeInUp" data-wow-delay="{{($k+1)/10}}s">
             <div class="pic">
                 <img src="{{asset($v['img2'])}}" alt="{{$v['alt2']}}">
             </div>
@@ -183,23 +189,23 @@ $(document).ready(function() {
         watch: "window",
 
     });
-    $('.nslick').slick({
+    $('.in-news').slick({
         dots: true,
         arrows: false,
-        slidesToShow: 3,
-        responsive: [{
-                breakpoint: 960,
-                settings: {
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                }
-            }
-        ]
+        slidesToShow: 1,
+        // responsive: [{
+        //  breakpoint: 960,
+        //  settings: {
+        //      slidesToShow: 2,
+        //  }
+        // },
+        // {
+        //  breakpoint: 480,
+        //  settings: {
+        //      slidesToShow: 1,
+        //  }
+        // }
+        // ]
     })
     $('.serlist').slick({
         dots: false,

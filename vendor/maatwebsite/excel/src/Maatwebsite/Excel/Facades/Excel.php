@@ -1,5 +1,4 @@
-<?php 
-namespace Maatwebsite\Excel\Facades;
+<?php namespace Maatwebsite\Excel\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

@@ -42,10 +42,10 @@
             @if( ! $form->isMode(\Encore\Admin\Form\Builder::MODE_VIEW)  || ! $form->option('enableSubmit'))
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
             @endif
-            <div class="col-md-{{$width['label']}}">
+            <div class="col-md-4">
 
             </div>
-            <div class="col-md-{{$width['field']}}">
+            <div class="col-md-3">
 
                 {!! $form->submitButton() !!}
 

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\Cache;
 class AuthController extends Controller
 {
     /**
@@ -38,20 +38,28 @@ class AuthController extends Controller
     {
         $credentials = $request->only(['username', 'password']);
 
-        $validator = Validator::make($credentials, [
-            'username' => 'required', 'password' => 'required',
-        ]);
+        $validator = Validator::make($request->all(), [
+            'username' => 'required', 'password' => 'required','captcha' => 'required|captcha',
+        ],[],['username'=>'用户名','password'=>'密码']);
 
         if ($validator->fails()) {
             return Redirect::back()->withInput()->withErrors($validator);
         }
-
+        if (Cache::get($request->username)>5||Cache::get($request->ip())>5) {
+            return Redirect::back()->withInput()->withErrors(['username' => '请求次数过多，请稍后重试']);
+        }
+        
         if (Auth::guard('admin')->attempt($credentials)) {
             admin_toastr(trans('admin.login_successful'));
-
             return redirect()->intended(config('admin.route.prefix'));
         }
 
+        // 增加错误记录
+        $num = Cache::get($request->username,1);
+        Cache::put($request->username,++$num,1);
+        $num = Cache::get($request->ip(),1);
+        Cache::put($request->ip(),++$num,1);
+        
         return Redirect::back()->withInput()->withErrors(['username' => $this->getFailedLoginMessage()]);
     }
 

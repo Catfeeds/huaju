@@ -59,17 +59,17 @@
                     <th class="cate">{{$v['updated_at']}}</th>
                     <th class="ctrl">
                         @if(isset($download))
-                        <a href="{{URl('download-save',[$v['article_id']])}}" target="_balnk" class="downloadt">下载</a>
+                        <a href="{{URl('download-save',[$v['article_id']])}}" class="downloadt">下载</a>
                         <a data-href="{{URl('download-del',[$v['id']])}}" class="del">删除</a>
                         @else
                             @if($v['type']==4)
-                            <a href="{{URl('download-save',[$v['article_id']])}}" target="_balnk" class="downloadt">查看</a>
+                            <a href="{{URl('download-save',[$v['article_id']])}}" class="downloadt">查看</a>
                             @elseif($v['type']==3)
-                            <a href="{{URl('category',[$v['article_id']])}}" target="_balnk" class="downloadt">查看</a>
+                            <a href="{{URl('category',[$v['article_id']])}}" class="downloadt">查看</a>
                             @elseif($v['type']==2)
-                            <a href="{{URl('activity',[$v['article_id']])}}" target="_balnk" class="downloadt">查看</a>
+                            <a href="{{URl('activity',[$v['article_id']])}}" class="downloadt">查看</a>
                             @elseif($v['type']==1)
-                            <a href="{{URl('article',[$v['article_id']])}}" target="_balnk" class="downloadt">查看</a>
+                            <a href="{{URl('article',[$v['article_id']])}}" class="downloadt">查看</a>
                             @endif
 
 

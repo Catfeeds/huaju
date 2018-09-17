@@ -1,4 +1,17 @@
 $(document).ready(function () {
+    if($(window).width()>1180){
+        $(".seconed").each(function(){
+            if($(this).find('dl').length>0){
+                var width = 0;
+                $(this).find('dl').each(function(){
+                    width += parseInt($(this).outerWidth())
+                })
+                $(this).css("min-width",width+1)
+            }
+        })
+    }
+
+
     $('.fo-item').each(function () {
         var _this = $(this)
         $(this).children('.f-title').click(function () {
@@ -27,13 +40,24 @@ $(document).ready(function () {
         return false
     })
 
-    $('#toTop a').mouseenter(function () {
-        $('.sa').hide().eq($(this).attr('index')).show()
+    $('#toTop .no_click').click(function (e) {
+         if($(window).width()<1200){
+            $('.sa').hide().eq($(this).attr('index')).show()
+              e.stopPropagation()
+        }
+       
     })
 
-    $('#toTop ').mouseleave(function () {
+    $('body,html').click(function(e){
+        if($(window).width()<1200){
         $('.sa').hide()
+        e.stopPropagation()
+    }
     })
+
+    // $('#toTop').mouseleave(function () {
+    //     $('.sa').hide()
+    // })
     
     // $('#toTop a').mouseenter(function(){
         
@@ -41,6 +65,48 @@ $(document).ready(function () {
     // }).mouseleave(function(){
     //      $('.sa').hide()
     // })
+
+    //社会招聘
+    $(".hseui_h").hover(function(){
+        if($(window).width()>1180){
+            $(this).addClass("on");
+        }
+    },function(){
+        if($(window).width()>1180){
+            $(this).removeClass("on");
+        }
+    })
+    $(".hseui_h").click(function(){
+        $(this).siblings().removeClass("on");
+        $(this).addClass("on");
+    })
+    $(".hseui_h .tc2").click(function(){
+        $(".hseui_h").removeClass("on");
+        return false;
+    })
+    $(".hseui_h .icon-close").click(function(){
+        $(".hseui_h").removeClass("on");
+        return false;
+    })
+
+    //实习招聘
+    $(".shixi .box").click(function(){
+        $(this).siblings().removeClass("on");
+        $(this).addClass("on");
+    })
+    $(".shixi .box").mouseleave(function(){
+        if($(window).width()>1180){
+            $(".shixi .box").removeClass("on");
+        }
+    })
+    $(".shixi .tc2").click(function(){
+        $(".shixi .box").removeClass("on");
+        return false;
+    })
+    $(".shixi .icon-close").click(function(){
+        $(".shixi .box").removeClass("on");
+        return false;
+    })
 
 
     $(".serv-box .text,.caseys ul li .text .txt").dotdotdot({
@@ -158,6 +224,37 @@ $(document).ready(function () {
             $('.nav').slideDown()
         }
     })
+    
+    // $('.nav>ul>li>span>i').click(function () {
+    //     if ($(this).parents('li').children('.seconed  ').is(":hidden")) {
+    //         $(this).addClass('on')
+    //         $(this).parents('li').children('.seconed  ').slideDown()
+    //         $(this).parents('li').siblings().children('.seconed').slideUp()
+    //     } else {
+    //         $(this).removeClass('on')
+    //         $(this).parents('li').children('.seconed  ').slideUp()
+    //     }
+    // })
+    // $(".nav ul").mCustomScrollbar({
+    //     axis:"y",
+    //     scrollInertia: 100,
+    //     scrollButtons:{
+    //         enable: true,
+    //         scrollSpeed: 20
+    //     },
+    //     theme:"3d",
+    //     scrollbarPosition:"outside"
+    // });
+
+    // $('.m-nav').click(function () {
+    //     if ($(this).hasClass('active')) {
+    //         $(this).removeClass('active')
+    //         $('.nav').slideUp()
+    //     } else {
+    //         $(this).addClass('active')
+    //         $('.nav').slideDown()
+    //     }
+    // })
 
 
     $('.devlist ul li').each(function(index){
@@ -180,16 +277,29 @@ $(document).ready(function () {
                 slidesToShow: 2,
                 slidesToScroll: 2
               }
-            },
-            {
-              breakpoint: 460,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-              }
             }
           ]
     });
+//     $('.stop').slick({
+//         dots: false,
+//         slidesToShow:2,
+//         responsive: [
+//             {
+//               breakpoint: 768,
+//               settings: {
+//                 slidesToShow: 2,
+//                 slidesToScroll: 2
+//               }
+//             },
+//             {
+//               breakpoint: 460,
+//               settings: {
+//                 slidesToShow: 1,
+//                 slidesToScroll: 1
+//               }
+//             }
+//           ]
+//     });
     $('.srt').slick({
         dots: false,
         slidesToShow:2,
@@ -238,19 +348,21 @@ $(document).ready(function () {
         $('.tdas').eq($(this).attr('index')).show()
     })
 
-    $('.hsebtn dd').click(function(){
-        $('.join').hide().eq($(this).index()-1).show()
-    })
+    
     $('.slideslick').slick({
         dots: true,
         arrows:false
     })
 
-    if ($(window).width() > 1200) {
-        showmod();
-    } else {
-        $('.animated').addClass('on')
-    }
+    if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+        new WOW().init();
+    };
+    
+    // if ($(window).width() > 1200) {
+    //     showmod();
+    // } else {
+    //     $('.animated').addClass('on')
+    // }
 });
 
 function showmod() {

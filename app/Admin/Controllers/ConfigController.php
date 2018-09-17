@@ -59,8 +59,12 @@ class ConfigController extends Controller
                         $form->tags("config_id[".$v['id']."]",trans('config.config_name.'.$v['name']))->value(explode(",",$v['value']));
                         break;
                     case 'img':
-                        $form->image("config_id[".$v['id']."]",trans('config.config_name.'.$v['name']))->value($v['value']);
-                        break;
+                        if(trans('config.config_name.'.$v['name']."_help")){
+                            $form->image("config_id[".$v['id']."]",trans('config.config_name.'.$v['name']))->value($v['value'])->help(trans('config.config_name.'.$v['name']."_help"));
+                        }else{
+                            $form->image("config_id[".$v['id']."]",trans('config.config_name.'.$v['name']))->value($v['value']);
+                        }
+                        
                 }
             }
             $form->setAction('/admin/config-save');

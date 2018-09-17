@@ -5,7 +5,7 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		<div class="bdian content_con animated slideLeft">
+		<div class="bdian content_con wow fadeInLeftBig">
 			{!!$index2_box['content']!!}
 		</div>
 	</div>
@@ -19,7 +19,7 @@
 		<div class="prolist">
 			<ul>
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="animated slideUp" data-time="{{($b_k+1)*100}}">
+				<li class="wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
 					<div class="pic">
 						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 					</div>
@@ -42,7 +42,7 @@
 		<div class="caseys">
 			<ul class="clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="animated slideUp" data-time="{{($b_k+1)*100}}">
+				<li class="wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
 					<div class="pic">
 						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 					</div>
@@ -70,7 +70,7 @@
 			@endif
 			<ul class="scenariolist clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="animated slideUp" data-time="{{($b_k+1)*100}}">
+				<li class="wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
 					<div class="pic">
 						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 					</div>
@@ -95,15 +95,17 @@
 		<div class="caseslist">
 			<ul class="cliset clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="animated slideUp" data-time="{{($b_k+1)*100}}">
-					<div class="pic">
-						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
-					</div>
-					<h4>{{$b_v['title']}}</h4>
-					<div class="text">
-						{!!nl2br($b_v['desc'])!!}
-					</div>
-					<span>{{date("Y-m-d",strtotime($b_v['add_time']))}}</span>
+				<li class="wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
+					<a @if(!empty($b_v['url'])) href="{{$b_v['url']}}" @endif>
+						<div class="pic">
+							<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
+						</div>
+						<h4>{{$b_v['title']}}</h4>
+						<div class="text">
+							{!!nl2br($b_v['desc'])!!}
+						</div>
+						<span>{{date("Y-m-d",strtotime($b_v['add_time']))}}</span>
+					</a>
 				</li>
 				@endforeach
 			</ul>
@@ -119,7 +121,7 @@
 		<div class="understand">
 			<ul class="stand">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="animated slideUp" data-time="{{($b_k+1)*100}}">
+				<li class="wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
 					<div class="pic">
 						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 					</div>
@@ -143,9 +145,9 @@
 		</div>
 		<div class="serv">
 			<div class="serv-box clearfix">
-				<div class="pic animated slideLeft" style="background-image: url({{asset($index2_box['img'])}})">
+				<div class="pic wow fadeInLeftBig" style="background-image: url({{asset($index2_box['img'])}})">
 				</div>
-				<div class="text content_con animated slideRight">
+				<div class="text content_con wow fadeInRightBig">
 					{!!$index2_box['content']!!}
 				</div>
 			</div>
@@ -161,7 +163,7 @@
 		<div class="benefit">
 			<ul class="benefitlist clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="animated slideLeft" data-time="{{($b_k+1)*100}}">
+				<li class="wow fadeInLeftBig" data-wow-delay="{{($b_k+1)/10}}s">
 					<div class="pic">
 						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 					</div>
@@ -187,14 +189,16 @@
 			@endif
 			<ul>
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="animated slideUp" data-time="{{($b_k+1)*100}}">
-					<div class="pic">
-						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
-					</div>
-					<h1>{{$b_v['title']}}</h1>
-					<div class="text">
-						{!!nl2br($b_v['desc'])!!}
-					</div>
+				<li class="wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
+					<a @if(!empty($b_v['url'])) href="{{URL($b_v['url'])}}" target="_blank" @endif>
+						<div class="pic">
+							<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
+						</div>
+						<h1>{{$b_v['title']}}</h1>
+						<div class="text">
+							{!!nl2br($b_v['desc'])!!}
+						</div>
+					</a>
 				</li>
 				@endforeach
 			</ul>
@@ -213,7 +217,7 @@
 			@endif
 			<div class="datalist clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<div class="serdata animated slideUp" data-time="{{($b_k+1)*100}}">
+				<div class="serdata wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
 					<div class="pic">
 						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 					</div>
@@ -238,17 +242,19 @@
 		<div class="band">
 			<ul class="clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="animated slideUp" data-time="{{($b_k+1)*100}}">
-					<div class="pic">
-						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
-					</div>
-					<div class="text">
-						<h4>{{$b_v['title']}}</h4>
-						<h6>{!!$b_v['content']!!}</h6>
-						<div class="pt">
-							<img src="{{asset($b_v['img2'])}}" alt="{{$b_v['alt2']}}">
+				<li class="wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
+					<a @if(!empty($b_v['url'])) href="{{URL($b_v['url'])}}" target="_blank" @endif>
+						<div class="pic">
+							<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 						</div>
-					</div>
+						<div class="text">
+							<h4>{{$b_v['title']}}</h4>
+							<h6>{!!$b_v['desc']!!}</h6>
+							<div class="pt">
+								<img src="{{asset($b_v['img2'])}}" alt="{{$b_v['alt2']}}">
+							</div>
+						</div>
+					</a>
 				</li>
 				@endforeach
 			</ul>
@@ -264,7 +270,7 @@
 		<div class="devlist">
 			<ul>
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="animated slideLeft" data-time="{{($b_k+1)*100}}">
+				<li class="wow fadeInLeftBig" data-wow-delay="{{($b_k+1)/10}}s">
 					<span>{{date("Y年m月d日",strtotime($b_v['add_time']))}}</span>
 					{!!nl2br($b_v['desc'])!!}
 				</li>
@@ -289,7 +295,7 @@
 		}
 		?>
 		<div class="honor clearfix">
-			<div class="left animated slideLeft">
+			<div class="left wow fadeInLeftBig">
 				@foreach($honro as $h_k=>$h_v)
 				@if($h_k < 2)
 				<div class="ltop">
@@ -303,7 +309,7 @@
 				@endif
 				@endforeach
 			</div>
-			<div class="right animated slideRight">
+			<div class="right wow fadeInRightBig">
 				@foreach($honro as $h_k=>$h_v)
 				@if($h_k > 1)
 				<h4>{{$h_v['title']}}</h4>
@@ -325,10 +331,10 @@
 			<i class="rt"></i>
 		</div>
 		<div class="contbox clearfix">
-			<div class="map contact_map animated slideLeft" id="contact_map">
+			<div class="map contact_map wow fadeInLeftBig" id="contact_map">
 				
 			</div>
-			<div class="txt content_con animated slideRight">
+			<div class="txt content_con wow fadeInRightBig">
 				{!!$index2_box['content']!!}
 			</div>
 		</div>
@@ -355,7 +361,7 @@
 	</script>
 @elseif($index2_box['template']=='index2-fuli')
 	<div class="initem " id="a_{{$index2_box_k}}">
-		<div class="slide animated slideRight">
+		<div class="slide wow fadeInRightBig">
 			<div class="slidebox clearfix ">
 				<dl class="slideslick">
 					@foreach($index2_box['MoreImageMany'] as $m_v)
@@ -364,12 +370,10 @@
 				</dl>
 				<div class="tmain">
 					@foreach($index2_box['article'] as $b_k=>$b_v)
-					@if($b_k < 2)
 					<div class="tds">
-						<div class="small">{{$v['title']}}</div>
-						<div class="big">{!!nl2br($b_v['desc'])!!}</div>
+						<div class="small">{{$b_v['title']}}</div>
+						<div class="big @if($b_k%2==1) big_r @endif"><div class="text">{!!nl2br($b_v['desc'])!!}</div></div>
 					</div>
-					@endif
 					@endforeach
 				</div>
 			</div>
@@ -382,8 +386,8 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		<div class="hseui clearfix">
-			<div class="hseuibox clearfix animated slideUp">
+		<!-- <div class="hseui2 clearfix">
+			<div class="hseuibox clearfix wow fadeInUp">
 				<dl class="hsebtn">
 					<dt>职位</dt>
 					@foreach($index2_box['article'] as $b_k=>$b_v)
@@ -408,6 +412,43 @@
 					@endforeach
 				</div>
 			</div>
+		</div> -->
+		<div class="wrap">
+			<div class="hseui2">
+				<dl>
+					<dd class="l1 clearfix hseui_t">
+						<div class="d1">职位</div>
+						<div class="d2">工作地点</div>
+						<div class="d3">招聘数量</div>
+						<div class="d4">发布时间</div>
+					</dd>
+					@foreach($index2_box['article'] as $b_k=>$b_v)
+					<dd class="{{$b_k%2==0?'l1':'l2'}} clearfix hseui_h">
+						<div class="d1">{{$b_v['title']}}<span class="ico1"></span></div>
+						<div class="d2">{{$b_v['work_place']}}</div>
+						<div class="d3"><span>人数：</span>{{$b_v['recruitment_number']}}</div>
+						<div class="d4">{{date("Y-m-d",strtotime($b_v['add_time']))}}</div>
+						<div class="tc2"></div>
+						<div class="clearfix tc">
+							<i class="iconfont icon-close"></i>
+							<div class="tc_sc">
+								<div class="clearfix pag_box">
+									<div class="pag2">
+										<h4>岗位职责</h4>
+										<div class="td">{!!nl2br($b_v['desc'])!!}</div>
+									</div>
+									<div class="pag2">
+										<h4>职位要求</h4>
+										<div class="td">{!!nl2br($b_v['desc2'])!!}</div>
+									</div>
+								</div>
+								<a href="{{ConfigGet('hr_url')}}" class="hr_btn">直达HR</a>
+							</div>
+						</div>
+					</dd>
+					@endforeach
+				</dl>
+			</div>
 		</div>
 	</div>
 @elseif($index2_box['template']=='index2-zhaoping-shijisheng')
@@ -417,9 +458,31 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		<div class="goods clearfix">
-			<div class="ptc animated slideLeft" style="background-image: url({{asset('resources/home/images/goods.jpg')}});"></div>
-			<div class="td animated slideRight clearfix">
+		<div class="goods clearfix style="background-image: url({{asset($index2_box['img'])}});"">
+			<div class="ptc wow fadeInLeftBig" style="background-image: url({{asset($index2_box['img'])}});"><img src="{{asset($index2_box['img'])}}"></div>
+			<div class="td2 shixi wow fadeInRightBig clearfix">
+				@foreach($index2_box['article'] as $b_k=>$b_v)
+				<div class="box @if($b_k%2==0) b1 @endif @if($b_k%3==0) l @elseif($b_k%3==1) z @else r @endif">
+					<table><tr><td>{{$b_v['title']}}</td></tr></table>
+					<div class="tc2"></div>
+					<div class="tc">
+						<i class="iconfont icon-close"></i>
+						<div class="tc_sc">
+							<h4>职位要求</h4>
+							<div class="asb">
+								{!!nl2br($b_v['desc'])!!}
+							</div>
+							<a href="{{ConfigGet('hr_url')}}" class="hr_btn">直达HR</a>
+						</div>
+					</div>
+					<span class="ico2"></span>
+				</div>
+				@endforeach
+			</div>
+		</div>
+		<!-- <div class="goods clearfix">
+			<div class="ptc wow fadeInLeftBig" style="background-image: url({{asset('resources/home/images/goods.jpg')}});"></div>
+			<div class="td wow fadeInRightBig clearfix">
 				<div class="text">
 					@foreach($index2_box['article'] as $b_k=>$b_v)
 					@if( $b_k < 5)
@@ -446,7 +509,7 @@
 					@endforeach
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 @elseif($index2_box['template']=='index2-shixijidi')
 	<div class="fnitem " id="a_{{$index2_box_k}}">
@@ -459,7 +522,7 @@
 			<div class="text">{!!nl2br($index2_box['cat_desc'])!!}</div>
 			<ul class="datalisx clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="animated slideUp" data-time="{{($b_k+1)*100}}">
+				<li class="wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
 					<h3 style="background-image: url({{asset($b_v['img'])}});">{{$b_v['title']}}</h3>
 					<div class="td content_con">{!!$b_v['content']!!}</div>
 				</li>

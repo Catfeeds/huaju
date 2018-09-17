@@ -15,6 +15,7 @@
             <meta name="description" content="@if(isset($head_description)){{$head_description}}@else{{ConfigGet('site_description')}}@endif">
         @show
         @section('style')
+            
             <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/reset.css')}}?version={{env('VERSION')}}" />
             <link type="text/css" rel="stylesheet" href="{{asset('resources/home/font/iconfont.css')}}?version={{env('VERSION')}}" />
             <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/_swiper.css')}}?version={{env('VERSION')}}" />
@@ -22,6 +23,8 @@
             <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/jquery.mCustomScrollbar.css')}}?version={{env('VERSION')}}" />
             <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/photoswipe.css')}}?version={{env('VERSION')}}" />
             <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/default-skin/default-skin.css')}}?version={{env('VERSION')}}" />
+            <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/bootstrap-datepicker3.min.css')}}?version={{env('VERSION')}}" />
+            <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/bootstrap-datepicker3.standalone.min.css')}}?version={{env('VERSION')}}" />
             <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/style.css')}}?version={{env('VERSION')}}" />
             <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/style2.css')}}?version={{env('VERSION')}}" />
             <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/animate.min.css')}}?version={{env('VERSION')}}" />

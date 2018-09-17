@@ -68,6 +68,10 @@ class UserController extends Controller
     {
         return Administrator::grid(function (Grid $grid) {
             $grid->id('ID')->sortable();
+            
+            $grid->disableExport();//禁止导出
+            $grid->disableFilter();//禁止筛选
+
             $grid->username(trans('admin.username'));
             $grid->name(trans('admin.name'));
             $grid->roles(trans('admin.roles'))->pluck('name')->label();

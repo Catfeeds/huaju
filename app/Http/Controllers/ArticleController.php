@@ -169,6 +169,8 @@ class ArticleController extends Controller
                     'paginate'    =>6,
                     "search_type" => $request['search_type'],
                     "keyword"     => $request['keyword'],
+                    "start_time"       => $request['start_time'],
+                    "end_time"       => $request['end_time'],
                 ]);
                 $assign['article_list'] = $article_list;
                 if($request->ajax()){
@@ -187,13 +189,15 @@ class ArticleController extends Controller
             // case 'activity':
             case 'anli'://案例
                 //获取列表数据
-                if(!Auth::check()){
-                    return redirect("login");
-                }
+                // if(!Auth::check()){
+                //     return redirect("login");
+                // }
                 $article_list = Article::ArticleList([
                     'cate_id_in'    => sub_cate_in($cate_info['id']),
                     "search_type"   => $request['search_type'],
                     "keyword"       => $request['keyword'],
+                    "start_time"       => $request['start_time'],
+                    "end_time"       => $request['end_time'],
                     'paginate'      => 6,
                     'is_collection' =>4,
                 ]);

@@ -19,7 +19,7 @@ class ArticleController extends Controller
     	return Admin::content(function (Content $content) use ($request){
     	    // $content->header('文章');
     	    // $content->description('文章');
-    	    $ArticleCategory = ArticleCategory::orderBy("order","ASC")->get()->toArray();
+    	    $ArticleCategory = ArticleCategory::orderBy("order","ASC")->orderBy("id","ASC")->get()->toArray();
 	        foreach($ArticleCategory as $k=>&$v){
 	          $v['target'] = "box-container";
 	          $v['url'] = URL('admin/article')."?no_header=true&no_sidebar=true&no_footer=true&collapse=true&cate_id=".$v['id'];
@@ -41,8 +41,8 @@ class ArticleController extends Controller
        
         return Admin::content(function (Content $content) use ($request){
 
-            $content->header('文章');
-            $content->description('文章');
+            // $content->header('文章');
+            // $content->description('文章');
 
             $content->body($this->grid($request));
         });
@@ -57,8 +57,8 @@ class ArticleController extends Controller
     public function edit($id)
     {
         return Admin::content(function (Content $content) use ($id) {
-            $content->header('文章');
-            $content->description('文章');
+            // $content->header('文章');
+            // $content->description('文章');
             $content->body($this->form()->edit($id));
         });
     }
@@ -72,8 +72,8 @@ class ArticleController extends Controller
     {
         return Admin::content(function (Content $content) use ($request){
 
-            $content->header('文章');
-            $content->description('文章');
+            // $content->header('文章');
+            // $content->description('文章');
 
             $content->body($this->form($request));
         });
@@ -159,11 +159,11 @@ class ArticleController extends Controller
             $form->file('file','资料上传')->move('/uploads/article/'.date('Ymd'));
             // $form->text('en_title','英文标题');
 
-            $cate = ArticleCategory::orderBy('order',"ASC")->get()->toarray();
+            $cate = ArticleCategory::orderBy('order',"ASC")->orderBy('id',"ASC")->get()->toarray();
             foreach($cate as &$v){
-                $width = trans('template.template_width.'.$v['template'])>0?trans('template.template_width.'.$v['template']):'*';
-                $height = trans('template.template_height.'.$v['template'])>0?trans('template.template_height.'.$v['template']):'*';
-                $v['title'] .= "(".$width."*".$height.")";
+                $width = trans('template.template_width.'.$v['template'])>0?trans('template.template_width.'.$v['template']):'0';
+                $height = trans('template.template_height.'.$v['template'])>0?trans('template.template_height.'.$v['template']):'0';
+                $v['title'] .= "(图片尺寸:".$width."X".$height.")";
             }
             $cate_options = optionsDate(getTree($cate));
 
@@ -171,12 +171,12 @@ class ArticleController extends Controller
             $form->textarea('desc','描述')->rows(3);
             $form->textarea('desc2','描述2')->rows(3);
             $form->editor('content','内容');
-            $form->image('img','图片')->move('/uploads/article/'.date('Ymd'))->uniqueName();
+            $form->image('img','图片')->move('/uploads/article/'.date('Ymd'))->uniqueName()->help('荣誉资质图片量尺寸左侧 151 X 54，右侧 252 X 346');
             $form->text('alt','图片alt');
-            $form->image('img2','图片2')->move('/uploads/article/'.date('Ymd'))->uniqueName();
+            $form->image('img2','图片2')->move('/uploads/article/'.date('Ymd'))->uniqueName()->help('品牌架构图片量尺寸 71 X 71');
             $form->text('alt2','图片2alt');
             // $form->currency('price','价格');
-            // $form->text('url', '链接');
+            $form->text('url', '链接');
             $form->number('click','点赞');
             $form->text('editor','来源');
             $states = [
@@ -202,11 +202,11 @@ class ArticleController extends Controller
 
             // $form->html('', $label = '招贤纳士');
             // $form->divide();
-            // $form->text('work_place', '工作地点');
+            $form->text('work_place', '工作地点');
+            $form->text('recruitment_number', '招聘人数');
             // $form->text('department', '部门');
             // $form->text('working_years', '工作年限');
             // $form->text('education', '学历');
-            // $form->text('recruitment_number', '招聘人数');
 
             // if($article_info['template']=='activity'){
                 // $form->html('', $label = '活动');

@@ -10,7 +10,7 @@
                         @foreach(nav(1) as $k=>$v)
                         <li>
                             <span>
-                                <a @if(!empty($v['url'])) href="{{$v['url']}}" @endif @if($v['is_blank'])  @endif title="{{$v['title']}}"  >{{$v['title']}}</a>
+                                <a @if(!empty($v['url'])) href="{{$v['url']}}" @endif @if($v['is_blank']) target="_blank" @endif title="{{$v['title']}}"  >{{$v['title']}}</a>
                                 @if(count($v['child']))
                                 <!-- <i class="iconfont">&#xe720;</i> -->
                                 @endif
@@ -23,12 +23,12 @@
                                     <dt>{{$v2['title']}}</dt>
                                     @foreach($v2['child'] as $v3)
                                     <dd >
-                                        <a @if(!empty($v3['url'])) href="{{$v3['url']}}" @endif @if($v3['is_blank'])  @endif title="{{$v3['title']}}"  >{{$v3['title']}}</a>
+                                        <a @if(!empty($v3['url'])) href="{{$v3['url']}}" @endif @if($v3['is_blank']) target="_blank" @endif title="{{$v3['title']}}"  >{{$v3['title']}}</a>
                                     </dd>
                                     @endforeach
                                 </dl>
                                 @else
-                                <a @if(!empty($v2['url'])) href="{{$v2['url']}}" @endif @if($v2['is_blank'])  @endif title="{{$v2['title']}}" class="n2  " >{{$v2['title']}}</a>
+                                <a @if(!empty($v2['url'])) href="{{$v2['url']}}" @endif @if($v2['is_blank']) target="_blank" @endif title="{{$v2['title']}}" class="n2  " >{{$v2['title']}}</a>
                                 @endif
                                 @endforeach
                             </div>

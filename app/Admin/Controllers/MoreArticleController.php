@@ -103,7 +103,7 @@ class MoreArticleController extends Controller
             $form->number('order', '排序');
             // $form->text('video', '视频链接');
             $form->textarea('desc','描述')->rows(3);
-            $form->image('image','图片')->move('/uploads/images/'.date('Ymd'))->uniqueName();
+            $form->image('image','图片')->move('/uploads/images/'.date('Ymd'))->uniqueName()->help('宾客图片尺寸255 X 255<br/>合作伙伴图片尺寸222 X 89');
             $form->file('file','资料上传')->move('/uploads/article/'.date('Ymd'));
 
             // $form->setAction('/admin/ads-image');//提交地址
@@ -115,8 +115,8 @@ class MoreArticleController extends Controller
                         $height = 255;
                         break;
                     case '2':
-                        $width = 255;
-                        $height = 255;
+                        $width = 222;
+                        $height = 89;
                         break;
                     default:
                         $width = null;

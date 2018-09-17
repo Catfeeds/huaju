@@ -30,6 +30,8 @@ class ActivityController extends Controller
             "activity_type" => $request['activity_type'],
             "search_type"   => $request['search_type'],
             "keyword"       => $request['keyword'],
+            "start_time"       => $request['start_time'],
+            "end_time"       => $request['end_time'],
             'paginate'      => 6,
         ]);
         $cate_tree_on = ['artivity'];

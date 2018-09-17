@@ -17,13 +17,13 @@
                             <div class="pic">
                                 <img src="{{asset(ConfigGet('ewm'))}}">
                             </div>
-                            <span>华矩科技</span>
+                            <span>{{ConfigGet('ewm_title')}}</span>
                         </div>
                         <div class="code">
                             <div class="pic">
                                 <img src="{{asset(ConfigGet('ewm2'))}}">
                             </div>
-                            <span>大数据学院</span>
+                            <span>{{ConfigGet('ewm2_title')}}</span>
                         </div>
                     </div>
                 </div>
@@ -43,10 +43,10 @@
                                 <i class="iconfont">&#xe7a5;</i>
                                 <span>{{ConfigGet('tel')}}</span>
                             </div>
-                            <div class="col">
+                            <a class="col" href="mailto:{{ConfigGet('mail')}}">
                                 <i class="iconfont">&#xe6f2;</i>
                                 <span>{{ConfigGet('mail')}}</span>
-                            </div>
+                            </a>
                         </div>
                         <div class="code">
                             <div class="tag">市场与媒体合作</div>
@@ -54,10 +54,10 @@
                                 <i class="iconfont">&#xe7a5;</i>
                                 <span>{{ConfigGet('tel2')}}</span>
                             </div>
-                            <div class="col">
+                            <a class="col" href="mailto:{{ConfigGet('mail2')}}">
                                 <i class="iconfont">&#xe6f2;</i>
                                 <span>{{ConfigGet('mail2')}}</span>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -101,9 +101,8 @@
                                 ]);
                             ?>
                             @foreach($activity as $v)
-                            <li>
+                            <li style="background-image: url({{asset($v['img'])}});">
                                 <a href="{{URL("activity",$v['id'])}}">
-                                    <img src="{{asset($v['img'])}}" alt="{{$v['alt']}}">
                                 </a>
                             </li>
                             @endforeach
@@ -118,27 +117,34 @@
         <span><a href="http://www.miitbeian.gov.cn" target="_blank">{{ConfigGet('beian')}}</a></span>
     </div>
     <div id="toTop" class="iconfont">
-        <a class="iconfont" index="0">&#xe6f2;</a>
-        <a class="iconfont" index="1">&#xe635;</a>
-        <a class="iconfont" index="2">&#xe726;</a>
+        <div href="jacascript::void(0)" class="email iconfont no_click" index="0">
+            <span>&#xe6f2;</span>
+            <div class="sa sa1">
+                {!!nl2br(ConfigGet('r_mail'))!!}
+            </div>
+        </div>
+        <div href="jacascript::void(0)" class="iconfont no_click tel " index="1">
+            <span>&#xe635;</span>
+            <div class="sa sa2">
+                {!!nl2br(ConfigGet('r_tel'))!!}
+            </div>
+        </div>
+        <div href="jacascript::void(0)" class="qrcode iconfont no_click" index="2">
+            <span>&#xe726;</span>
+            <div class="sa sa3">
+                <img src="{{asset(ConfigGet('ewm3'))}}">
+                <span>华矩微信服务号</span>
+            </div>
+        </div>
         <span class="bdsharebuttonbox">
             <a class="iconfont bds_more" data-cmd="more">&#xe610;</a>
         </span>
         @if(isset($collection_id)&&$collection_id>0)
-            <a class="iconfont shouchang2 @if(isset($collection_on)&&$collection_on>0) icon-yduixingxingshixin @else icon-yduixingxingkongxin @endif" data-id={{$collection_id}} data-type='{{$collection_type}}'></a>
+            <div class="iconfont shouchang2 @if(isset($collection_on)&&$collection_on>0) icon-yduixingxingshixin @else icon-yduixingxingkongxin @endif" data-id={{$collection_id}} data-type='{{$collection_type}}'></div>
         @endif
-        <a class="iconfont" id="tops">&#xe60f;</a>
-        <div class="sa sa1">
-            {!!nl2br(ConfigGet('r_mail'))!!}
-        </div>
-        <div class="sa sa2">
-            {!!nl2br(ConfigGet('r_tel'))!!}
-        </div>
-        <div class="sa sa3">
-            <img src="{{asset(ConfigGet('ewm3'))}}">
-            <span>华矩微信服务号</span>
-        </div>
+        <div href="jacascript::void(0)" class="iconfont" id="tops">&#xe60f;</div>
     </div>
+
     <div class="fade"></div>
     <script>
     var config_c = {

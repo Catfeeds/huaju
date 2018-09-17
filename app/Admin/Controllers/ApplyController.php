@@ -171,19 +171,20 @@ class ApplyController extends Controller
     public function apply_upload(Request $request){
         Excel::load($request->upload_file, function($reader) use($request){
             $data = $reader->all();
-            
             $arr = array();
             foreach($data as $v){
-                $is_read = $v['状态']=='处理'?1:2;
-                $arr[] = [
-                    'name'=>$v['姓名'],
-                    'phone'=>$v['手机号码'],
-                    'email'=>$v['邮箱'],
-                    'gongsi'=>$v['公司'],
-                    'is_read'=>$is_read,
-                    'created_at'=>$v['提交时间'],
-                    'activity_id'=>$request->activity_id,
-                ];
+                if(isset($v['姓名'])&&isset($v['手机号码'])&&isset($v['邮箱'])&&isset($v['公司'])&&isset($v['状态'])&&isset($v['提交时间'])){
+                    $is_read = $v['状态']=='处理'?1:2;
+                    $arr[] = [
+                        'name'=>$v['姓名'],
+                        'phone'=>$v['手机号码'],
+                        'email'=>$v['邮箱'],
+                        'gongsi'=>$v['公司'],
+                        'is_read'=>$is_read,
+                        'created_at'=>$v['提交时间'],
+                        'activity_id'=>$request->activity_id,
+                    ];
+                }
             }
             if(!empty($arr)){
                 DB::table('apply')->insert($arr);

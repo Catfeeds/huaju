@@ -137,10 +137,11 @@ EOT;
             $form->text('seo_title', 'seo title');
             $form->text('seo_keywords', 'seo keywords');
             $form->text('seo_description', 'seo description');
-            $form->image('img', '图片')->move('/uploads/article/'.date('Ymd'))->uniqueName()->help('产品OR方案OR服务OR新闻OR案例 图片尺寸1920 X 435<br/>　人才OR简介 图片尺寸1920 X 323');
+            $form->image('img', '图片')->move('/uploads/article/'.date('Ymd'))->uniqueName()->help('产品OR方案OR服务OR新闻OR案例 图片尺寸1920 X 435<br/>　人才OR简介 图片尺寸1920 X 323<br/>　实习生计划 图片尺寸700 X 503');
             $form->text('alt', '图片alt');
             $form->image('img2', '图片2')->move('/uploads/article/'.date('Ymd'))->uniqueName();
             $form->text('alt2', '图片2alt');
+            $form->image('mobile_banner', '手机banner')->move('/uploads/article/'.date('Ymd'))->uniqueName();
 
             // $form->display('created_at', '创建日期');
             // $form->display('updated_at', '更新日期');

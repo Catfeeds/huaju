@@ -56,6 +56,9 @@
               success:function(data){
                 if(data.code==200){
                     layer.msg(data.message,{icon:1});
+                    setTimeout(function(){
+                        window.location.href='/download-list';
+                    },1000)
                 }else{
                     layer.msg(data.message,{icon:2});
                 }

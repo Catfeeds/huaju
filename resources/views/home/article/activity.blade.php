@@ -5,11 +5,19 @@
 @section('content')
     <?php 
         $banner = ads_image(26);
+        $mobile_banner = ads_image(33);
     ?>
     @if($banner)
-    <dl class="conBanner">
+    <dl class="conBanner pc_box">
         @foreach($banner as $v)
         <a @if(!empty($v['url'])) href="{{$v['url']}}" @endif><dd style="background-image: url({{asset($v['image'])}})"></dd></a>
+        @endforeach
+    </dl>
+    @endif
+    @if($mobile_banner)
+    <dl class="conBanner mobile_box">
+        @foreach($mobile_banner as $v)
+        <a @if(!empty($v['url'])) href="{{$v['url']}}" @endif><dd><img src="{{asset($v['image'])}}"></dd></a>
         @endforeach
     </dl>
     @endif

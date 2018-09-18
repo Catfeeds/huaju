@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 use Validator,Auth;
-use App\Models\SmsCaptcha,App\Models\User,App\Models\VipOrder,App\Models\PayLog,App\Models\Article,App\Models\Download,App\Models\Collection;
+use App\Models\SmsCaptcha,App\Models\User,App\Models\VipOrder,App\Models\PayLog,App\Models\Article,App\Models\ArticleCategory,App\Models\Download,App\Models\Collection;
 
 class UserController extends Controller
 {
@@ -307,14 +307,30 @@ class UserController extends Controller
         }
     }
 
-    public function download_save(Request $request,$id){
+    public function download_save(Request $request,$id,$type=1){
         $user_info = Auth::user();
-        $info = Article::find($id);
+        switch ($type) {
+            case '1':
+                $info = Article::find($id);
+                $file = $info['file'];
+                break;
+            case '3':
+                $info = ArticleCategory::find($id);
+                $file = $info['file'];
+                break;
+            default:
+                # code...
+                break;
+        }
+        if(!$file){
+            return redirect()->back();
+        }
         Download::DownloadSave([
             'user_id'=>$user_info['id'],
             'article_id'=>$id,
+            'type'=>$type,
         ]);
-        return response()->download($info['file']);
+        return response()->download($file);
     }
     public function download_list(Request $request){
         $user_info = Auth::user();

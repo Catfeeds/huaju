@@ -6,6 +6,9 @@
     @if(!empty($top_category['img']))
     <div class="conBanner" style="background-image: url({{asset($top_category['img'])}});"></div>
     @endif
+    @if(!empty($cate_info['mobile_banner']))
+    <div class="conBanner mobile_box" ><img src="{{asset($cate_info['mobile_banner'])}}"></div>
+    @endif
     <div class="newslist">
         <div class="nlist">
             <div class="title">{{$cate_info['title'] or '搜索'}}</div>

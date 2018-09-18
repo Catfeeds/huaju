@@ -5,7 +5,9 @@
 @section('content')
     @if(!empty($cate_info['img']))
     <div class="abusbanner pc_box" style="background-image: url({{asset($cate_info['img'])}})"></div>
-    <div class="abusbanner2 mobile_box" ><img src="{{asset($cate_info['mobile_banner'])}}"></div>
+    @endif
+    @if(!empty($cate_info['mobile_banner']))
+    <div class="abusbanner mobile_box" ><img src="{{asset($cate_info['mobile_banner'])}}"></div>
     @endif
     <div class="nav-height" id="navHeight">
         <div class="aboutbtn nav-wrap"  id="nav-wrap">

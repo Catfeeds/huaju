@@ -74,7 +74,7 @@ class AdsImageController extends Controller
             $grid->id('ID')->sortable();
             $grid->AdsPositionTo()->title('广告位');
             $grid->column('alt',"alt");
-            $grid->image("图片")->image();
+            // $grid->image("图片")->image();
             $grid->column('url',"链接");
             $grid->column('order',"排序")->sortable();
 

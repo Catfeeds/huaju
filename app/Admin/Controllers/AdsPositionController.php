@@ -68,6 +68,11 @@ class AdsPositionController extends Controller
         return Admin::grid(AdsPosition::class, function (Grid $grid) {
             $grid->disableExport();//禁止导出
             $grid->disableFilter();//禁止筛选
+            $grid->tools(function ($tools) {//禁止批量删除
+                $tools->batch(function ($batch) {
+                    $batch->disableDelete();
+                });
+            });
             //默认排序
             $grid->model()->orderBy('id','ASC');
 
@@ -83,6 +88,7 @@ class AdsPositionController extends Controller
                 return "<span class='label label-warning'>{$count}</span>";
             });
             $grid->actions(function ($actions) {
+                $actions->disableDelete();//关闭删除按钮
                 $row = $actions->row;
                 $actions->prepend('<a href="'.URL('/admin/ads-image').'?cate_id='.$row['id'].'"><i class="fa fa-image"></i></a>');
             });

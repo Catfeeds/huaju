@@ -5,13 +5,36 @@
 @section('content')
 <?php 
 $banner = ads_image(25);
+$mobile_banner = ads_image(32);
  ?>
 @if(isset($banner)&&$banner->count())
-<div class="banner">
+<div class="banner pc_box">
     <dl class="slicks">
         @foreach($banner as $v)
         <dd style="background-image: url({{asset($v['image'])}})">
             <a @if(!empty($v['url'])) href="{{$v['url']}}" @endif>
+                <div class="txt">
+                    <div class="title">{{$v['title']}}</div>
+                    <div class="text">{{$v['desc']}}</div>
+                    @if(!empty($v['btn_title']))
+                    <span>{{$v['btn_title']}}
+                        <i class="iconfont">&#xe649;</i>
+                    </span>
+                    @endif
+                </div>
+            </a>
+        </dd>
+        @endforeach
+    </dl>
+</div>
+@endif
+@if(isset($mobile_banner)&&$mobile_banner->count())
+<div class="banner mobile_box">
+    <dl class="slicks">
+        @foreach($mobile_banner as $v)
+        <dd>
+            <a @if(!empty($v['url'])) href="{{$v['url']}}" @endif>
+                <img src="{{asset($v['image'])}}">
                 <div class="txt">
                     <div class="title">{{$v['title']}}</div>
                     <div class="text">{{$v['desc']}}</div>
@@ -189,6 +212,9 @@ $(document).ready(function() {
         watch: "window",
 
     });
+    function aa(){
+        console.log(1)
+    }
     $('.in-news').slick({
         dots: true,
         arrows: false,
@@ -207,6 +233,7 @@ $(document).ready(function() {
         // }
         // ]
     })
+
     $('.serlist').slick({
         dots: false,
         arrows: true,

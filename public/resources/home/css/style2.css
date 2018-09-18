@@ -514,11 +514,34 @@ a{cursor:pointer;}
   .nmain .timesw span:nth-child .iconfont{font-size: 12px;}
   .prolist ul li .text{height: auto;padding-bottom: 10px;}
   .prolist ul li h4{white-space:inherit;}
+  .nslick dd .title{white-space:in:;herit;}
   .caseys ul li .text h3{white-space:inherit;}
   .cliset li h4{white-space:inherit;}
   .stand li .text h4{white-space:inherit;}
   .stand li .text .txt{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
   .cliset li .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
+  .nslick dd .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
+
+  
+  .banner dl dd{height: auto;position: relative;}
+  .banner dl dd a{width: 100%;display: block;overflow: hidden;}
+  .slicks dd .txt .title{font-size: 24px;}
+  .slicks dd .txt{position: absolute;width: 100%;top:50%;left: 0;box-sizing: border-box;padding:0 15px;margin-top: 0;height: auto;
+    -webkit-transform: translate(0,-50%);
+  -moz-transform: translate(0,-50%);
+  transform: translate(0,-50%);}
+
+  .conBanner{position: relative;overflow: hidden;height: auto;}
+  .conBanner .banBox{position: absolute;width: 100%;top:50%;left: 0;box-sizing: border-box;padding:0 15px;height: auto;
+    -webkit-transform: translate(0,-50%);
+  -moz-transform: translate(0,-50%);
+  transform: translate(0,-50%);}
+  .conBanner dd{height: auto;}
+  .conBanner2{height: auto;position: relative;}
+  .conBanner2 .conText{position: absolute;width: 100%;top:50%;left: 0;box-sizing: border-box;padding:0 15px;margin-top: 0;height: auto;
+    -webkit-transform: translate(0,-50%);
+  -moz-transform: translate(0,-50%);
+  transform: translate(0,-50%);}
 }
 @media screen and (max-width: 480px) {
   .cliset li{margin-left: 0;margin-right: 0;padding: 15px;}

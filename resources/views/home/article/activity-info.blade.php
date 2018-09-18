@@ -3,6 +3,7 @@
     @parent
 @endsection
 @section('content')
+    @if(!empty($info['banner']))
     <div class="conBanner2 pc_box" style="background-image: url({{asset($info['banner'])}});">
         <div class="conText">
             <div class="txt">
@@ -18,7 +19,10 @@
             </div>
         </div>
     </div>
-    <div class="conBanner2 mobile_box" style="background-image: url({{asset($info['mobile_banner'])}});">
+    @endif
+    @if(!empty($info['mobile_banner']))
+    <div class="conBanner2 mobile_box" >
+        <img src="{{asset($info['mobile_banner'])}}">
         <div class="conText">
             <div class="txt">
                 <h4>{{$info['title']}}</h4>
@@ -33,6 +37,7 @@
             </div>
         </div>
     </div>
+    @endif
     <div class="markts">
         <div class="mitem mi-tem fadeInUp wow">
             <div class="mar-title">活动背景</div>

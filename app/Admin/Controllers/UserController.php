@@ -84,7 +84,7 @@ class UserController extends Controller
                 // $actions->disableEdit();//关闭修改按钮
                 // $actions->disableView();//关闭查看按钮
             });
-            
+            $grid->disableCreateButton();//禁止创建按钮
             $grid->exporter(new UserExcel());
             // $grid->disableExport();//禁用导出
             $grid->model()->orderBy('created_at','DESC');
@@ -131,29 +131,32 @@ class UserController extends Controller
         return Admin::form(User::class, function (Form $form) {
             // $form->image('pic','头像')->move('/uploads/user/'.date('Ymd'))->uniqueName();
 
-            $form->text('name', '帐号')->rules(function ($form) {
-                // 如果不是编辑状态，则添加字段唯一验证
-                return [
-                    'required',
-                    Rule::unique('users')->ignore($form->model()->id),
-                ];
-            });
-            $form->text('phone', '手机号码')->rules(function ($form) {
-                // 如果不是编辑状态，则添加字段唯一验证
-                return [
-                    'required',
-                    'phone',
-                    Rule::unique('users')->ignore($form->model()->id),
-                ];
-            });
-            $form->text('email', '邮箱')->rules(function ($form) {
-                // 如果不是编辑状态，则添加字段唯一验证
-                return [
-                    'required',
-                    'email',
-                    Rule::unique('users')->ignore($form->model()->id),
-                ];
-            });
+            // $form->text('name', '帐号')->rules(function ($form) {
+            //     // 如果不是编辑状态，则添加字段唯一验证
+            //     return [
+            //         'required',
+            //         Rule::unique('users')->ignore($form->model()->id),
+            //     ];
+            // });
+            // $form->text('phone', '手机号码')->rules(function ($form) {
+            //     // 如果不是编辑状态，则添加字段唯一验证
+            //     return [
+            //         'required',
+            //         'phone',
+            //         Rule::unique('users')->ignore($form->model()->id),
+            //     ];
+            // });
+            // $form->text('email', '邮箱')->rules(function ($form) {
+            //     // 如果不是编辑状态，则添加字段唯一验证
+            //     return [
+            //         'required',
+            //         'email',
+            //         Rule::unique('users')->ignore($form->model()->id),
+            //     ];
+            // });
+            $form->display('name', '帐号');
+            $form->display('phone', '手机号码');
+            $form->display('email', '邮箱');
             $form->password('password', '密码')->rules(function ($form) {
                 // 如果不是编辑状态，则添加字段唯一验证
                 if (!$id = $form->model()->id) {

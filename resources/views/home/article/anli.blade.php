@@ -4,7 +4,10 @@
 @endsection
 @section('content')
     @if(!empty($top_category['img']))
-    <div class="conBanner" style="background-image: url({{asset($top_category['img'])}});"></div>
+    <div class="conBanner pc_box" style="background-image: url({{asset($top_category['img'])}});"></div>
+    @endif
+    @if(!empty($top_category['mobile_banner']))
+    <div class="conBanner mobile_box"><img src="{{asset($top_category['mobile_banner'])}}"></div>
     @endif
     <div class="market">
         <div class="marketTop clearfix">

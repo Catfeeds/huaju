@@ -53,12 +53,14 @@ Route::get('activity/{id}','ActivityController@activity_info');//活动
 
 Route::post('collection-save','UserController@collection_save');//收藏
 
+
 Route::group(['middleware'=>'auth'], function(){
 	//需要登陆的路由
 	Route::get('download-list','UserController@download_list');//下载列表
-	Route::get('download-save/{id}','UserController@download_save');//下载
 	Route::get('download-del/{id}','UserController@download_del');//下载删除
+	Route::get('download-save/{id}/{type?}','UserController@download_save');//下载
 
+	
 	Route::get('collection-list','UserController@collection_list');//收藏列表
 	
 	Route::get('collection-del/{id}','UserController@collection_del');//收藏删除

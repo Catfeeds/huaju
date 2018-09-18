@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Download,App\Models\User,App\Models\Article;
+use App\Models\Download,App\Models\User,App\Models\Article,App\Models\ArticleCategory;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -93,7 +93,20 @@ class DownloadController extends Controller
             $grid->model()->orderBy('updated_at','DESC');
             $grid->id('ID')->sortable();
             $grid->UserTo()->name('会员');
-            $grid->column('ArticleTo.title',"资料名称");
+            // $grid->column('ArticleTo.title',"资料名称");
+            $grid->column('type','资料名称')->display(function($type) {
+                switch ($type) {
+                    case '2':
+                        return $this->ActivityTo->title;
+                        break;
+                    case '3':
+                        return $this->ArticleCategoryTo->title;
+                        break;
+                    default:
+                        return $this->ArticleTo->title;
+                        break;
+                }
+            });
             // $grid->column('ArticleTo.ArticleCategoryTo.title',"所属类别");
             // $grid->ArticleTo()->title()->display(function($article){
             //     // return 123123;
@@ -131,11 +144,16 @@ class DownloadController extends Controller
                 $filter->where(function($query){
                     if(!empty($this->input)){
                         $article_id_arr = [-1];
-                        $user = Article::Where('title','like',"%".$this->input."%")->get();
-                        foreach($user as $v){
+                        $article = Article::where('title','like',"%".$this->input."%")->get();
+                        foreach($article as $v){
                             $article_id_arr[] = $v['id'];
                         }
-                        $query->whereIn('article_id',$article_id_arr);
+                        $cate_id_arr = [-1];
+                        $cate = ArticleCategory::where('title','like',"%".$this->input."%")->get();
+                        foreach($cate as $v){
+                            $cate_id_arr[] = $v['id'];
+                        }
+                        $query->whereRaw("(article_id IN (".implode(",",$article_id_arr).") AND type=1) OR (article_id IN (".implode(",",$cate_id_arr).") AND type=3)");
                     }
                 },'资料名称');
                 // $filter->like('name','帐号');

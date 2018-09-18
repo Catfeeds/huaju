@@ -3,7 +3,16 @@
     @parent
 @endsection
 @section('content')
-    <div class="conBanner" style="background-image: url({{asset('resources/home/images/banner_1.jpg')}})"></div>
+    <?php 
+        $banner = ads_image(31,1);
+        $mobile_banner = ads_image(34,1);
+    ?>
+    @if(!empty($banner[0]['image']))
+    <div class="conBanner pc_box" style="background-image: url({{asset($banner[0]['image'])}});"></div>
+    @endif
+    @if(!empty($mobile_banner[0]['image']))
+    <div class="conBanner mobile_box"><img src="{{asset($mobile_banner[0]['image'])}}"></div>
+    @endif
     <div class="download-main clearfix">
         <ul class="sildebar">
             <li>
@@ -59,7 +68,7 @@
                     <th class="cate">{{$v['updated_at']}}</th>
                     <th class="ctrl">
                         @if(isset($download))
-                        <a href="{{URl('download-save',[$v['article_id']])}}" class="downloadt">下载</a>
+                        <a href="{{URl('download-save',[$v['article_id'],$v['type']])}}" class="downloadt">下载</a>
                         <a data-href="{{URl('download-del',[$v['id']])}}" class="del">删除</a>
                         @else
                             @if($v['type']==4)
@@ -71,8 +80,6 @@
                             @elseif($v['type']==1)
                             <a href="{{URl('article',[$v['article_id']])}}" class="downloadt">查看</a>
                             @endif
-
-
                         <a data-href="{{URl('collection-del',[$v['id']])}}" class="del">删除</a>
                         @endif
                     </th>

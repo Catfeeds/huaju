@@ -260,6 +260,8 @@ $(document).ready(function () {
     $('.devlist ul li').each(function(index){
         if(index > 10){
             $(this).addClass('hide')
+            $(this).removeClass('wow')
+            $(this).removeClass('fadeInLeftBig')
         }
     })
     $('.devlist a').click(function(){

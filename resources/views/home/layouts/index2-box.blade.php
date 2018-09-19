@@ -425,7 +425,7 @@
 					@foreach($index2_box['article'] as $b_k=>$b_v)
 					<dd class="{{$b_k%2==0?'l1':'l2'}} clearfix hseui_h">
 						<div class="d1">{{$b_v['title']}}<span class="ico1"></span></div>
-						<div class="d2">{{$b_v['work_place']}}</div>
+						<div class="d2">{{$b_v['work_place']}}&nbsp;</div>
 						<div class="d3"><span>人数：</span>{{$b_v['recruitment_number']}}</div>
 						<div class="d4">{{date("Y-m-d",strtotime($b_v['add_time']))}}</div>
 						<div class="tc2"></div>

@@ -18,7 +18,7 @@
                             <label>手机号码</label>
                             <input type="text" name="phone" datatype="*,m" nullmsg="请输入手机号码" errormsg="请输入手机号码" value="{{old('phone')}}" id="reset-phone">
                         </div>
-                        <div class="mz clearfix">
+                        <div class="mz clearfix dxyzm">
                             <label style="line-height: normal">短信验证码</label>
                             <input type="text" name="verify_code" datatype="*" nullmsg="请输入短信验证码" value="{{old('verify_code')}}" class="text50">
                             <input class="get-msg text50" id="reset-get-code" value="获取验证码" type="button">
@@ -45,6 +45,7 @@
     $("#logo_form").Validform({
         // tiptype:3,
         showAllError:false,
+        tipSweep:true,
         tiptype:function(msg,o){
             if(o.type==3){
                 layer.msg(msg,{icon:2});

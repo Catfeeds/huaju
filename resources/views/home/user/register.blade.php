@@ -47,6 +47,7 @@
         $("#register_form").Validform({
             // tiptype:3,
             showAllError:false,
+            tipSweep:true,
              "_token":_token,
             tiptype:function(msg,o){
                 if(o.type==3){

@@ -505,7 +505,7 @@ a{cursor:pointer;}
 
   .tmain .tds .big.big_r{text-align: left;}
   .tmain .tds .small{padding:10px 0;}
-
+  .abusbanner{height: auto}
   .nmain .title{padding: 0 0 10px 0;font-size: 18px;}
   .nmain .timesw{padding:8px 0;}
   .nmain .timesw span:nth-child(1){font-size: 10px;}
@@ -514,14 +514,38 @@ a{cursor:pointer;}
   .nmain .timesw span:nth-child .iconfont{font-size: 12px;}
   .prolist ul li .text{height: auto;padding-bottom: 10px;}
   .prolist ul li h4{white-space:inherit;}
-  .nslick dd .title{white-space:in:;herit;}
+  .nslick dd .title{white-space:inherit;}
+  .catelist li .txt .tag{white-space:inherit;}
   .caseys ul li .text h3{white-space:inherit;}
+  .texts-top .title{white-space:inherit;}
   .cliset li h4{white-space:inherit;}
   .stand li .text h4{white-space:inherit;}
+  .texts-bot .ques a{white-space:inherit;}
+  .benefit ul li h4{white-space:inherit;}
+  .serive ul li h1{white-space:inherit;}
+  .mi-teb dl dd h4{white-space:inherit;}
+  .band ul li .text h4{white-space:inherit;}
+  .showbox .dxyzm{position:relative;padding-right: 130px;}
+  .showbox .mz input.get-msg{position: absolute;right: 0;bottom: 0;}
+  .showbox .mz input[name="verify_code"]{width: 100%;}
+  
+  .datalisx li h3{white-space:inherit;background-position: left top;}
   .stand li .text .txt{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
-  .cliset li .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
+  /*.cliset li .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}*/
   .nslick dd .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
+  .catelist li .txt .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
+  .texts-top .txt{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
+  .benefit ul li .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
+  .serive ul li .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
+  .martlist ul li .text h4{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
+  .martlist ul li .text .txt{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
+  .bdlist dl dd h4{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
+  .bdlist dl dd .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
+  .catelist li:nth-child(2n+1){clear:left;}
+  .serive ul li:nth-child(2n+1){clear:left;}
+  .band ul li:nth-child(2n+1){clear:left;}
 
+  .item .hot li .wz{line-height: 1.7;}
   
   .banner dl dd{height: auto;position: relative;}
   .banner dl dd a{width: 100%;display: block;overflow: hidden;}

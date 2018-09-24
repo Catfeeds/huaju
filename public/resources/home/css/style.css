@@ -6543,15 +6543,23 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   transform: translate(-50%, -50%);
 }
 
-.sign-up-first .title {
-  padding: 10px;
+.sign-up-first .title .iconfont,.many-sign .title .iconfont,.qrCode .title .iconfont{
+  background: url(../images/ico10.png) no-repeat center;background-size: 22px 22px;width: 40px;height: 100%;position: absolute;right: 0;top: 0;cursor: pointer;
+}
+.sign-up-first .title,.many-sign .title,.qrCode .title {
+  position: relative;
+  /*padding: 10px;*/
+  padding-left: 13px;
   background: #0093dd;
   color: #fff;
+  font-size: 16px;
+  line-height: 40px;
 }
 
 .sign-up-first .title span {
   display: block;
   float: left;
+
 }
 
 .sign-up-first .title i {
@@ -6652,7 +6660,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   z-index: 99999999;
 }
 
-.many-sign .title {
+/*.many-sign .title {
   padding: 10px;
   background: #0093dd;
   color: #fff;
@@ -6666,7 +6674,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 .many-sign .title i {
   display: block;
   float: right;
-}
+}*/
 
 .mang-main {
   padding: 35px 60px;
@@ -6802,9 +6810,10 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 
 .qrCode {
   display: none;
-  width: 600px;
+  width: 580px;
   position: fixed;
   background: #fff;
+  font-size: 16px;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -6813,7 +6822,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   z-index: 99999999;
 }
 
-.qrCode .title {
+/*.qrCode .title {
   padding: 10px;
   background: #0093dd;
   color: #fff;
@@ -6828,10 +6837,10 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   display: block;
   float: right;
   cursor: pointer;
-}
+}*/
 
 .qrmain {
-  padding: 45px;
+  padding:62px 45px;
   background: #fff;
 }
 
@@ -6846,7 +6855,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   font-size: 16px;
   color: #2a2828;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 32px;
 }
 
 @media screen and (max-width: 768px) {

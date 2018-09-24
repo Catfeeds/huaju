@@ -222,22 +222,4 @@ class VideoController extends Controller
             // });
             // $form->setAction('/admin/article-save');//提交地址
 
-            // 设置日期格式，更多格式参考http://momentjs.com/docs/#/displaying/format/
-            // $form->display('updated_at', '更新日期');
-        });
-    }
-
-    // public function article_save(Request $request){
-    //     $this->validate($request,[
-    //         'title' => 'required',
-    //         'cate_id' => 'required',
-    //     ],[],[
-    //         'title'=>'标题',
-    //         'cate_id'=>'所属分类',
-    //     ]);
-    //     //视频课程保存
-    //     Article::ArticleSave($request->all());
-    //     admin_toastr(trans('admin.update_succeeded'));
-    //     return redirect('/admin/article');
-    // }
-}
+            // 设置日期格�

@@ -223,7 +223,7 @@
     <div class="sign-up-first">
         <div class="title clearfix">
             <span>填写报名信息</span>
-            <i class="iconfont">&#xe628;</i>
+            <i class="iconfont"></i>
         </div>
         <div class="main-box">
             <div class="forms">
@@ -265,7 +265,7 @@
     <div class="many-sign">
         <div class="title clearfix">
             <span>填写报名信息</span>
-            <i class="iconfont">&#xe628;</i>
+            <i class="iconfont"></i>
         </div>
         <div class="mang-main">
             <form method="POST" action="{{URL('apply-save')}}">
@@ -315,8 +315,8 @@
     </div>
     <div class="qrCode">
         <div class="title clearfix">
-            <span>填写报名信息</span>
-            <i class="iconfont">&#xe628;</i>
+            <span>温馨提示</span>
+            <i class="iconfont"></i>
         </div>
         <div class="qrmain">
             <div class="pic">

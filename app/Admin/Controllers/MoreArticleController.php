@@ -124,6 +124,10 @@ class MoreArticleController extends Controller
                         break;
                 }
                 $form->image = Image($form->image,$width,$height,"uploads/images/".date("Ymd")."/");
+
+                if($form->file){
+                    $form->file = upload_file($form->file,'/uploads/course_ware/'.date('Ymd')."/",$form->file->getClientOriginalName());
+                }
             });
             $form->saved(function (Form $form) {
                 admin_toastr(trans('admin.update_succeeded'));

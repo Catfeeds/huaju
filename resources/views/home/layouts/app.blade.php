@@ -20,7 +20,7 @@
             <link type="text/css" rel="stylesheet" href="{{asset('resources/home/font/iconfont.css')}}?version={{env('VERSION')}}" />
             <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/_swiper.css')}}?version={{env('VERSION')}}" />
             <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/slick.css')}}?version={{env('VERSION')}}" />
-            <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/jquery.mCustomScrollbar.css')}}?version={{env('VERSION')}}" />
+            <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/jquery.mCustomScrollbar.min.css')}}?version={{env('VERSION')}}" />
             <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/photoswipe.css')}}?version={{env('VERSION')}}" />
             <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/default-skin/default-skin.css')}}?version={{env('VERSION')}}" />
             <link type="text/css" rel="stylesheet" href="{{asset('resources/home/css/bootstrap-datepicker3.min.css')}}?version={{env('VERSION')}}" />

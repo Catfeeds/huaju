@@ -58,7 +58,7 @@ class ActivityController extends Controller
         if (!$info) {
             abort(404);
         }
-
+        
         $cate_tree_on = ['artivity'];
         $collection_on = Collection::CollectionOn([
             'user_id'=>$user_info['id'],

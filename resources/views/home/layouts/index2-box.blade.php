@@ -100,11 +100,13 @@
 						<div class="pic">
 							<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 						</div>
-						<h4>{{$b_v['title']}}</h4>
-						<div class="text">
-							{!!nl2br($b_v['desc'])!!}
+						<div class="v_txt">
+							<h4>{{$b_v['title']}}</h4>
+							<div class="text">
+								{!!nl2br($b_v['desc'])!!}
+							</div>
+							<span>{{date("Y-m-d",strtotime($b_v['add_time']))}}</span>
 						</div>
-						<span>{{date("Y-m-d",strtotime($b_v['add_time']))}}</span>
 					</a>
 				</li>
 				@endforeach
@@ -122,15 +124,17 @@
 			<ul class="stand">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
 				<li class="wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
-					<div class="pic">
-						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
-					</div>
-					<div class="text">
-						<h4>{{$b_v['title']}}</h4>
-						<div class="txt">
-							{!!nl2br($b_v['desc'])!!}
+					<a @if(!empty($b_v['url'])) href="{{$b_v['url']}}" @elseif(!empty($b_v['file'])) href="{{URL('download-save',[$b_v['id']])}}" @endif>
+						<div class="pic">
+							<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 						</div>
-					</div>
+						<div class="text">
+							<h4>{{$b_v['title']}}</h4>
+							<div class="txt">
+								{!!nl2br($b_v['desc'])!!}
+							</div>
+						</div>
+					</a>
 				</li>
 				@endforeach
 			</ul>

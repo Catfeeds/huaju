@@ -82,7 +82,7 @@ class Activity extends Model
         if(isset($attributes['order'])&&trim($attributes['order'])!=''){
             $list = $list->orderBy($attributes['order'],$attributes['sort']);
         }
-        $list = $list->orderBy("activity_time","DESC")->orderBy("id","DESC");
+        $list = $list->orderBy("activity_time2","DESC")->orderBy("id","DESC");
         if(isset($attributes['take'])&&trim($attributes['take'])!=''){
             $list = $list->take($attributes['take'])->get();
         }else{

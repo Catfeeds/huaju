@@ -2325,6 +2325,8 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   z-index: 9999;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .slics .slick-dots {
@@ -2886,6 +2888,11 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 
 .benefit ul li .pic {
   text-align: center;
+  width: 113px;height: 113px;margin:0 auto;border:1px solid #626262;border-radius: 10px;
+  line-height: 113px;
+}
+.benefit ul li .pic img{
+  width: 74px;height: 74px;
 }
 
 .benefit ul li {
@@ -2938,13 +2945,14 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   -wenkit-transform: scale(1.2,1.2);
   transform: scale(1.2,1.2);
 }
+.cliset li .v_txt{height: 240px;overflow-y: auto;}
 .cliset li h4 {
   font-size: 18px;
   position: relative;
   color: #1d1d1d;
   padding: 13px 0;
   border-bottom: 1px solid #dadada;
-white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+/*white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*/
 }
 
 .cliset li h4::after {
@@ -3291,11 +3299,11 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     margin-bottom: 13px;
   }
   .benefit ul li .pic {
-    width: 50px;
+    /*width: 50px;*/
     margin: 0 auto;
   }
   .benefit ul li .pic img {
-    width: 100%;
+    /*width: 100%;*/
   }
   .benefit ul li h4 {
     margin-top: 15px;
@@ -3472,6 +3480,9 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     font-size: 16px;
     margin: 10px auto 10px auto;
   }
+
+  .benefit ul li .pic{width: 76px;height: 76px;line-height: 76px;}
+  .benefit ul li .pic img{width: 46px;height: 46px;}
 }
 
 @media screen and (max-width: 460px) {
@@ -4539,10 +4550,12 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
 .mphotos {
-  width: 1180px;
+  width: 1200px;
   margin: 70px auto 0 auto;
+  position: relative;
+  opacity: 0;
 }
-
+.mphotos .pic_btn{cursor: pointer;position: absolute;}
 .mphotos .pf {
   width: 49.5%;
   float: left;
@@ -5080,8 +5093,9 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     margin-top: 30px;
   }
   .mphotos {
-    width: 92%;
-    padding: 0 2%;
+    /*width: 92%;
+    padding: 0 2%;*/
+    width: 100%;
     margin: 30px auto 0 auto;
   }
   .mar-title {
@@ -6799,6 +6813,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   float: left;
 }
 
+.add-btn:hover{color: #fff;}
 .add-btn {
   width: 36px;
   height: 36px;

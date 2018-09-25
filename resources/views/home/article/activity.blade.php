@@ -71,7 +71,7 @@
                                 <div class="time">地区：
                                     <span>{{$v['CityTo']['region_name']}}</span>
                                 </div>
-                                <div class="time data @if($v['activity_time2']<date('Y-m-d')) data_no @endif">时间：
+                                <div class="time data @if($v['activity_time2']<date('Y-m-d H:i:s')) data_no @endif">时间：
                                     <span>{{date('Y-m-d',strtotime($v['activity_time']))}}</span>
                                 </div>
                             </div>

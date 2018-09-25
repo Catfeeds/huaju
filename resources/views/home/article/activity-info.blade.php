@@ -13,7 +13,7 @@
                     <span>{{date('Y · m · d',strtotime($info['activity_time']))}}</span>
                     <span> 中国 {{$info['CityTo']['region_name']}}</span>
                 </div>
-                @if($info['activity_time']>date("Y-m-d H:i:s")&&$info['is_apply']==1)
+                @if($info['activity_time2'] > date("Y-m-d H:i:s")&&$info['is_apply']==1)
                     <a @if(!empty($info['url'])) href="{{$info['url']}}" @endif class="baoming @if(empty($info['url'])) apply @endif"></a>
                 @endif
             </div>
@@ -31,7 +31,7 @@
                     <span>{{date('Y · m · d',strtotime($info['activity_time']))}}</span>
                     <span> 中国 {{$info['CityTo']['region_name']}}</span>
                 </div>
-                @if($info['activity_time']>date("Y-m-d H:i:s")&&$info['is_apply']==1)
+                @if($info['activity_time2'] > date("Y-m-d H:i:s")&&$info['is_apply']==1)
                     <a @if(!empty($info['url'])) href="{{$info['url']}}" @endif class="baoming @if(empty($info['url'])) apply @endif"></a>
                 @endif
             </div>
@@ -55,14 +55,14 @@
                     </div>
                     <h4>{{$v['title']}}</h4>
                     <div class="text">{!!nl2br($v['desc'])!!}</div>
-                    @if(!empty($v['file'])&&$info['activity_time']<=date("Y-m-d H:i:s"))
+                    @if(!empty($v['file'])&&$info['activity_time2'] < date("Y-m-d H:i:s"))
                     <a href="{{asset($v['file'])}}">下载演讲稿</a>
                     @endif
                 </dd>
                 @endforeach
             </dl>
         </div>
-        @if($info['activity_time']>date("Y-m-d H:i:s"))
+        @if($info['activity_time2'] > date("Y-m-d H:i:s"))
         <div class="mitem mi-teg fadeInUp wow">
             <div class="mar-title">合作伙伴</div>
             <div class="mar-trhee clearfix">
@@ -165,9 +165,11 @@
         </div>
         <div class="mitem mi-ted">
             <div class="mar-title">精彩瞬间</div>
-            <div class="mphotos my-simple-gallery clearfix">
+            <div class="mphotos my-simple-gallery clearfix" id="mphotos">
                 @foreach($info['MoreImageMany'] as $k=>$v)
-                @if($k%8==0)
+                <img src="{{asset($v['image'])}}" itemprop="thumbnail" alt="" class="pic_btn" data-src="{{asset($v['image'])}}" itemprop="contentUrl" data-size="" data-title="{{$v['title']}}" / >
+
+                {{--@if($k%8==0)
                 <div class="pf clearfix">
                 @endif
                 @if($k%8==3)
@@ -201,7 +203,7 @@
                     @endif
                 @if(in_array($k%8,[2,7])||count($info['MoreImageMany'])-1==$k)
                 </div>
-                @endif
+                @endif--}}
                 @endforeach
             </div>
         </div>
@@ -284,7 +286,7 @@
                 <div class="my clearfix">
                     <label>填写信息</label>
                     <div class="adlist clearfix">
-                        <div class="inlists clearfix">
+                        <div class="inlists mCustomScrollbar clearfix">
                             <div class="item clearfix">
                                 <div class="inputlist clearfix">
                                     <input type="text" name="gongsi[]" placeholder="公司" class="gongsi">
@@ -319,10 +321,12 @@
             <i class="iconfont"></i>
         </div>
         <div class="qrmain">
+            @if(!empty($info['ewm']))
             <div class="pic">
-                <img src="{{asset(ConfigGet('ewm'))}}">
+                <img src="{{asset($info['ewm'])}}">
             </div>
-            <span>扫一扫，关注“翻译培训会”微信号，最新消息早知道~~</span>
+            @endif
+            <span>扫一扫，关注“{{$info['title']}}”微信号，最新消息早知道~~</span>
         </div>
     </div>
     <div class="pic_fix_bg"></div>
@@ -371,7 +375,7 @@
     @parent
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ap3151yQ5GQUrLtFLcMMNwEMqSUlVGWV"></script>
     <script type="text/javascript">
-        @if($info['activity_time']>date("Y-m-d H:i:s")&&!empty($info['address']))
+        @if($info['activity_time2'] > date("Y-m-d H:i:s")&&!empty($info['address']))
         // 百度地图API功能
         // var city = "{{$info['CityTo']['region_name']}}";
         // var title = "{{$info['address']}}";
@@ -411,6 +415,100 @@
     </script>
     <script>
     $(function(){
+        //瀑布流
+        var box = document.getElementById('mphotos');
+        var items = box.children;
+        // 定义每一列之间的间隙 为10像素
+        var gap = 10;
+        window.onload = function() {
+            // 一进来就调用一次
+            waterFall();
+            // 封装成一个函数
+            function waterFall() {
+                var window_w = parseInt($(window).width());
+                var pageWidth = parseInt($("#mphotos").width());
+                if(window_w<=768){
+                    box_w = pageWidth-30
+                    //手机版两列平等
+                    var columns = 2;
+                    var i1 = 0.5*box_w;
+                    var i2 = 0.5*box_w;
+                }else{
+                    box_w = pageWidth-50
+                    //ipad,电脑板4列30%,20%
+                    var columns = 4;
+                    var i1 = 0.3*box_w;
+                    var i2 = 0.2*box_w;
+                }
+                var arr = [];
+                for (var i = 0; i < items.length; i++) {
+                    if (i < columns) {
+                        // 2- 确定第一行
+                        items[i].style.top = 0;
+                        if(i>0){
+                            if(i%2==0){
+                                l = items[i-1].offsetLeft+i2;
+                            }else{
+                                l = items[i-1].offsetLeft+i1;
+                            }
+                        }else{
+                            l = 0;
+                        }
+                        if(i%2==0){
+                            items[i].style.left = (l + gap) + 'px';
+                            items[i].style.width = i1 + 'px';
+                        }else{
+                            items[i].style.left = (l + gap) + 'px';
+                            items[i].style.width = i2 + 'px';
+                        }
+                        arr.push(items[i].offsetHeight);
+                    } else {
+                        // 其他行
+                        // 3- 找到数组中最小高度  和 它的索引
+                        var minHeight = arr[0];
+                        var index = 0;
+                        for (var j = 0; j < arr.length; j++) {
+                            if (minHeight > arr[j]) {
+                                minHeight = arr[j];
+                                index = j;
+                            }
+                        }
+                        // 4- 设置下一行的第一个盒子位置
+                        // top值就是最小列的高度 + gap
+                        items[i].style.top = arr[index] + gap + 'px';
+          
+                        // left值就是最小列距离左边的距离
+                        if(items[index].offsetWidth>=i1-2){
+                            items[i].style.left = items[index].offsetLeft + 'px';
+                            items[i].style.width = i1 + 'px';
+                        }else{
+                            items[i].style.left = items[index].offsetLeft + 'px';
+                            items[i].style.width = i2 + 'px';
+                        }
+
+                        
+                        // 5- 修改最小列的高度 
+                        // 最小列的高度 = 当前自己的高度 + 拼接过来的高度 + 间隙的高度
+                        arr[index] = arr[index] + items[i].offsetHeight + gap;
+                    }
+                }
+                var maxHeight = arr[0];
+                var index = 0;
+                for (var j = 0; j < arr.length; j++) {
+                    if (maxHeight < arr[j]) {
+                        maxHeight = arr[j];
+                    }
+                }
+                $("#mphotos").height(maxHeight);
+                $("#mphotos").css("opacity",1);
+            }
+            // 页面尺寸改变时实时触发
+            window.onresize = function() {
+                waterFall();
+            };
+        };
+
+
         $(".pic_btn").click(function(){
             $(".pic_fix_bg").show();
             $(".pic_fix").show();
@@ -452,12 +550,12 @@
 
         $(".inlists").mCustomScrollbar({
             axis:"y",
-            scrollInertia: 100,
+            // scrollInertia: 100,
             scrollButtons:{
                 enable: true,
                 scrollSpeed: 20
             },
-            theme:"3d",
+            theme:"dark",
             scrollbarPosition:"outside"
         });
 

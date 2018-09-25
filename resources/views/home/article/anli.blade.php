@@ -96,7 +96,7 @@
         </div>
     </div>
     <div class="fide"></div>
-    <input type="hidden" id="user_id" value="{{Auth::check()->id}}">
+    <input type="hidden" id="user_id" value="{{Auth::user()->id}}">
 @endsection
 @section('script')
     @parent

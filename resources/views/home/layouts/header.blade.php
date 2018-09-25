@@ -3,7 +3,7 @@
         <div class="header-feixd clearfix">
             <div class="headerbox">
                 <a href="/" class="logo">
-                    <img src="{{asset(ConfigGet('logo'))}}">
+                    <img src="{{asset(ConfigGet('logo'))}}" alt="华矩科技" title="华矩科技">
                 </a>
                 <div class="nav">
                     <ul class="clearfix">

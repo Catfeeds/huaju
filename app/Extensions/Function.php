@@ -170,13 +170,15 @@ function nav($type=0){
  * @param  string $save_path [路径]
  * @return [type]            [description]
  */
-function upload_file($file,$save_path=""){
+function upload_file($file,$save_path="",$file_name=''){
     $ext = $file->getClientOriginalExtension();
     if(empty($save_path)){
         $save_path = "uploads/file/".date("Ymd")."/";
     }
     is_file($save_path) or @mkdir($save_path,0777,true);
-    $file_name = uniqid('',true).".".$ext;
+    if(empty($file_name)){
+        $file_name = uniqid('',true).".".$ext;
+    }
     $file->move($save_path,$file_name);
     return $save_path.$file_name;
 }

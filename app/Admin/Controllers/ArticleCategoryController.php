@@ -145,6 +145,11 @@ EOT;
 
             // $form->display('created_at', '创建日期');
             // $form->display('updated_at', '更新日期');
+            $form->saving(function (Form $form) {
+                if($form->file){
+                    $form->file = upload_file($form->file,'/uploads/course_ware/'.date('Ymd')."/",$form->file->getClientOriginalName());
+                }
+            });
             $form->saved(function (Form $form) {
                 //链接推送
                 baidu_url(env('APP_URL').'/list-'.$form->id.'-1.html');

@@ -243,6 +243,9 @@ class ArticleController extends Controller
                 if($width>0||$height>0){
                     $form->img = Image($form->img,$width,$height,"uploads/article/".date("Ymd")."/");
                 }
+                if($form->file){
+                    $form->file = upload_file($form->file,'/uploads/course_ware/'.date('Ymd')."/",$form->file->getClientOriginalName());
+                }
             });
             $form->saved(function (Form $form) {
                 //链接推送

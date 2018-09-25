@@ -40,6 +40,7 @@
     $("#logo_form").Validform({
         // tiptype:3,
         showAllError:false,
+        tipSweep:true,
         tiptype:function(msg,o){
             if(o.type==3){
                 layer.msg(msg,{icon:2});

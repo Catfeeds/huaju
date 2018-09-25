@@ -3,12 +3,15 @@
     @parent
 @endsection
 @section('content')
+<style type="text/css">
+    html,body{height: 100%;overflow:visible;}
+</style>
 <?php 
 $banner = ads_image(25);
 $mobile_banner = ads_image(32);
  ?>
 @if(isset($banner)&&$banner->count())
-<div class="banner pc_box">
+<div class="index_banner banner pc_box">
     <dl class="slicks">
         @foreach($banner as $v)
         <dd style="background-image: url({{asset($v['image'])}})">
@@ -52,7 +55,7 @@ $mobile_banner = ads_image(32);
 @endif
 <?php 
     //获取推荐文章
-    $a1 = \App\Models\ArticleCategory::select("article.id","article.title","article.desc","article.add_time")->where("template","news")->where("article.is_top",1)->leftjoin("article","article.cate_id","=","article_category.id")->orderBy('sort','DESC')->orderBy("add_time","DESC")->orderBy("id","DESC")->get();
+    $a1 = \App\Models\ArticleCategory::select("article.id","article.title","article.desc","article.add_time")->where("template","news")->where("article.is_top",1)->whereIn("article.cate_id",[435,432,433])->leftjoin("article","article.cate_id","=","article_category.id")->orderBy('sort','DESC')->orderBy("add_time","DESC")->orderBy("id","DESC")->get();
 ?>
 <div class="in-news">
     @foreach($a1 as $k=>$v)

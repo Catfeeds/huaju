@@ -1,5 +1,5 @@
 img{max-width: 100%;}
-a{cursor:pointer;}
+/*a{cursor:pointer;}*/
 .seconed a.n2{color: #bbdaf2;display: block;margin-top: 13px;padding:0 15px;width: 150px;}
 
 .slicks dd .txt .more {
@@ -233,6 +233,7 @@ a{cursor:pointer;}
 }
 
 .martlist ul li:nth-child(3n+1){clear:left;}
+
 .martlist ul li .text h4{line-height: 1.66;}
 .martlist ul li .text{padding:21px 17px;}
 .martlist ul li .text .txt{font-size: 14px;line-height: 2;color: #7a7a7a;padding-top: 10px;}
@@ -311,6 +312,8 @@ a{cursor:pointer;}
 .conBanner .banBox table{height: 100%;width: 100%;}
 .conBanner .banBox td{height: 100%;width: 100%;}
 .caelise dd .text a{color: #0068b7;}
+
+.catelist li:nth-child(3n+1){clear:left;}
 @media screen and (max-width: 1480px) {
   .goods .ptc{width:485px;height:344px;}
   .goods .td2{width: 695px;}
@@ -566,6 +569,12 @@ a{cursor:pointer;}
     -webkit-transform: translate(0,-50%);
   -moz-transform: translate(0,-50%);
   transform: translate(0,-50%);}
+  .catelist li:nth-child(3n+1){clear:none;}
+  .catelist li:nth-child(2n+1){clear:left;}
+
+  .texts-bot .ques i{top:1px;}
+
+  .cliset li{box-shadow:none;}
 }
 @media screen and (max-width: 480px) {
   .cliset li{margin-left: 0;margin-right: 0;padding: 15px;}

@@ -54,7 +54,6 @@ $(document).ready(function () {
         e.stopPropagation()
     }
     })
-
     // $('#toTop').mouseleave(function () {
     //     $('.sa').hide()
     // })
@@ -109,12 +108,12 @@ $(document).ready(function () {
     })
 
 
-    $(".serv-box .text,.caseys ul li .text .txt").dotdotdot({
-        watch: "window",
-    });
-    $(".stand li .text .txt").dotdotdot({
-        watch: "window",
-    });
+    // $(".serv-box .text,.caseys ul li .text .txt").dotdotdot({
+    //     watch: "window",
+    // });
+    // $(".stand li .text .txt").dotdotdot({
+    //     watch: "window",
+    // });
     $('.cliset').slick({
         dots: false,
         slidesToShow: 3,

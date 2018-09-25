@@ -5,6 +5,7 @@
 @section('content')
 <style type="text/css">
     html,body{height: 100%;overflow:visible;}
+    body{overflow-x:hidden; }
 </style>
 <?php 
 $banner = ads_image(25);
@@ -94,7 +95,6 @@ $mobile_banner = ads_image(32);
         <ul class="catelist clearfix">
             @foreach($procude['child'] as $c_v)
                 @foreach($c_v['child'] as $k=>$v)
-                    @if($p_k < 9)
                     <li class="wow fadeInUp" data-time="{{($p_k+1)/10}}s">
                         <a href="{{URL('category',$v['id'])}}" >
                             <div class="icon">
@@ -108,7 +108,6 @@ $mobile_banner = ads_image(32);
                         </a>
                     </li>
                     <?php $p_k++; ?>
-                    @endif
                 @endforeach
             @endforeach
         </ul>
@@ -128,18 +127,15 @@ $mobile_banner = ads_image(32);
         @if(isset($case['child']['0']))
         <ul class="case-nav">
             @foreach($case['child']['0']['child'] as $k=>$v)
-            @if($k < 3)
             <li class="wow fadeInLeftBig" data-wow-delay="{{($k+1)/10}}s">
                 <a href="{{url('category',$v['id'])}}" title="{{$v['title']}}">{{$v['title']}}</a>
             </li>
-            @endif
             @endforeach
         </ul>
         @endif
         @if(isset($case['child']['1']))
         <dl class="catePic">
             @foreach($case['child']['1']['child'] as $k=>$v)
-            @if($k < 6)
             <dd class="wow fadeInUp" data-wow-delay="{{($k+1)/10}}s">
                 <a href="{{url('category',$v['id'])}}" title="{{$v['title']}}">
                     <div class="pic">
@@ -151,7 +147,6 @@ $mobile_banner = ads_image(32);
                     </div>
                 </a>
             </dd>
-            @endif
             @endforeach
         </dl>
         @endif
@@ -177,7 +172,6 @@ $mobile_banner = ads_image(32);
     <div class="com-title">{{$server['title']}}</div>
     <dl class="serlist clearfix">
         @foreach($server['child'] as $k=>$v)
-        @if($k < 3)
         <dd class="wow fadeInUp" data-wow-delay="{{($k+1)/10}}s">
             <div class="pic">
                 <img src="{{asset($v['img2'])}}" alt="{{$v['alt2']}}">
@@ -196,8 +190,25 @@ $mobile_banner = ads_image(32);
                     @endforeach
                 </div>
             </div>
+        </dd><dd class="wow fadeInUp" data-wow-delay="{{($k+1)/10}}s">
+            <div class="pic">
+                <img src="{{asset($v['img2'])}}" alt="{{$v['alt2']}}">
+            </div>
+            <div class="text">
+                <div class="texts-top">
+                    <div class="title">{{$v['title']}}</div>
+                    <div class="txt">{!!nl2br($v['cat_desc'])!!}</div>
+                </div>
+                <div class="texts-bot">
+                    @foreach($v['article'] as $a_v)
+                    <div class="ques">
+                        <i class="iconfont">&#xe880;</i>
+                        <a href="{{URL('article',$a_v['id'])}}" >{{$a_v['title']}}</a>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
         </dd>
-        @endif
         @endforeach
     </dl>
 </div>
@@ -211,10 +222,9 @@ $(document).ready(function() {
         dots: false,
         autoplay: true
     })
-    $("#dot1").dotdotdot({
-        watch: "window",
-
-    });
+    // $("#dot1").dotdotdot({
+    //     watch: "window",
+    // });
     function aa(){
         console.log(1)
     }

@@ -91,4 +91,26 @@ return [
 		'index2-zhaoping-shijisheng' => '0',
 		'index2-shixijidi'           => '0',
 	],
+	'cate_width'=>[
+
+	],
+	'cate_height'=>[
+		
+	],
+	'cate2_width'=>[
+		'product'=>'285',
+		'service'=>'370',
+	],
+	'cate2_height'=>[
+		'product'=>'215',
+		'service'=>'207',
+	],
+	'cate_p2_width'=>[
+		'product'=>'285',
+		'service'=>'370',
+	],
+	'cate_p2_height'=>[
+		'product'=>'215',
+		'service'=>'207',
+	],
 ];

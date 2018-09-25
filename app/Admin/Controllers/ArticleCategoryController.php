@@ -139,7 +139,7 @@ EOT;
             $form->text('seo_description', 'seo description');
             $form->image('img', '图片')->move('/uploads/article/'.date('Ymd'))->uniqueName()->help('产品OR方案OR服务OR新闻OR案例 图片尺寸1920 X 435<br/>　人才OR简介 图片尺寸1920 X 323<br/>　实习生计划 图片尺寸700 X 503');
             $form->text('alt', '图片alt');
-            $form->image('img2', '图片2')->move('/uploads/article/'.date('Ymd'))->uniqueName()->help("服务图片尺寸370 X 207");
+            $form->image('img2', '图片2')->move('/uploads/article/'.date('Ymd'))->uniqueName()->help("服务图片尺寸370 X 207<br/>　方案图片尺寸285 X 215");
             $form->text('alt2', '图片2alt');
             $form->image('mobile_banner', '手机banner')->move('/uploads/article/'.date('Ymd'))->uniqueName();
 
@@ -149,6 +149,26 @@ EOT;
                 if($form->file){
                     $form->file = upload_file($form->file,'/uploads/course_ware/'.date('Ymd')."/",$form->file->getClientOriginalName());
                 }
+
+                $width = trans('template.cate_width.'.$form->template)>0?trans('template.cate_width.'.$form->template):null;
+                $height = trans('template.cate_height.'.$form->template)>0?trans('template.cate_height.'.$form->template):null;
+                if($width>0||$height>0){
+                    $form->img = Image($form->img,$width,$height,"uploads/article/".date("Ymd")."/");
+                }
+
+                $width = trans('template.cate2_width.'.$form->template)>0?trans('template.cate2_width.'.$form->template):null;
+                $height = trans('template.cate2_height.'.$form->template)>0?trans('template.cate2_height.'.$form->template):null;
+                if($width>0||$height>0){
+                    $form->img2 = Image($form->img2,$width,$height,"uploads/article/".date("Ymd")."/");
+                }
+
+                $caregory_info = ArticleCategory::find($form->parent_id);
+                $width = trans('template.cate_p2_width.'.$caregory_info['template'])>0?trans('template.cate_p2_width.'.$caregory_info['template']):null;
+                $height = trans('template.cate_p2_height.'.$caregory_info['template'])>0?trans('template.cate_p2_height.'.$caregory_info['template']):null;
+                if($width>0||$height>0){
+                    $form->img2 = Image($form->img2,$width,$height,"uploads/article/".date("Ymd")."/");
+                }
+
             });
             $form->saved(function (Form $form) {
                 //链接推送

@@ -1066,18 +1066,19 @@
   float: left;
   margin-left: 20px;
   width: 200px;
+  max-height: 160px;overflow-y: auto;
 }
 
 .catelist li .txt .tag {
   font-size: 18px;
   margin-bottom: 15px;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  /*white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*/
 }
 
 .catelist li .txt .text {
   font-size: 14px;
   color: #6f7071;
-  height: 60px;
+  /*height: 60px;*/
   overflow: hidden;
 }
 
@@ -1333,8 +1334,10 @@
   box-shadow: 0px 0px 10px #cfdcfb;
 }
 
+.serlist dd .pic{height: 207px;overflow: hidden;}
 .serlist dd .pic img {
   width: 100%;
+
 }
 
 .serlist dd .text {
@@ -1344,12 +1347,13 @@
 .texts-top {
   padding: 30px 20px 20px 20px;
   border-bottom: 1px dashed #007dfd;
+  height: 94px;overflow-y:auto; 
 }
 
 .texts-top .title {
   font-size: 18px;
   color: #212122;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  /*white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*/
 }
 
 .texts-top .txt {
@@ -1357,8 +1361,8 @@
   color: #b6b6b6;
   margin-top: 24px;
   line-height: 20px;
-  height: 40px;
-overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp:2; -webkit-box-orient: vertical;
+  /*height: 40px;*/
+/*overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp:2; -webkit-box-orient: vertical;*/
 }
 
 .texts-bot {
@@ -1396,6 +1400,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   background: rgba(1, 24, 37, 0.3);
   cursor: pointer;
   color: #fff;
+  z-index: 9;
 }
 
 .serlist .slick-prev:hover {
@@ -1412,6 +1417,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   background: rgba(1, 24, 37, 0.3);
   cursor: pointer;
   color: #fff;
+  z-index: 9;
 }
 
 .serlist .slick-next:hover {
@@ -1419,12 +1425,13 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 }
 
 @media screen and (max-width: 1180px) {
+
   .serlist .slick-prev {
-    left: -10px;
+    left: 0;
     padding: 0;
   }
   .serlist .slick-next {
-    right: -10px;
+    right: 0;
     padding: 0;
   }
   .serlist {
@@ -2848,8 +2855,9 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 .scenariolist li .pic {
   margin: 0 auto;
   width: 124px;
+  height: 124px;overflow: 
 }
-
+.scenariolist li .pic img{width: 124px;height: 124px;border-radius: 124px;}
 .scenariolist li .text {
   margin-top: 30px;
   text-align: center;
@@ -2925,7 +2933,11 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   float: left;
   box-shadow: 0 0 10px #d7d7d7;
 }
+.cliset li:hover .pic img{
 
+  -wenkit-transform: scale(1.2,1.2);
+  transform: scale(1.2,1.2);
+}
 .cliset li h4 {
   font-size: 18px;
   position: relative;
@@ -2944,7 +2956,9 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   bottom: -2px;
   left: 0;
 }
-
+.cliset li .pic{height: 215px;overflow: hidden;}
+.cliset li .pic img{-webkit-transition: all 0.5s;
+  transition: all 0.5s;}
 .cliset li .text {
   margin-top: 25px;
   color: #959696;
@@ -2952,8 +2966,8 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   font-size: 14px;
   color: #959696;
   line-height: 25px;
-  height: 150px;
-overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp:6; -webkit-box-orient: vertical;
+  /*height: 150px;*/
+/*overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp:6; -webkit-box-orient: vertical;*/
 }
 
 .cliset li span {
@@ -3024,14 +3038,17 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 }
 
 .caseys ul li:nth-child(2n) {
-  float: right;
+  float: left;
+  margin-left: 26px;
 }
+.caseys ul li:nth-child(2n+1) {clear: left;}
 
 .caseys ul li .pic {
   float: left;
   width: 58px;
+  height: 58px;overflow: hidden;
 }
-
+.caseys ul li .pic img{width: 58px;height: 58px;}
 .caseys ul li .text {
   float: right;
   width: 460px;
@@ -3040,7 +3057,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 .caseys ul li .text h3 {
   font-size: 18px;
   color: #292929;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  /*white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*/
 }
 
 .caseys ul li .text .txt {
@@ -3048,7 +3065,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   font-size: 14px;
   color: #9c9c9c;
   line-height: 20px;
-  height: 40px;
+  /*height: 40px;*/
   overflow: hidden;
 }
 
@@ -3087,20 +3104,21 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   float: left;
   width: 260px;
   /*height: 54px;*/
+  height: 95px;overflow-y: auto;
 }
 
 .stand li .text h4 {
   font-size: 18px;
   color: #121212;
-white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+/*white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*/
 }
 
 .stand li .text .txt {
   color: #a5a5a5;
   margin-top: 15px;
   font-size: 14px;
-  height: 54px;
-overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  /*height: 54px;*/
+/*overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;*/
 }
 
 .prolist {
@@ -3121,6 +3139,8 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  overflow-y:auto;
+  height: 355px; 
 }
 
 .prolist ul li:nth-child(2n) {
@@ -3129,6 +3149,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 
 .prolist ul li .pic {
   width: 100px;
+  height: 100px;overflow: hidden;
   margin: 0 auto;
 }
 
@@ -3137,7 +3158,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   color: #292929;
   text-align: center;
   margin: 15px auto 25px auto;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  /*white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*/
 }
 
 .prolist ul li .text {
@@ -3145,7 +3166,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   line-height: 25px;
   color: #9c9c9c;
   margin-top: 10px;
-  height: 125px;
+  /*height: 125px;*/
   overflow: hidden;
 }
 
@@ -3171,6 +3192,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 }
 
 @media screen and (max-width: 1180px) {
+  .stand li .text{height: auto;}
   .serv-box {
     width: 96%;
     margin: 0 2%;
@@ -3250,6 +3272,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   }
   .scenariolist li .pic img {
     width: 100%;
+    width:90px;height:90px;border-radius:90px;
   }
   .scenariolist li .text {
     margin-top: 15px;
@@ -3295,6 +3318,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   }
   .cliset li .pic {
     width: 100%;
+    height: auto;
   }
   .cliset li .pic img {
     width: 100%;
@@ -3317,6 +3341,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   }
   .stand li .pic img {
     width: 100%;
+    height: 108px;
   }
   .stand li .text {
     float: none;
@@ -3332,9 +3357,13 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   .prolist ul li {
     padding: 2%;
   }
+
+  .caseys ul li:nth-child(2n){margin-left:2%;}
 }
 
 @media screen and (max-width: 768px) {
+
+  .caseys ul li:nth-child(2n){margin-left: 0;}
   .banBox {
     width: 100%;
   }
@@ -3382,6 +3411,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   }
   .caseys ul li .pic img {
     width: 100%;
+    height: 40px;
   }
   .scenariolist {
     margin: 20px auto;
@@ -3402,6 +3432,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   .stand li .pic {
     width: 90px;
   }
+  .stand li .pic img{width: 90px;height: 90px;}
   .stand li .text h4 {
     font-size: 16px;
   }
@@ -3426,6 +3457,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   .prolist ul li {
     width: 100%;
     font: none;
+    height: auto;
   }
   .prolist ul li:nth-child(2n) {
     font: none;
@@ -3462,7 +3494,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   }
   .cliset li h4 {
     font-size: 16px;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    /*white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*/
   }
   .cliset .slick-prev,
   .cliset .slick-next {

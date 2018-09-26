@@ -413,8 +413,7 @@
     <script>
     $(function(){
         //瀑布流
-        var box = document.getElementById('mphotos');
-        var items = box.children;
+        var items = $("#mphotos").children();
         // 定义每一列之间的间隙 为10像素
         var gap = 10;
         window.onload = function() {

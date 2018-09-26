@@ -427,11 +427,15 @@ class ArticleController extends Controller
                 $assign['next_article'] = $next_article;
 
                 //获取右侧推荐
-                $art_1 = Article::ArticleList([
-                    'cate_id'=>$cate_info['id'],
-                    'sort'=>'DESC',
-                    'take'=>3,
-                ]);
+                if(!$info['tag']){
+                    $info['tag'] = -1;
+                }
+                $art_1 = \App\Models\ArticleCategory::select("article.*")->where("template","news")->leftjoin("article","article.cate_id","=","article_category.id")->where('tag',$info['tag'])->where('article.id',"<>",$info['id'])->orderBy('sort','DESC')->orderBy("add_time","DESC")->orderBy("id","DESC")->take(3)->get();
+                // $art_1 = Article::ArticleList([
+                //     'tag'=>$info['tag'],
+                //     'sort'=>'DESC',
+                //     'take'=>3,
+                // ]);
                 $assign['art_1'] = $art_1;
                 break;
         }

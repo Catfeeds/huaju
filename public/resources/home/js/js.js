@@ -133,6 +133,12 @@ $(document).ready(function () {
             }
         ]
     });
+    $('.nwslick .slics').slick({
+        dots: false,
+        autoplay: true,
+        infinite: false,
+        arrows:false
+    })
     $('.scenariolist ').slick({
         dots: false,
         infinite: false,

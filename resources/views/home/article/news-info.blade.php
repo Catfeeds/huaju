@@ -35,6 +35,7 @@
                     </div>
                 </div>
             </div>
+            @if($art_1&&$art_1->count())
             <div class="ninfo">
                 <div class="tag">相关信息</div>
                 <div class="inlink">
@@ -43,6 +44,7 @@
                     @endforeach
                 </div>
             </div>
+            @endif
         </div>
         @include('home.layouts.news_r')
     </div>

@@ -190,24 +190,6 @@ $mobile_banner = ads_image(32);
                     @endforeach
                 </div>
             </div>
-        </dd><dd class="wow fadeInUp" data-wow-delay="{{($k+1)/10}}s">
-            <div class="pic">
-                <img src="{{asset($v['img2'])}}" alt="{{$v['alt2']}}">
-            </div>
-            <div class="text">
-                <div class="texts-top">
-                    <div class="title">{{$v['title']}}</div>
-                    <div class="txt">{!!nl2br($v['cat_desc'])!!}</div>
-                </div>
-                <div class="texts-bot">
-                    @foreach($v['article'] as $a_v)
-                    <div class="ques">
-                        <i class="iconfont">&#xe880;</i>
-                        <a href="{{URL('article',$a_v['id'])}}" >{{$a_v['title']}}</a>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
         </dd>
         @endforeach
     </dl>

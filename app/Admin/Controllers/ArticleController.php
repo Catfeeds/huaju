@@ -179,6 +179,7 @@ class ArticleController extends Controller
             $form->text('url', '链接');
             $form->number('click','点赞');
             $form->text('editor','来源');
+            $form->text('tag','标签')->help('用作相关信息');
             $states = [
                 'on'  => ['value' => 1, 'text' => '是', 'color' => 'success'],
                 'off' => ['value' => 0, 'text' => '否', 'color' => 'danger'],

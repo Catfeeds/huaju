@@ -28,7 +28,7 @@ img{max-width: 100%;}
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    height: 600px;
+    height: 355px;
 }
 .conBanner2 .conText {
   width: 1180px;
@@ -39,13 +39,13 @@ img{max-width: 100%;}
 }
 
 .conBanner2 .conText h4 {
-  font-size: 28px;
+  font-size: 20px;
   color: #ffffff;
   font-weight: bold;
 }
 
 .conBanner2 .conText h1 {
-  font-size: 58px;
+  font-size: 40px;
   color: #ffffff;
   font-weight: bold;
   list-style: 1.6;
@@ -56,6 +56,7 @@ img{max-width: 100%;}
   display: table-cell;
   vertical-align: middle;
   position: relative;
+  padding-bottom:70px;
 
 }
 
@@ -66,7 +67,7 @@ img{max-width: 100%;}
   font-size: 20px;
 }
 
-.conBanner2 .baoming{position: absolute;width: 231px;height: 116px;background: url(../images/img2.png) no-repeat;bottom: 0;left: 50%;margin-left: -115px;cursor: pointer;}
+.conBanner2 .baoming{position: absolute;width:191px;height:86px;background: url(../images/img2.png) no-repeat bottom center;bottom: 0;left: 50%;margin-left: -115px;cursor: pointer;background-size: contain;}
 .mi-teb dl dd a{color: #333;}
 
 .mi-teh .table table{width: 100%;}
@@ -148,7 +149,7 @@ img{max-width: 100%;}
   width: 50%;
   box-sizing: border-box;
   max-height: 330px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .pag2::-webkit-scrollbar {/*滚动条整体样式*/
   width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
@@ -314,6 +315,10 @@ img{max-width: 100%;}
 .caelise dd .text a{color: #0068b7;}
 
 .catelist li:nth-child(3n+1){clear:left;}
+
+
+.index2{position: relative;}
+.index2>div{display: none;}
 @media screen and (max-width: 1480px) {
   .goods .ptc{width:485px;height:344px;}
   .goods .td2{width: 695px;}

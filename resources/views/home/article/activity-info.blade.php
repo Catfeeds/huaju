@@ -71,8 +71,7 @@
                     @if($k%2==0)
                     <li>
                         <div class="col">
-                            <div class="pt" style="background-image: url({{asset($v['image'])}});">
-                            </div>
+                            <div class="pt" style="background-image: url({{asset($v['image'])}});"></div>
                             <h6>{{$v['desc']}}</h6>
                             <h3>{{$v['title']}}</h3>
                         </div>
@@ -86,9 +85,7 @@
                             <img src="{{asset('resources/home/images/ssf.jpg')}}">
                         </div>
                         <div class="col">
-                            <div class="pt">
-                                <img src="{{asset($v['image'])}}">
-                            </div>
+                            <div class="pt" style="background-image: url({{asset($v['image'])}});"></div>
                             <h6>{{$v['desc']}}</h6>
                             <h3>{{$v['title']}}</h3>
                         </div>

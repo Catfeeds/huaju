@@ -319,6 +319,7 @@ img{max-width: 100%;}
 
 .index2{position: relative;}
 .index2>div{display: none;}
+.serive ul li:nth-child(4n+1){clear:left;}
 @media screen and (max-width: 1480px) {
   .goods .ptc{width:485px;height:344px;}
   .goods .td2{width: 695px;}
@@ -401,6 +402,9 @@ img{max-width: 100%;}
   .m-btn2 li{margin-bottom: 0;}
   .showBox .title{padding-left: 15px;padding-right: 15px;}
   .initem{padding-top: 30px;}
+
+  .serive ul li:nth-child(4n+1){clear:none;}
+  .serive ul li:nth-child(3n+1){clear:left;}
 }
 @media screen and (max-width: 768px) {
   .showBox .txt .td .mx .submit{margin-left: 0;}
@@ -550,6 +554,7 @@ img{max-width: 100%;}
   .bdlist dl dd h4{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
   .bdlist dl dd .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
   .catelist li:nth-child(2n+1){clear:left;}
+  .serive ul li:nth-child(3n+1){clear:none;}
   .serive ul li:nth-child(2n+1){clear:left;}
   .band ul li:nth-child(2n+1){clear:left;}
 

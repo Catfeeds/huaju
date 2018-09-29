@@ -544,16 +544,7 @@
             gongsi_type();
         })
 
-        $(".inlists").mCustomScrollbar({
-            axis:"y",
-            // scrollInertia: 100,
-            scrollButtons:{
-                enable: true,
-                scrollSpeed: 20
-            },
-            theme:"dark",
-            scrollbarPosition:"outside"
-        });
+        
 
         $('.many-people span').click(function(){
             $('.sign-up-first').hide()

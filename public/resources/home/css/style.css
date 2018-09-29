@@ -1,6 +1,8 @@
 @charset "UTF-8";
 /*初始化*/
-
+.mCSB_outside+.mCSB_scrollTools{right: 0;}
+.mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{background-color: rgba(0,0,0,.3);}
+.mCS-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar, .mCS-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar{background-color: rgba(0,0,0,.5);}
 .wrap {
   max-width: 1200px;
   margin: 0 auto;
@@ -2840,6 +2842,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   float: left;
   width: 530px;
   margin-bottom: 13px;
+
 }
 
 .scenariolist {
@@ -3048,6 +3051,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   z-index: 999;
 }
 
+.caseys ul li{height: 60px;}
 .caseys ul li:nth-child(2n) {
   float: left;
   margin-left: 26px;
@@ -3063,6 +3067,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 .caseys ul li .text {
   float: right;
   width: 460px;
+  height: 60px;overflow: hidden;
 }
 
 .caseys ul li .text h3 {
@@ -3262,6 +3267,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 10px;
+    height: 148px;
   }
   .caseys ul li .pic {
     float: none;
@@ -3374,7 +3380,8 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 }
 
 @media screen and (max-width: 768px) {
-
+  .caseys ul li{height: auto;}
+  .caseys ul li .text{height: auto;}
   .caseys ul li:nth-child(2n){margin-left: 0;}
   .banBox {
     width: 100%;
@@ -3525,7 +3532,8 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 /* login */
 
 .login {
-  height: 812px;
+  /*height: 812px;*/
+  padding:50px 0;
   background-size: cover;
   display: table;
   width: 100%;
@@ -3540,14 +3548,19 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 .loginbox {
   width: 1180px;
   margin: 0 auto;
+  position: relative;
 }
 
 .loginbox .text {
   font-size: 55px;
   width: 660px;
-  margin-top: 200px;
+  /*margin-top: 200px;*/
   color: #ffffff;
   float: left;
+  position: absolute;left: 0;top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  transform: translate(0, -50%);
 }
 
 .showbox {
@@ -3653,6 +3666,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 }
 
 @media screen and (max-width: 1180px) {
+  .login{padding: 0;}
   .loginbox {
     width: 96%;
     padding: 0 2%;
@@ -3673,7 +3687,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 
 @media screen and (max-width: 768px) {
   .login {
-    height: 600px;
+    /*height: 600px;*/
   }
   .loginbox .text {
     font-size: 18px;
@@ -3876,6 +3890,7 @@ overflow: hidden;
   background: #00a0e9 url(../images/adr.png) left center;
   width: 40px;
   height: 20px;
+  line-height: 20px;
   position: relative;
   font-size: 14px;
   border-radius: 3px;
@@ -4237,7 +4252,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 }
 
 .serive h4 {
-  text-align: center;
+  text-align: left;
   color: #a3a3a3;
 }
 
@@ -4262,15 +4277,15 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   color: #222222;
   text-align: center;
   margin: 20px 0;
-white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+/*white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*/
 }
 
 .serive ul li .text {
   font-size: 16px;
   color: #909090;
   line-height: 25px;
-  height: 125px;
-  overflow: hidden;
+  /*height: 125px;
+  overflow: hidden;*/
 }
 
 .serdata {

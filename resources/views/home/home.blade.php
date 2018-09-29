@@ -101,7 +101,7 @@ $mobile_banner = ads_image(32);
                                 <span></span>
                                 <img src="{{asset($v['img2'])}}" alt="{{$v['alt2']}}">
                             </div>
-                            <div class="txt">
+                            <div class="txt mCustomScrollbar">
                                 <div class="tag">{{$v['title']}}</div>
                                 <div class="text" id="dot1">{!!nl2br($v['cat_desc'])!!}</div>
                             </div>
@@ -177,7 +177,7 @@ $mobile_banner = ads_image(32);
                 <img src="{{asset($v['img2'])}}" alt="{{$v['alt2']}}">
             </div>
             <div class="text">
-                <div class="texts-top">
+                <div class="texts-top mCustomScrollbar">
                     <div class="title">{{$v['title']}}</div>
                     <div class="txt">{!!nl2br($v['cat_desc'])!!}</div>
                 </div>

@@ -19,7 +19,7 @@
 		<div class="prolist">
 			<ul>
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
+				<li class="wow fadeInUp mCustomScrollbar light" data-wow-delay="{{($b_k+1)/10}}s">
 					<div class="pic">
 						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 					</div>
@@ -42,11 +42,11 @@
 		<div class="caseys">
 			<ul class="clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
+				<li class="wow fadeInUp " data-wow-delay="{{($b_k+1)/10}}s">
 					<div class="pic">
 						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 					</div>
-					<div class="text">
+					<div class="text mCustomScrollbar">
 						<h3>{{$b_v['title']}}</h3>
 						<div class="txt">
 							{!!nl2br($b_v['desc'])!!}
@@ -100,7 +100,7 @@
 						<div class="pic">
 							<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 						</div>
-						<div class="v_txt">
+						<div class="v_txt mCustomScrollbar">
 							<h4>{{$b_v['title']}}</h4>
 							<div class="text">
 								{!!nl2br($b_v['desc'])!!}
@@ -128,7 +128,7 @@
 						<div class="pic">
 							<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 						</div>
-						<div class="text">
+						<div class="text mCustomScrollbar2">
 							<h4>{{$b_v['title']}}</h4>
 							<div class="txt">
 								{!!nl2br($b_v['desc'])!!}
@@ -526,7 +526,7 @@
 			<div class="text">{!!nl2br($index2_box['cat_desc'])!!}</div>
 			<ul class="datalisx clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
+				<li class="wow fadeInUp mCustomScrollbar" data-wow-delay="{{($b_k+1)/10}}s">
 					<h3 style="background-image: url({{asset($b_v['img'])}});">{{$b_v['title']}}</h3>
 					<div class="td content_con">{!!$b_v['content']!!}</div>
 				</li>

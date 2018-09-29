@@ -27,6 +27,27 @@ $(document).ready(function () {
         })
     })
 
+    $(".mCustomScrollbar").mCustomScrollbar({
+        axis:"y",
+        // scrollInertia: 100,
+        scrollButtons:{
+            enable: false,
+            scrollSpeed: 20
+        },
+        theme:"dark",
+        scrollbarPosition:"outside",
+        autoHideScrollbar:true,
+    });
+    $(".mCustomScrollbar2").mCustomScrollbar({
+        axis:"y",
+        // scrollInertia: 100,
+        scrollButtons:{
+            enable: false,
+            scrollSpeed: 20
+        },
+        theme:"dark",
+        autoHideScrollbar:true,
+    });
 
     $('.hsebtn dd').click(function(){
         $(this).addClass('active').siblings().removeClass();

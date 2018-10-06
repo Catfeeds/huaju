@@ -59,7 +59,41 @@ class LoginController extends Controller
         }
         // return $Validator;
     }
-
+    /**
+     * 登陆验证重构
+     */
+    protected function attemptLogin($request){
+        $phone = [
+            'phone'=>$request['name'],
+            'password'=>$request['password'],
+        ];
+        $is_login = $this->guard()->attempt(
+            $phone,$request->filled('remember')
+        );
+        if($is_login){
+            return $is_login;
+        }
+        $email = [
+            'email'=>$request['name'],
+            'password'=>$request['password'],
+        ];
+        $is_login = $this->guard()->attempt(
+            $email,$request->filled('remember')
+        );
+        if($is_login){
+            return $is_login;
+        }
+        $name = [
+            'name'=>$request['name'],
+            'password'=>$request['password'],
+        ];
+        $is_login = $this->guard()->attempt(
+            $name,$request->filled('remember')
+        );
+        if($is_login){
+            return $is_login;
+        }
+    }
     public function showLoginForm(){
         //更改登陆页面模版路径
         if(isMobile()){

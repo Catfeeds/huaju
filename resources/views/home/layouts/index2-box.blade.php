@@ -46,9 +46,9 @@
 					<div class="pic">
 						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 					</div>
-					<div class="text mCustomScrollbar">
+					<div class="text ">
 						<h3>{{$b_v['title']}}</h3>
-						<div class="txt">
+						<div class="txt mCustomScrollbar">
 							{!!nl2br($b_v['desc'])!!}
 						</div>
 					</div>

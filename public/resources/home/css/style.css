@@ -234,6 +234,13 @@
   padding: 0 5px;
 }
 
+.serach .sbtn.active{
+  background-color: #0091de;
+}
+.serach .submit.active{
+  background-color: #0091de;
+}
+
 .serach .sbtn {
   padding: 0;
   cursor: pointer;
@@ -662,7 +669,9 @@
   -moz-transform: translate(0, -50%);
   transform: translate(0, -50%);
   margin-top: 0;
+  text-align: center;
 }
+.slicks dd .txt2{display:inline-block;text-align: left;}
 /*.slicks dd .txt {
   margin-top: 175px;
 }*/
@@ -748,6 +757,7 @@
 }
 
 @media screen and (max-width: 1180px) {
+  .slicks dd .txt2{text-align: center;}
   .banner dl dd {
     height: 530px;
   }
@@ -3051,7 +3061,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   z-index: 999;
 }
 
-.caseys ul li{height: 60px;}
+.caseys ul li{height: 80px;}
 .caseys ul li:nth-child(2n) {
   float: left;
   margin-left: 26px;
@@ -3067,13 +3077,13 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 .caseys ul li .text {
   float: right;
   width: 460px;
-  height: 60px;overflow: hidden;
+  /*height: 60px;overflow: hidden;*/
 }
 
 .caseys ul li .text h3 {
   font-size: 18px;
   color: #292929;
-  /*white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*/
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
 .caseys ul li .text .txt {
@@ -3081,7 +3091,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   font-size: 14px;
   color: #9c9c9c;
   line-height: 20px;
-  /*height: 40px;*/
+  height: 40px;
   overflow: hidden;
 }
 
@@ -3267,7 +3277,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 10px;
-    height: 148px;
+    height: 168px;
   }
   .caseys ul li .pic {
     float: none;
@@ -3672,9 +3682,13 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
     padding: 0 2%;
   }
   .loginbox .text {
+    position: static;
     width: 100%;
     float: none;
     margin-top: 30px;
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    transform: translate(0, 0);
     text-align: center;
     font-size: 40px;
   }
@@ -5326,11 +5340,16 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   background-size: cover;
   background-repeat: no-repeat
 }
-
+.nav-height{position: relative;}
 .aboutbtn {
-  position: relative;
-  margin: 40px 0;
+  position: absolute;
+  padding: 40px 0;
   text-align: center;
+  top:93px;
+  width: 100%;
+  left:0;
+  z-index: 999;
+  background-color: #fff;
 }
 
 .aboutbtn ul li {
@@ -6457,7 +6476,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     height: 110px;
   }
   .aboutbtn {
-    margin: 20px 0;
+    padding: 20px 0;
   }
   .aboutbtn ul li {
     display: block;

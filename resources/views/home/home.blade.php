@@ -18,13 +18,15 @@ $mobile_banner = ads_image(32);
         <dd style="background-image: url({{asset($v['image'])}})">
             <a @if(!empty($v['url'])) href="{{$v['url']}}" @endif>
                 <div class="txt">
-                    <div class="title">{{$v['title']}}</div>
-                    <div class="text">{{$v['desc']}}</div>
-                    @if(!empty($v['btn_title']))
-                    <span>{{$v['btn_title']}}
-                        <i class="iconfont">&#xe649;</i>
-                    </span>
-                    @endif
+                    <div class="txt2">
+                        <div class="title">{{$v['title']}}</div>
+                        <div class="text">{{$v['desc']}}</div>
+                        @if(!empty($v['btn_title']))
+                        <span>{{$v['btn_title']}}
+                            <i class="iconfont">&#xe649;</i>
+                        </span>
+                        @endif
+                    </div>
                 </div>
             </a>
         </dd>

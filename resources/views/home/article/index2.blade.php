@@ -10,7 +10,16 @@
     <div class="conBanner mobile_box" ><img src="{{asset($cate_info['mobile_banner'])}}"></div>
     @endif
     <div class="nav-height" id="navHeight">
-        <div class="aboutbtn nav-wrap"  id="nav-wrap">
+        <div class="aboutbtn nav-wrap sub_nav"  id="nav-wrap">
+            <ul class="clearfix">
+                @foreach($cate_list as $k=>$v)
+                <li>
+                    <a data-id="a_{{$k}}" @if($k==0) class="active" @endif>{{$v['title']}}</a>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+        <div class="aboutbtn nav-wrap"  id="nav-wrap" style="position:static;opacity: 0;">
             <ul class="clearfix">
                 @foreach($cate_list as $k=>$v)
                 <li>
@@ -73,7 +82,15 @@
                       ]
                 });
         })
-
+        var el3 = document.getElementById('navHeight'); 
+        $(window).scroll(function() {
+            if(el3.getBoundingClientRect().top<=$('.header').height()){
+                $(el3).find(".sub_nav").css({"position":"fixed"});
+            }else{
+                $(el3).find(".sub_nav").css({"position":"static","top":$('.header').height()});
+            }
+            
+        });
         $(".index2 .wow").removeClass("wow")
         // var navHeight= $("#navHeight").offset().top; 
         // var navFix=$("#nav-wrap"); 

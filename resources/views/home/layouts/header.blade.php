@@ -42,16 +42,17 @@
                 <div class="serach">
                     <form method="get" id="search" action="{{url("search")}}">
                         @csrf
-                        <input type="submit" name="" class="submit iconfont"  value="&#xe61e;">
+                    <div class="sbtn iconfont @if(Auth::check()) active @endif">&#xe61e;</div>
+                        <input type="submit" name="" class="submit iconfont @if(Auth::check()) active @endif"  value="&#xe61e;">
                         <input type="text" name="keyword" class="text">
                     </form>
-                    <div class="sbtn iconfont">&#xe61e;</div>
+                    <div class="sbtn iconfont @if(Auth::check()) active @endif">&#xe61e;</div>
                 </div>
             </div>
             <div class="m-nav">
                 <i></i>
             </div>
-            <div class="msbtn iconfont">&#xe61e;</div>
+            <div class="msbtn iconfont @if(Auth::check()) active @endif">&#xe61e;</div>
         </div>
     </div>
 @show

@@ -90,7 +90,7 @@ class ArticleController extends Controller
             $grid->disableExport();
             $grid->paginate(15);
             //默认排序
-            $grid->model()->orderBy('sort','DESC')->orderBy('add_time','DESC');
+            $grid->model()->orderBy('sort','DESC')->orderBy('add_time','DESC')->orderBy('id','DESC');
 
             $grid->id('ID')->sortable();
             $grid->column('title',"标题");

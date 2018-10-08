@@ -24,17 +24,17 @@
     <div class="market">
         <div class="marketTop clearfix">
             <ul class="m-btn clearfix">
-                <li>
+                <li @if(request()->activity_type==null) class="on" @endif>
                     <a href="{{url("activity")}}">全部活动</a>
                 </li>
-                <li>
+                <li @if(request()->activity_type==1) class="on" @endif>
                     <a href="{{url("activity")}}?activity_type=1">即将开始活动</a>
                 </li>
-                <li>
+                <li @if(request()->activity_type==2) class="on" @endif>
                     <a href="{{url("activity")}}?activity_type=2">已结束活动</a>
                 </li>
             </ul>
-            <div class="ser-ach clearfix">
+            <!-- <div class="ser-ach clearfix">
                 <div class="mcate">
                     <form method="get" id="logo_form" action="{{url("activity")}}">
                         @csrf
@@ -54,7 +54,24 @@
                     </form>
                 </div>
                 <div id="calendar"></div>
-                
+            </div> -->
+            <div class="activity_search">
+                <form method="get" id="logo_form" action="{{url("activity")}}">
+                    @csrf
+                    <select name="tag">
+                        <option value="">全部应用</option>
+                        @foreach($tag_list as $k=>$v)
+                        <option value="{{$v['tag']}}" @if(request()->tag==$v['tag']) selected="selected" @endif>{{$v['tag']}}</option>
+                        @endforeach
+                    </select>
+                    <select name="time">
+                        <option value="">全部时间</option>
+                        @foreach($time_list as $k=>$v)
+                        <option value="{{$v['key']}}" @if(request()->time==$v['key']) selected="selected" @endif>{{$v['val']}}</option>
+                        @endforeach
+                    </select>
+                    <input type="submit" class="submit" value="搜索">
+                </form>
             </div>
         </div>
         <div class="martlist">

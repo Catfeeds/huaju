@@ -78,7 +78,14 @@ class Activity extends Model
                     break;
             }
         }
+        if(isset($attributes['tag'])&&trim($attributes['tag'])!=''){
+            $list = $list->where('tag',$attributes['tag']);
+        }
+        if(isset($attributes['time'])&&trim($attributes['time'])!=''){
+            $list = $list->where('activity_time','<=',date("Y-m-d H:i:s",strtotime("+1 month",strtotime($attributes['time']))))->where('activity_time2','>=',date("Y-m-d",strtotime($attributes['time'])));
+        }
 
+        
         if(isset($attributes['order'])&&trim($attributes['order'])!=''){
             $list = $list->orderBy($attributes['order'],$attributes['sort']);
         }

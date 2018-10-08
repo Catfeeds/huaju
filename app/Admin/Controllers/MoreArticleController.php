@@ -105,10 +105,13 @@ class MoreArticleController extends Controller
             $form->textarea('desc','描述')->rows(3);
             $form->image('image','图片')->move('/uploads/images/'.date('Ymd'))->uniqueName()->help('宾客图片尺寸255 X 255<br/>合作伙伴图片尺寸222 X 89');
             $form->file('file','资料上传')->move('/uploads/article/'.date('Ymd'));
+            $form->image('image2','图片2')->move('/uploads/images/'.date('Ymd'))->uniqueName()->help('合作伙伴图片尺寸379 X 243');
 
             // $form->setAction('/admin/ads-image');//提交地址
 
             $form->saving(function (Form $form) {
+                $width2 = null;
+                $height2 = null;
                 switch ($form->cate_id) {
                     case '1':
                         $width = 255;
@@ -117,6 +120,8 @@ class MoreArticleController extends Controller
                     case '2':
                         $width = 222;
                         $height = 89;
+                        $width2 = 379;
+                        $height2 = 243;
                         break;
                     default:
                         $width = null;
@@ -124,6 +129,7 @@ class MoreArticleController extends Controller
                         break;
                 }
                 $form->image = Image($form->image,$width,$height,"uploads/images/".date("Ymd")."/");
+                $form->image2 = Image($form->image2,$width2,$height2,"uploads/images/".date("Ymd")."/");
 
                 if($form->file){
                     $form->file = upload_file($form->file,'/uploads/course_ware/'.date('Ymd')."/",$form->file->getClientOriginalName());

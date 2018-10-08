@@ -76,13 +76,13 @@
                             <h3>{{$v['title']}}</h3>
                         </div>
                         <div class="cos">
-                            <img src="{{asset('resources/home/images/ssf.jpg')}}">
+                            <img src="{{asset($v['image2'])}}">
                         </div>
                     </li>
                     @else
                     <li>
                         <div class="cos">
-                            <img src="{{asset('resources/home/images/ssf.jpg')}}">
+                            <img src="{{asset($v['image2'])}}">
                         </div>
                         <div class="col">
                             <div class="pt" style="background-image: url({{asset($v['image'])}});"></div>

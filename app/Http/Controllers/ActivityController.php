@@ -30,18 +30,45 @@ class ActivityController extends Controller
             "activity_type" => $request['activity_type'],
             "search_type"   => $request['search_type'],
             "keyword"       => $request['keyword'],
-            "start_time"       => $request['start_time'],
-            "end_time"       => $request['end_time'],
+            "start_time"    => $request['start_time'],
+            "end_time"      => $request['end_time'],
+            "tag"           => $request['tag'],
+            "time"          => $request['time'],
             'paginate'      => 6,
         ]);
         $cate_tree_on = ['artivity'];
+
+        //获取应用和日期选项
+        $tag_list = Activity::groupBy('tag')->get();
+
+        $time_arr = Activity::ActivityList([
+            'paginate' => 0,
+        ]);
+        $time_list = [];
+        foreach($time_arr as $v){
+            $time1 = date("Y-m",strtotime($v['activity_time']));
+            $time2 = date("Y-m",strtotime($v['activity_time2']));
+            $monarr = $time1;
+            while($monarr <= $time2){
+                $time_list[$monarr]['val'] = date("Y年m月",strtotime($monarr));
+                $time_list[$monarr]['key'] = $monarr;
+                $monarr = date("Y-m",strtotime("+1 month",strtotime($monarr)));
+            }
+        }
+        rsort($time_list);
+
         $assign = [
-            'activity_list'       =>$activity_list,
-            'cate_tree_on'       =>$cate_tree_on,
-            'head_title'         => "活动",
-            'head_keywords'      => !empty($cate_info['seo_keywords'])?$cate_info['seo_keywords']:$cate_info['title'],
-            'head_description'   => !empty($cate_info['seo_description'])?$cate_info['seo_description']:$cate_info['title'],
+            'activity_list'    =>$activity_list,
+            'tag_list'         =>$tag_list,
+            'time_list'        =>$time_list,
+            'cate_tree_on'     =>$cate_tree_on,
+            'head_title'       => "活动",
+            'head_keywords'    => !empty($cate_info['seo_keywords'])?$cate_info['seo_keywords']:$cate_info['title'],
+            'head_description' => !empty($cate_info['seo_description'])?$cate_info['seo_description']:$cate_info['title'],
         ];
+
+        
+
         if(isMobile()){
             return view('mobile.article.activity',$assign);
         }else{

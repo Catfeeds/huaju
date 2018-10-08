@@ -200,6 +200,8 @@ class ActivityController extends Controller
             $form->image('mobile_banner','手机banner图')->move('/uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片量尺寸750*545');
             $form->image('ewm','二维码')->move('/uploads/article/'.date('Ymd'))->uniqueName()->help('图片尺寸 200 X 200');
 
+            $form->text('tag','应用');
+
             $form->saving(function (Form $form) {
                 if($form->video){
                     $form->video = upload_file($form->video);

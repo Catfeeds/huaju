@@ -92,10 +92,24 @@ return [
 		'index2-shixijidi'           => '0',
 	],
 	'cate_width'=>[
-
+		'product'                    => '1920',
+		'news'                       => '1920',
+		'service'                    => '1920',
+		'problem'                    => '1920',
+		'qualification'              => '1920',
+		'anli'                       => '1920',
+		'index2'                     => '1920',
+		'index2-zhaoping-shijisheng' => '700',
 	],
 	'cate_height'=>[
-		
+		'product'                    => '335',
+		'news'                       => '335',
+		'service'                    => '335',
+		'problem'                    => '335',
+		'qualification'              => '335',
+		'anli'                       => '335',
+		'index2'                     => '335',
+		'index2-zhaoping-shijisheng' => '503',
 	],
 	'cate2_width'=>[
 		'product'=>'285',
@@ -112,5 +126,24 @@ return [
 	'cate_p2_height'=>[
 		'product'=>'215',
 		'service'=>'207',
+	],
+
+	'mobile_banner_width'=>[
+		'product'                    => '750',
+		'news'                       => '750',
+		'service'                    => '750',
+		'problem'                    => '750',
+		'qualification'              => '750',
+		'anli'                       => '750',
+		'index2'                     => '750',
+	],
+	'mobile_banner_height'=>[
+		'product'                    => '600',
+		'news'                       => '600',
+		'service'                    => '600',
+		'problem'                    => '600',
+		'qualification'              => '600',
+		'anli'                       => '600',
+		'index2'                     => '600',
 	],
 ];

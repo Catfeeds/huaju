@@ -141,7 +141,7 @@ EOT;
             $form->text('alt', '图片alt');
             $form->image('img2', '图片2')->move('/uploads/article/'.date('Ymd'))->uniqueName()->help("服务图片尺寸370 X 207<br/>　方案图片尺寸285 X 215");
             $form->text('alt2', '图片2alt');
-            $form->image('mobile_banner', '手机banner')->move('/uploads/article/'.date('Ymd'))->uniqueName();
+            $form->image('mobile_banner', '手机banner')->move('/uploads/article/'.date('Ymd'))->uniqueName()->help("图片尺寸750 X 600");
 
             // $form->display('created_at', '创建日期');
             // $form->display('updated_at', '更新日期');
@@ -168,6 +168,13 @@ EOT;
                 if($width>0||$height>0){
                     $form->img2 = Image($form->img2,$width,$height,"uploads/article/".date("Ymd")."/");
                 }
+
+                $mobile_banner_width = trans('template.mobile_banner_width.'.$form->template)>0?trans('template.mobile_banner_width.'.$form->template):null;
+                $mobile_banner_height = trans('template.mobile_banner_height.'.$form->template)>0?trans('template.mobile_banner_height.'.$form->template):null;
+                if($mobile_banner_width>0||$mobile_banner_height>0){
+                    $form->mobile_banner = Image($form->mobile_banner,$mobile_banner_width,$mobile_banner_height,"uploads/article/".date("Ymd")."/");
+                }
+
 
             });
             $form->saved(function (Form $form) {

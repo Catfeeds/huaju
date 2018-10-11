@@ -155,7 +155,7 @@ $(document).ready(function () {
         ]
     });
     $('.nwslick .slics').slick({
-        dots: false,
+        dots: true,
         autoplay: true,
         infinite: false,
         arrows:false

@@ -22,16 +22,16 @@ class SmsController extends Controller
     public function register_sms_send(Request $request){
         $this->validate($request,[
             'phone'   => 'required|phone|unique:users',
-            'captcha' => 'required|captcha',
+            // 'captcha' => 'required|captcha',
         ],[],[
             'phone'=>"手机号码",
-            'captcha'=>"验证码",
+            // 'captcha'=>"验证码",
         ]);
         $sms = SmsCaptcha::smsSend($request['phone']);
         if(!$sms){
             return render("请求过多,请稍后重试",500);
         }
-        return render("验证码发送成功",200,$sms);
+        return render("验证码发送成功",200);
     }
     public function password_reset_sms_send(Request $request){
         $this->validate($request,[

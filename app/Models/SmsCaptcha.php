@@ -17,8 +17,8 @@ class SmsCaptcha extends Model
         $count = SmsCaptcha::where('add_time',">",strtotime(date('Y-m-d')))->where(function($query){
         	$query->where('phone',$phone)->orWhere('ip',$ip);
         })->count();
-        if($count>5){
-        	//每天5次验证码
+        if($count>10){
+        	//每天10次验证码
         	return false;
         }
         $count = SmsCaptcha::where('add_time',">",time()-60)->where(function($query){
@@ -36,7 +36,11 @@ class SmsCaptcha extends Model
         $add_arr->ip = $ip;
         $add_arr->save();
         //发送邮件
-        //xxxx();
+        $sms = sms_send($phone,"您的验证码为".$add_arr->captcha."，在30分钟内有效。如非本人操作请忽略本短信。");
+        if(!$sms){
+            //发送失败
+            return false;
+        }
         return $add_arr;
     }
     

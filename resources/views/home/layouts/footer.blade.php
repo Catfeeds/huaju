@@ -116,33 +116,33 @@
         {{ConfigGet('copyright')}}
         <span><a href="http://www.miitbeian.gov.cn" target="_blank">{{ConfigGet('beian')}}</a></span>
     </div>
-    <div id="toTop" class="iconfont">
-        <div href="jacascript::void(0)" class="email iconfont no_click" index="0">
-            <span>&#xe6f2;</span>
+    <div id="toTop" class="">
+        <div href="jacascript::void(0)" class="email iconfont2 no_click" index="0">
+            <span class="iconfont">&#xe6f2;</span>
             <div class="sa sa1">
                 {!!nl2br(ConfigGet('r_mail'))!!}
             </div>
         </div>
-        <div href="jacascript::void(0)" class="iconfont no_click tel " index="1">
-            <span>&#xe635;</span>
+        <div href="jacascript::void(0)" class="iconfont2 no_click tel " index="1">
+            <span class="iconfont">&#xe635;</span>
             <div class="sa sa2">
                 {!!nl2br(ConfigGet('r_tel'))!!}
             </div>
         </div>
-        <div href="jacascript::void(0)" class="qrcode iconfont no_click" index="2">
-            <span>&#xe726;</span>
+        <div href="jacascript::void(0)" class="qrcode iconfont2 no_click" index="2">
+            <span class="iconfont">&#xe726;</span>
             <div class="sa sa3">
                 <img src="{{asset(ConfigGet('ewm3'))}}">
                 <span>华矩微信服务号</span>
             </div>
         </div>
         <span class="bdsharebuttonbox">
-            <a class="iconfont bds_more" data-cmd="more">&#xe610;</a>
+            <a class="iconfont2 bds_more iconfont" data-cmd="more">&#xe610;</a>
         </span>
         @if(isset($collection_id)&&$collection_id>0)
-            <div class="iconfont shouchang2 @if(isset($collection_on)&&$collection_on>0) icon-yduixingxingshixin @else icon-yduixingxingkongxin @endif" data-id={{$collection_id}} data-type='{{$collection_type}}'></div>
+            <div class="iconfont2 shouchang2 @if(isset($collection_on)&&$collection_on>0) icon-yduixingxingshixin @else icon-yduixingxingkongxin @endif" data-id={{$collection_id}} data-type='{{$collection_type}}'></div>
         @endif
-        <div href="jacascript::void(0)" class="iconfont" id="tops">&#xe60f;</div>
+        <div href="jacascript::void(0)" class="iconfont2 iconfont" id="tops">&#xe60f;</div>
     </div>
 
     <div class="fade"></div>

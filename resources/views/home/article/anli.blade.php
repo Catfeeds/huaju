@@ -221,6 +221,7 @@
                   success:function(data){
                     $('#user_id').val(1);
                     $(".loginBtn").addClass('active');
+                    $(".serach .sbtn").addClass('active');
                     $('.showBox,.fide').fadeOut()
                   },
                   error:function(data){

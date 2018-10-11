@@ -160,7 +160,7 @@ $(document).ready(function () {
         infinite: false,
         arrows:false
     })
-    $('.scenariolist ').slick({
+    $('.scenariolist').slick({
         dots: false,
         infinite: false,
         speed: 300,

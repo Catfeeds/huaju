@@ -114,7 +114,7 @@
             }
         })
         function captcha_up(){
-            $(".get-msg").val("")
+            $(".get-msg").val(t)
             sint = setInterval(function(){
               $(".get-msg").val(t--);
               if(t<=0){

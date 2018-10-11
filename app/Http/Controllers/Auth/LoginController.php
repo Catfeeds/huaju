@@ -73,16 +73,16 @@ class LoginController extends Controller
         if($is_login){
             return $is_login;
         }
-        $email = [
-            'email'=>$request['name'],
-            'password'=>$request['password'],
-        ];
-        $is_login = $this->guard()->attempt(
-            $email,$request->filled('remember')
-        );
-        if($is_login){
-            return $is_login;
-        }
+        // $email = [
+        //     'email'=>$request['name'],
+        //     'password'=>$request['password'],
+        // ];
+        // $is_login = $this->guard()->attempt(
+        //     $email,$request->filled('remember')
+        // );
+        // if($is_login){
+        //     return $is_login;
+        // }
         $name = [
             'name'=>$request['name'],
             'password'=>$request['password'],

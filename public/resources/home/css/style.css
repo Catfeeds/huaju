@@ -659,6 +659,7 @@
 }
 .index_banner{height: calc(100% - 93px);}
 .index_banner .slick-list,.index_banner .slick-track,.index_banner dl,.index_banner dl dd{height: 100%;}
+.slick-track{margin:0 auto;}
 .slicks dd .txt {
   width: 1180px;
   margin: 0 auto;
@@ -1570,7 +1571,7 @@
 
 .contants .txt .code .col i {
   margin-right: 7px;
-  color: #747579;
+  color: #909090;
 }
 
 .mdeia {
@@ -1588,7 +1589,7 @@
 
 .mdeia .txt .code .wz {
   font-size: 14px;
-  color: #747579;
+  color: #909090;
   line-height: 25px;
 overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
 }
@@ -1754,7 +1755,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 .qrcode:hover .sa3{display: block;}
 
 
-#toTop .iconfont {
+#toTop .iconfont2 {
   width: 45px;
   height: 45px;
   border-bottom: 1px solid #d1d7dd;
@@ -1763,8 +1764,8 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   font-size: 24px;
   color: #3f4042
 }
-
-#toTop .iconfont:hover {
+#toTop .iconfont2 .iconfont{font-size: 100%;}
+#toTop .iconfont2:hover {
   color: #fff;
   background: #0093dd
 }
@@ -3621,7 +3622,11 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   float: left;
   color: #fff;
 }
-
+.logins{position: relative;}
+.radio_box{text-align: center;color: #fff;position: absolute;top:10px;width: 100%;}
+.radio_box label{margin:0 8px;}
+.radio_box input{margin-right:4px;vertical-align: middle;}
+.showbox .mz.dxyzm label{line-height: 20px;}
 .showbox .mz input {
   display: block;
   outline: none;
@@ -4302,7 +4307,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 }
 
 .serive ul li .text {
-  font-size: 16px;
+  font-size: 12px;
   color: #909090;
   line-height: 25px;
   /*height: 125px;

@@ -60,8 +60,8 @@ class RegisterController extends Controller
             'name'     => 'required|string|min:6|max:25|unique:users',
             'phone'    => 'required|phone|max:255|unique:users',
             'password' => 'required|string|min:6|max:25',
-            'email'    => 'required|email|unique:users',
-            // 'captcha' => 'required|captcha',
+            'email'    => 'required|email',
+            'verify_code' => 'required',
             // 'xieyi'       => 'required',
         ],[
         ],[
@@ -69,22 +69,23 @@ class RegisterController extends Controller
             'phone'    => '手机号',
             'email'    => '邮箱',
             'password' => '密码',
+            'verify_code' => '验证码',
         ]);
         
-        // $SmsCaptcha = SmsCaptcha::where([
-        //     'phone'=>$data['phone'],
-        //     'captcha'=>$data['verify_code'],
-        //     'status'=>1,
-        // ])->where('add_time',">",time()-1800)->first();
-        // $Validator->after(function($validator) use ($SmsCaptcha){
-        //     if(!$SmsCaptcha){
-        //         $validator->errors()->add('verify_code', '短信验证码过期或不存在，请重新获取');
-        //     }
-        // });
-        // if(!$Validator->errors()->messages()&&!$Validator->fails()){
-        //     $SmsCaptcha->status=2;
-        //     $SmsCaptcha->save();
-        // }
+        $SmsCaptcha = SmsCaptcha::where([
+            'phone'=>$data['phone'],
+            'captcha'=>$data['verify_code'],
+            'status'=>1,
+        ])->where('add_time',">",time()-1800)->first();
+        $Validator->after(function($validator) use ($SmsCaptcha){
+            if(!$SmsCaptcha){
+                $validator->errors()->add('verify_code', '短信验证码过期或不存在，请重新获取');
+            }
+        });
+        if(!$Validator->errors()->messages()&&!$Validator->fails()){
+            $SmsCaptcha->status=2;
+            $SmsCaptcha->save();
+        }
         return $Validator;
     }
 

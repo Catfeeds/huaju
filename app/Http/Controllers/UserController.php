@@ -392,4 +392,39 @@ class UserController extends Controller
         
         return redirect()->back();
     }
+
+
+    public function login2(Request $request){
+        //手机号码验证登陆
+        $Validator = Validator::make($request->all(), [
+            'phone'       => 'required|phone',
+            'verify_code' => 'required',
+        ],[
+        ],[
+            'phone'       => '手机号',
+            'verify_code' => '验证码',
+        ]);
+        $user_info = User::where('phone',$request['phone'])->first();
+        if(!$user_info){
+            $Validator->after(function($validator){
+                $validator->errors()->add('phone', '该手机号还未注册');
+            });
+        }
+        $SmsCaptcha = SmsCaptcha::where([
+            'phone'=>$request['phone'],
+            'captcha'=>$request['verify_code'],
+            'status'=>1,
+        ])->where('add_time',">",time()-1800)->first();
+        $Validator->after(function($validator) use ($SmsCaptcha){
+            if(!$SmsCaptcha){
+                $validator->errors()->add('verify_code', '短信验证码过期或不存在，请重新获取');
+            }
+        });
+        // dd($Validator->errors()->messages());
+        if($Validator->errors()->messages()||$Validator->fails()){
+            return redirect()->back()->withErrors($Validator)->withInput();
+        }
+        Auth::login($user_info);
+        return redirect()->intended();
+    }
 }

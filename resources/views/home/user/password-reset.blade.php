@@ -99,7 +99,7 @@
                 success:function(data){
                     if(data.code==200){
                         // alert(data.message+data.data.captcha);
-                        layer.msg(data.message+data.data.captcha);
+                        layer.msg(data.message);
                         t=60;
                         captcha_up();
                     }else{
@@ -125,7 +125,7 @@
         }
     })
     function captcha_up(){
-        $(".get-msg").val("")
+        $(".get-msg").val(t)
         sint = setInterval(function(){
           $(".get-msg").val(t--);
           if(t<=0){

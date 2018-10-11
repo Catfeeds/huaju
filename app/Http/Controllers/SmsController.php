@@ -49,7 +49,7 @@ class SmsController extends Controller
         if(!$sms){
             return render("请求过多,请稍后重试",500);
         }
-        return render("验证码发送成功",200,$sms);
+        return render("验证码发送成功",200);
     }
     public function bangding_sms_send(Request $request){
 
@@ -64,7 +64,7 @@ class SmsController extends Controller
         if(!$sms){
             return render("请求过多,请稍后重试",500);
         }
-        return render("验证码发送成功",200,$sms);
+        return render("验证码发送成功",200);
     }
     public function password_sms_send(Request $request){
         $user_info = Auth::user();
@@ -75,6 +75,6 @@ class SmsController extends Controller
         if(!$sms){
             return render("请求过多,请稍后重试",500);
         }
-        return render("验证码发送成功",200,$sms);
+        return render("验证码发送成功",200);
     }
 }

@@ -33,6 +33,8 @@ Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 Route::get('search', 'HomeController@search');
 Route::post('apply-save','ApplyController@apply_save');//申请提交
+
+
 // Route::post('recruitment-apply-save','RecruitmentApplyController@recruitment_apply_save');//申请提交
 
 Route::post('register-sms-send','SmsController@register_sms_send');//发送注册短信验证码
@@ -41,6 +43,7 @@ Route::post('password-reset-sms-send','SmsController@password_reset_sms_send');/
 Route::get('password-reset','UserController@password_reset');//密码页面
 Route::post('password-reset','UserController@password_reset_save');//密码密码
 Route::any('unique-user','UserController@unique_user');//ajax验证用户唯一
+Route::post('login2','UserController@login2');//验证码登陆验证
 
 // Route::get('video-list','VideoController@video_list');//视频课程
 // Route::get('video-info/{id}','VideoController@video_info');//视频课程详情

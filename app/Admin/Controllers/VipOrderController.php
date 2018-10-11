@@ -150,7 +150,7 @@ class VipOrderController extends Controller
             $form->select('cate_id','所属分类')->options($cate_options)->rules('required')->default($request['cate_id']);
 
             $form->select('type','类型')->options(trans("home.VipOrder.type"))->default(1);
-            $form->image('img','图片')->move('/uploads/VipOrder/'.date('Ymd'))->uniqueName();
+            $form->image('img','图片')->move('uploads/VipOrder/'.date('Ymd'))->uniqueName();
             $form->text('alt','图片alt');
             $form->textarea('desc','描述')->rows(3);
             $form->editor('content','内容');
@@ -167,7 +167,7 @@ class VipOrderController extends Controller
 
             // $form->textarea('desc2','描述2')->rows(3);
             
-            // $form->image('img2','图片2')->move('/uploads/article/'.date('Ymd'))->uniqueName();
+            // $form->image('img2','图片2')->move('uploads/article/'.date('Ymd'))->uniqueName();
             // $form->text('alt2','图片2alt');
             // // $form->number('click','访问量');
             // // $form->text('editor','来源')->default('萌货国际烘焙');

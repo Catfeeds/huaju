@@ -121,7 +121,7 @@ EOT;
             $form->text('title2', '名称2');
             $form->text('en_title','英文名称');
             // $form->text('video','视频链接');
-            $form->file('file','资料上传')->move('/uploads/article/'.date('Ymd'));
+            $form->file('file','资料上传')->move('uploads/article/'.date('Ymd'));
             $form->select('template', '模版')->options(trans('template.template'));
             // $form->text('url', '链接标识')->help('不可输入中文，必须英文标签，这里输入的标签会影响访问链接');
             $form->select('parent_id', '所属分类')->options(ArticleCategory::selectOptions());
@@ -137,17 +137,17 @@ EOT;
             $form->text('seo_title', 'seo title');
             $form->text('seo_keywords', 'seo keywords');
             $form->text('seo_description', 'seo description');
-            $form->image('img', '图片')->move('/uploads/article/'.date('Ymd'))->uniqueName()->help('产品OR方案OR服务OR新闻OR案例 图片尺寸1920 X 335<br/>　人才OR简介 图片尺寸1920 X 335<br/>　实习生计划 图片尺寸700 X 503');
+            $form->image('img', '图片')->move('uploads/article/'.date('Ymd'))->uniqueName()->help('产品OR方案OR服务OR新闻OR案例 图片尺寸1920 X 335<br/>　人才OR简介 图片尺寸1920 X 335<br/>　实习生计划 图片尺寸700 X 503');
             $form->text('alt', '图片alt');
-            $form->image('img2', '图片2')->move('/uploads/article/'.date('Ymd'))->uniqueName()->help("服务图片尺寸370 X 207<br/>　方案图片尺寸285 X 215");
+            $form->image('img2', '图片2')->move('uploads/article/'.date('Ymd'))->uniqueName()->help("服务图片尺寸370 X 207<br/>　方案图片尺寸285 X 215");
             $form->text('alt2', '图片2alt');
-            $form->image('mobile_banner', '手机banner')->move('/uploads/article/'.date('Ymd'))->uniqueName()->help("图片尺寸750 X 600");
+            $form->image('mobile_banner', '手机banner')->move('uploads/article/'.date('Ymd'))->uniqueName()->help("图片尺寸750 X 600");
 
             // $form->display('created_at', '创建日期');
             // $form->display('updated_at', '更新日期');
             $form->saving(function (Form $form) {
                 if($form->file){
-                    $form->file = upload_file($form->file,'/uploads/course_ware/'.date('Ymd')."/",$form->file->getClientOriginalName());
+                    $form->file = upload_file($form->file,'uploads/course_ware/'.date('Ymd')."/",$form->file->getClientOriginalName());
                 }
 
                 $width = trans('template.cate_width.'.$form->template)>0?trans('template.cate_width.'.$form->template):null;

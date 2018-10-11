@@ -166,7 +166,7 @@ class ActivityController extends Controller
             $form->switch('is_apply','报名')->states($states);
 
             $form->editor('content','内容');
-            $form->image('img','图片')->move('/uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片尺寸377*158');
+            $form->image('img','图片')->move('uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片尺寸377*158');
             $form->text('alt','图片alt');
 
             $form->text('seo_title','seo title');
@@ -175,7 +175,7 @@ class ActivityController extends Controller
 
             // $form->text('address', '地址');
             $form->textarea('desc2','参会指引')->rows(3);
-            $form->image('img2','参会指引图片')->move('/uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片尺寸680*310');
+            $form->image('img2','参会指引图片')->move('uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片尺寸680*310');
             $form->text('alt2','参会指引图片alt');
             $form->text('url', '外部报名链接');
 
@@ -196,9 +196,9 @@ class ActivityController extends Controller
             $form->multipleSelect('news_related',"专题报道")->options($news_related_list);
             // }
 
-            $form->image('banner','banner图')->move('/uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片尺寸1920*600');
-            $form->image('mobile_banner','手机banner图')->move('/uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片量尺寸750*545');
-            $form->image('ewm','二维码')->move('/uploads/article/'.date('Ymd'))->uniqueName()->help('图片尺寸 200 X 200');
+            $form->image('banner','banner图')->move('uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片尺寸1920*600');
+            $form->image('mobile_banner','手机banner图')->move('uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片量尺寸750*545');
+            $form->image('ewm','二维码')->move('uploads/article/'.date('Ymd'))->uniqueName()->help('图片尺寸 200 X 200');
 
             $form->text('tag','应用');
 

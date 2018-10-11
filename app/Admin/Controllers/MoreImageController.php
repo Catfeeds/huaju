@@ -103,7 +103,7 @@ class MoreImageController extends Controller
             $form->text('alt', 'alt');
             $form->number('order', '排序');
             // $form->text('url', '链接');
-            $form->image('image','图片')->move('/uploads/images/'.date('Ymd'))->uniqueName()->help('薪酬福利图片尺寸575 X 292');
+            $form->image('image','图片')->move('uploads/images/'.date('Ymd'))->uniqueName()->help('薪酬福利图片尺寸575 X 292');
 
             // $form->setAction('/admin/ads-image');//提交地址
 

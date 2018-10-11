@@ -105,7 +105,7 @@ class AdsImageController extends Controller
             $form->number('order', '排序');
             $form->text('url', '链接');
             $form->text('btn_title', '按钮名称');
-            $form->image('image','图片')->move('/uploads/images/'.date('Ymd'))->uniqueName();
+            $form->image('image','图片')->move('uploads/images/'.date('Ymd'))->uniqueName();
 
             // $form->setAction('/admin/ads-image');//提交地址
 

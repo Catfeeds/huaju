@@ -101,7 +101,7 @@ class MoreVideoController extends Controller
             $form->text('title', '标题');
             $form->number('order', '排序');
             $form->text('video', '视频链接');
-            $form->image('image','图片')->move('/uploads/images/'.date('Ymd'))->uniqueName();
+            $form->image('image','图片')->move('uploads/images/'.date('Ymd'))->uniqueName();
 
             // $form->setAction('/admin/ads-image');//提交地址
 

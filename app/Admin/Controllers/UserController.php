@@ -129,7 +129,7 @@ class UserController extends Controller
      */
     protected function form(){
         return Admin::form(User::class, function (Form $form) {
-            // $form->image('pic','头像')->move('/uploads/user/'.date('Ymd'))->uniqueName();
+            // $form->image('pic','头像')->move('uploads/user/'.date('Ymd'))->uniqueName();
 
             // $form->text('name', '帐号')->rules(function ($form) {
             //     // 如果不是编辑状态，则添加字段唯一验证

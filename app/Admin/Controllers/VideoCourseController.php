@@ -98,10 +98,10 @@ class VideoCourseController extends Controller
 
             $form->text('title', '标题');
             $form->text('video_text', '视音频链接');
-            $form->file('video','视音频')->move('/uploads/video/'.date('Ymd'))->uniqueName()->options(['maxFileSize'=>1024*10,'msgSizeTooLarge'=>'文件 "{name}" ({size} KB) 超出允许的最大上传大小 {maxSize} KB. 请重试上传！']);
+            $form->file('video','视音频')->move('uploads/video/'.date('Ymd'))->uniqueName()->options(['maxFileSize'=>1024*10,'msgSizeTooLarge'=>'文件 "{name}" ({size} KB) 超出允许的最大上传大小 {maxSize} KB. 请重试上传！']);
             $form->text('try_video_text', '试看视音频链接');
-            $form->file('try_video','试看视音频')->move('/uploads/video/'.date('Ymd'))->uniqueName()->options(['maxFileSize'=>1024*10,'msgSizeTooLarge'=>'文件 "{name}" ({size} KB) 超出允许的最大上传大小 {maxSize} KB. 请重试上传！']);
-            // $form->image('image','图片')->move('/uploads/images/'.date('Ymd'))->uniqueName();
+            $form->file('try_video','试看视音频')->move('uploads/video/'.date('Ymd'))->uniqueName()->options(['maxFileSize'=>1024*10,'msgSizeTooLarge'=>'文件 "{name}" ({size} KB) 超出允许的最大上传大小 {maxSize} KB. 请重试上传！']);
+            // $form->image('image','图片')->move('uploads/images/'.date('Ymd'))->uniqueName();
 
             // $form->setAction('/admin/ads-image');//提交地址
 

@@ -156,7 +156,7 @@ class ArticleController extends Controller
             $form->hidden('id','ID');
             $form->text('title','标题')->rules('required');
             $form->text('title2','副标题');
-            $form->file('file','资料上传')->move('/uploads/article/'.date('Ymd'));
+            $form->file('file','资料上传')->move('uploads/article/'.date('Ymd'));
             // $form->text('en_title','英文标题');
 
             $cate = ArticleCategory::orderBy('order',"ASC")->orderBy('id',"ASC")->get()->toarray();
@@ -171,9 +171,9 @@ class ArticleController extends Controller
             $form->textarea('desc','描述')->rows(3);
             $form->textarea('desc2','描述2')->rows(3);
             $form->editor('content','内容');
-            $form->image('img','图片')->move('/uploads/article/'.date('Ymd'))->uniqueName()->help('荣誉资质图片量尺寸左侧 151 X 54，右侧 252 X 346');
+            $form->image('img','图片')->move('uploads/article/'.date('Ymd'))->uniqueName()->help('荣誉资质图片量尺寸左侧 151 X 54，右侧 252 X 346');
             $form->text('alt','图片alt');
-            $form->image('img2','图片2')->move('/uploads/article/'.date('Ymd'))->uniqueName()->help('品牌架构图片量尺寸 71 X 71');
+            $form->image('img2','图片2')->move('uploads/article/'.date('Ymd'))->uniqueName()->help('品牌架构图片量尺寸 71 X 71');
             $form->text('alt2','图片2alt');
             // $form->currency('price','价格');
             $form->text('url', '链接');
@@ -192,7 +192,7 @@ class ArticleController extends Controller
             $form->text('seo_description', 'seo description');
             // $form->text('job_title', '职称');
             // $form->text('video_text', '视频链接');
-            // $form->file('video','视频')->move('/uploads/video/'.date('Ymd'))->uniqueName()->options(['maxFileSize'=>1024*10,'msgSizeTooLarge'=>'文件 "{name}" ({size} KB) 超出允许的最大上传大小 {maxSize} KB. 请重试上传！']);
+            // $form->file('video','视频')->move('uploads/video/'.date('Ymd'))->uniqueName()->options(['maxFileSize'=>1024*10,'msgSizeTooLarge'=>'文件 "{name}" ({size} KB) 超出允许的最大上传大小 {maxSize} KB. 请重试上传！']);
             // $form->slider('video','视频')->options(['max' => 100, 'min' => 1, 'step' => 1, 'postfix' => 'years old']);
 
 
@@ -245,7 +245,7 @@ class ArticleController extends Controller
                     $form->img = Image($form->img,$width,$height,"uploads/article/".date("Ymd")."/");
                 }
                 if($form->file){
-                    $form->file = upload_file($form->file,'/uploads/course_ware/'.date('Ymd')."/",$form->file->getClientOriginalName());
+                    $form->file = upload_file($form->file,'uploads/course_ware/'.date('Ymd')."/",$form->file->getClientOriginalName());
                 }
             });
             $form->saved(function (Form $form) {

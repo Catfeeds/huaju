@@ -123,6 +123,7 @@ EOT;
             // $form->text('video','视频链接');
             $form->file('file','资料上传')->move('uploads/article/'.date('Ymd'));
             $form->select('template', '模版')->options(trans('template.template'));
+            $form->text('url', '链接');
             // $form->text('url', '链接标识')->help('不可输入中文，必须英文标签，这里输入的标签会影响访问链接');
             $form->select('parent_id', '所属分类')->options(ArticleCategory::selectOptions());
 

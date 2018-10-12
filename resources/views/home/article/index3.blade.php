@@ -38,8 +38,8 @@
     <script type="text/javascript">
         var el3 = document.getElementById('navHeight'); 
         $(window).scroll(function() {
-            if(el3.getBoundingClientRect().top<=$('.header').height()){
-                $(el3).find(".sub_nav").css({"position":"fixed","top":$('.header').height()});
+            if(el3.getBoundingClientRect().top<=$('.header-feixd').height()){
+                $(el3).find(".sub_nav").css({"position":"fixed","top":$('.header-feixd').height()});
             }else{
                 $(el3).find(".sub_nav").css({"position":"absolute","top":0});
             }

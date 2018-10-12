@@ -7,8 +7,8 @@
     <div class="conBanner2 pc_box" style="background-image: url({{asset($info['banner'])}});">
         <div class="conText">
             <div class="txt">
-                <h4>{{$info['title']}}</h4>
-                <h1>{{$info['title2']}}</h1>
+                <h4>{{$info['title2']}}</h4>
+                <h1>{{$info['title']}}</h1>
                 <div class="time">
                     <span>{{date('Y · m · d',strtotime($info['activity_time']))}}</span>
                     <span> 中国 {{$info['CityTo']['region_name']}}</span>

@@ -323,7 +323,7 @@ img{max-width: 100%;}
 
 
 .activity_search{float: right;font-size: 14px;}
-.activity_search select{width: 123px;line-height: 38px;height: 38px;border:1px solid #cccccc;float: left;margin-right: 13px;color: #000;padding-left: 10px;padding-right: 25px;}
+.activity_search select{width: 123px;line-height: 38px;height: 38px;border:1px solid #cccccc;float: left;margin-right: 13px;color: #000;padding-left: 10px;padding-right: 20px;}
 .activity_search .submit{line-height:39px;width: 52px;background-color: #0093dd;color: #fff;text-align: center;float: left;border:0;cursor: pointer;}
 @media screen and (max-width: 1480px) {
   .goods .ptc{width:485px;height:344px;}

@@ -12,18 +12,18 @@
     <div class="nav-height" id="navHeight">
         <div class="aboutbtn nav-wrap sub_nav"  id="nav-wrap">
             <ul class="clearfix">
-                @foreach($cate_list as $k=>$v)
+                @foreach($sub_nav as $k=>$v)
                 <li>
-                    <a data-id="a_{{$k}}" @if($k==0) class="active" @endif>{{$v['title']}}</a>
+                    <a data-id="a_{{$k}}" href="{{URL('category',[$v['id']])}}" @if($v['id']==$cate_info['id']) class="active" @endif>{{$v['title']}}</a>
                 </li>
                 @endforeach
             </ul>
         </div>
         <div class="aboutbtn nav-wrap"  id="nav-wrap" style="position:static;opacity: 0;">
             <ul class="clearfix">
-                @foreach($cate_list as $k=>$v)
+                @foreach($sub_nav as $k=>$v)
                 <li>
-                    <a data-id="a_{{$k}}" @if($k==0) class="active" @endif>{{$v['title']}}</a>
+                    <a data-id="a_{{$k}}" href="{{URL('category',[$v['id']])}}" @if($v['id']==$cate_info['id']) class="active" @endif>{{$v['title']}}</a>
                 </li>
                 @endforeach
             </ul>
@@ -39,53 +39,53 @@
     @parent
     <script type="text/javascript">
         $("#a_0").show();
-        $("#navHeight a").click(function(){
-            $(".index2").children("div").hide();
-            $("#"+$(this).attr('data-id')).show();
-            $("#navHeight a").removeClass("active");
-            $(this).addClass("active");
-            $(window).trigger("resize");
-            $('.stop').slick('unslick');
-            $('.stop').slick({
-                dots: false,
-                slidesToShow:2,
-                responsive: [
-                    {
-                      breakpoint: 768,
-                      settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2
-                      }
-                    }
-                  ]
-            });
+        // $("#navHeight a").click(function(){
+        //     $(".index2").children("div").hide();
+        //     $("#"+$(this).attr('data-id')).show();
+        //     $("#navHeight a").removeClass("active");
+        //     $(this).addClass("active");
+        //     $(window).trigger("resize");
+        //     $('.stop').slick('unslick');
+        //     $('.stop').slick({
+        //         dots: false,
+        //         slidesToShow:2,
+        //         responsive: [
+        //             {
+        //               breakpoint: 768,
+        //               settings: {
+        //                 slidesToShow: 2,
+        //                 slidesToScroll: 2
+        //               }
+        //             }
+        //           ]
+        //     });
             
-            $('.srt').slick('unslick');
-            $('.srt').slick({
-                    dots: false,
-                    slidesToShow:2,
-                    responsive: [
-                        {
-                          breakpoint: 768,
-                          settings: {
-                            slidesToShow:1,
-                            slidesToScroll: 1
-                          }
-                        },
-                        {
-                          breakpoint: 460,
-                          settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                          }
-                        }
-                      ]
-                });
-        })
+        //     $('.srt').slick('unslick');
+        //     $('.srt').slick({
+        //             dots: false,
+        //             slidesToShow:2,
+        //             responsive: [
+        //                 {
+        //                   breakpoint: 768,
+        //                   settings: {
+        //                     slidesToShow:1,
+        //                     slidesToScroll: 1
+        //                   }
+        //                 },
+        //                 {
+        //                   breakpoint: 460,
+        //                   settings: {
+        //                     slidesToShow: 1,
+        //                     slidesToScroll: 1
+        //                   }
+        //                 }
+        //               ]
+        //         });
+        // })
         var el3 = document.getElementById('navHeight'); 
         $(window).scroll(function() {
-            if(el3.getBoundingClientRect().top<=$('.header').height()){
-                $(el3).find(".sub_nav").css({"position":"fixed","top":$('.header').height()});
+            if(el3.getBoundingClientRect().top<=$('.header-feixd').height()){
+                $(el3).find(".sub_nav").css({"position":"fixed","top":$('.header-feixd').height()});
             }else{
                 $(el3).find(".sub_nav").css({"position":"absolute","top":0});
             }

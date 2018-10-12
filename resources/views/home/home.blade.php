@@ -84,9 +84,9 @@ $mobile_banner = ads_image(32);
 <?php 
     //获取产品
     $procude = \App\Models\ArticleCategory::find(409);
-    $procude['child'] =  \App\Models\ArticleCategory::where("parent_id",409)->get();
+    $procude['child'] =  \App\Models\ArticleCategory::where("parent_id",409)->orderBy('order',"ASC")->get();
     foreach($procude['child'] as $v){
-        $v['child'] = \App\Models\ArticleCategory::where("parent_id",$v['id'])->get();
+        $v['child'] = \App\Models\ArticleCategory::where("parent_id",$v['id'])->orderBy('order',"ASC")->get();
     }
     $p_k = 0;
 ?>
@@ -103,9 +103,9 @@ $mobile_banner = ads_image(32);
                                 <span></span>
                                 <img src="{{asset($v['img2'])}}" alt="{{$v['alt2']}}">
                             </div>
-                            <div class="txt mCustomScrollbar">
+                            <div class="txt">
                                 <div class="tag">{{$v['title']}}</div>
-                                <div class="text" id="dot1">{!!nl2br($v['cat_desc'])!!}</div>
+                                <div class="text mCustomScrollbar2" id="dot1">{!!nl2br($v['cat_desc'])!!}</div>
                             </div>
                         </a>
                     </li>
@@ -118,9 +118,9 @@ $mobile_banner = ads_image(32);
 <?php 
     //获取方案
     $case = \App\Models\ArticleCategory::find(419);
-    $case['child'] =  \App\Models\ArticleCategory::where("parent_id",419)->get();
+    $case['child'] =  \App\Models\ArticleCategory::where("parent_id",419)->orderBy('order',"ASC")->get();
     foreach($case['child'] as $v){
-        $v['child'] = \App\Models\ArticleCategory::where("parent_id",$v['id'])->get();
+        $v['child'] = \App\Models\ArticleCategory::where("parent_id",$v['id'])->orderBy('order',"ASC")->get();
     }
 ?>
 <div class="in-case">
@@ -157,7 +157,7 @@ $mobile_banner = ads_image(32);
 <?php 
     //获取服务
     $server = \App\Models\ArticleCategory::find(428);
-    $server['child'] =  \App\Models\ArticleCategory::where("parent_id",428)->get();
+    $server['child'] =  \App\Models\ArticleCategory::where("parent_id",428)->orderBy('order',"ASC")->get();
     foreach($server['child'] as $v){
         if(!empty($v['news_related'])){
             $v['article'] = \App\Models\Article::ArticleList([
@@ -179,9 +179,10 @@ $mobile_banner = ads_image(32);
                 <img src="{{asset($v['img2'])}}" alt="{{$v['alt2']}}">
             </div>
             <div class="text">
-                <div class="texts-top mCustomScrollbar">
+                <div class="texts-top">
                     <div class="title">{{$v['title']}}</div>
-                    <div class="txt">{!!nl2br($v['cat_desc'])!!}</div>
+                    <div class="txt mCustomScrollbar2">{!!nl2br($v['cat_desc'])!!}</div>
+                    <a class="more" href="{{URL('category',[$server['id']])}}#a_{{$k}}">了解更多</a>
                 </div>
                 <div class="texts-bot">
                     @foreach($v['article'] as $a_v)

@@ -17,7 +17,6 @@ class ArticleCategory extends Model
         return $this->hasMany('App\Models\MoreImage','more_id','id')->where('cate_id',2)->orderBy("order","DESC")->orderBy("id","DESC");
     }
 
-
     public function setNewsRelatedAttribute($value){
         $this->attributes['news_related'] = implode(",",$value);
     }

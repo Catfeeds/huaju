@@ -146,7 +146,7 @@
                     <dd>
                         <a href="{{URL('article',$v['id'])}}">
                             <div class="pic">
-                                <img  src="{{asset($v['img'])}}" alt="{{$v['alt']}}">
+                                <img src="{{asset($v['img'])}}" alt="{{$v['alt']}}">
                             </div>
                             <h4>{{$v['title']}}</h4>
                             <div class="text">{!!nl2br($v['desc'])!!}</div>

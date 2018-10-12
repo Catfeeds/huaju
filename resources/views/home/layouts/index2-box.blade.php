@@ -19,12 +19,12 @@
 		<div class="prolist">
 			<ul>
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="wow fadeInUp mCustomScrollbar light" data-wow-delay="{{($b_k+1)/10}}s">
+				<li class="wow fadeInUp light" data-wow-delay="{{($b_k+1)/10}}s">
 					<div class="pic">
 						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 					</div>
 					<h4>{{$b_v['title']}}</h4>
-					<div class="text">
+					<div class="text mCustomScrollbar2">
 						{!!nl2br($b_v['desc'])!!}
 					</div>
 				</li>
@@ -48,7 +48,7 @@
 					</div>
 					<div class="text ">
 						<h3>{{$b_v['title']}}</h3>
-						<div class="txt mCustomScrollbar">
+						<div class="txt mCustomScrollbar2">
 							{!!nl2br($b_v['desc'])!!}
 						</div>
 					</div>
@@ -77,7 +77,7 @@
 					<div class="text">
 						<h4>{{$b_v['title']}}</h4>
 					</div>
-					<div class="txt">
+					<div class="txt mCustomScrollbar2">
 						{!!nl2br($b_v['desc'])!!}
 					</div>
 				</li>
@@ -100,12 +100,13 @@
 						<div class="pic">
 							<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 						</div>
-						<div class="v_txt mCustomScrollbar">
+						<div class="v_txt ">
 							<h4>{{$b_v['title']}}</h4>
-							<div class="text">
+							<div class="text mCustomScrollbar2">
 								{!!nl2br($b_v['desc'])!!}
+								<span>{{date("Y-m-d",strtotime($b_v['add_time']))}}</span>
 							</div>
-							<span>{{date("Y-m-d",strtotime($b_v['add_time']))}}</span>
+							
 						</div>
 					</a>
 				</li>
@@ -128,9 +129,9 @@
 						<div class="pic">
 							<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 						</div>
-						<div class="text mCustomScrollbar2">
+						<div class="text">
 							<h4>{{$b_v['title']}}</h4>
-							<div class="txt">
+							<div class="txt mCustomScrollbar2">
 								{!!nl2br($b_v['desc'])!!}
 							</div>
 						</div>

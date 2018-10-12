@@ -10,7 +10,7 @@
     <div class="conBanner mobile_box"><img src="{{asset($cate_info['mobile_banner'])}}"></div>
     @endif
     <div class="casedetail">
-        @foreach($cate_list as $v)
+        @foreach($cate_list as $k=>$v)
             @include('home.layouts.index2-box',['index2_box'=>$v,'index2_box_k'=>$k])
         @endforeach
     </div>

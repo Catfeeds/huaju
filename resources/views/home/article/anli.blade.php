@@ -50,7 +50,7 @@
                 </div>
                 <div class="text">
                     <h4>{{$v['title']}}</h4>
-                    <div class="txt">{!!nl2br($v['desc'])!!}</div>
+                    <div class="txt mCustomScrollbar2">{!!nl2br($v['desc'])!!}</div>
                     <div class="td">
                         <span>所属应用：{{$v['ArticleCategoryTo']['title']}}</span>
                         <span> 所属行业：{{$v['title2']}}</span>

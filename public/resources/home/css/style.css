@@ -29,8 +29,18 @@
   background: #fff;
   z-index: 10000;
   box-shadow: 0 0 5px #d3d3d3;
+  transition: all .5s;
+  -moz-transition: all .5s;  /* Firefox 4 */
+  -webkit-transition: all .5s; /* Safari 和 Chrome */
+  -o-transition: all .5s;  /* Opera */
 }
-
+.header-feixd.mini{
+  height: 71px;
+}
+.header-feixd.mini .logo img{width: 91px;height: 70px;}
+.header-feixd.mini .nav{padding-top: 12px;}
+.header-feixd.mini .serach{margin-top: 16px;}
+.header-feixd.mini .loginBtn{margin-top: 16px;}
 .headerbox {
   width: 1180px;
   margin: 0 auto;
@@ -42,7 +52,12 @@
 }
 .header-feixd .logo img{
   width: 119px;height: 92px;
+  transition: all .5s;
+  -moz-transition: all .5s;  /* Firefox 4 */
+  -webkit-transition: all .5s; /* Safari 和 Chrome */
+  -o-transition: all .5s;  /* Opera */
 }
+.mCSB_inside>.mCSB_container{margin-right: 18px;}
 /* nav */
 
 /*.nav {
@@ -87,6 +102,10 @@
   padding-top: 20px;
   margin-left: 80px;
   position: relative;
+  transition: all .5s;
+  -moz-transition: all .5s;  /* Firefox 4 */
+  -webkit-transition: all .5s; /* Safari 和 Chrome */
+  -o-transition: all .5s;  /* Opera */
 }
 
 .nav ul li {
@@ -193,6 +212,10 @@
   color: #ffffff;
   font-size: 28px;
   cursor: pointer;
+  transition: all .5s;
+  -moz-transition: all .5s;  /* Firefox 4 */
+  -webkit-transition: all .5s; /* Safari 和 Chrome */
+  -o-transition: all .5s;  /* Opera */
 }
 .loginBtn.active{background: #0091de;border: 1px solid #0091de}
 .serach {
@@ -1081,19 +1104,19 @@
   float: left;
   margin-left: 20px;
   width: 200px;
-  max-height: 160px;overflow-y: auto;
+  /*max-height: 160px;overflow-y: auto;*/
 }
 
 .catelist li .txt .tag {
   font-size: 18px;
   margin-bottom: 15px;
-  /*white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*/
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
 .catelist li .txt .text {
   font-size: 14px;
   color: #6f7071;
-  /*height: 60px;*/
+  height:95px;
   overflow: hidden;
 }
 
@@ -1163,7 +1186,7 @@
   }
   .catelist li .txt .text {
     font-size: 12px;
-    height: 80px;
+    /*height: 80px;*/
     line-height: 20px;
   }
 }
@@ -1362,13 +1385,13 @@
 .texts-top {
   padding: 30px 20px 20px 20px;
   border-bottom: 1px dashed #007dfd;
-  height: 94px;overflow-y:auto; 
+  /*height: 94px;overflow-y:auto; */
 }
 
 .texts-top .title {
   font-size: 18px;
   color: #212122;
-  /*white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*/
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
 .texts-top .txt {
@@ -1376,10 +1399,10 @@
   color: #b6b6b6;
   margin-top: 24px;
   line-height: 20px;
-  /*height: 40px;*/
+  height: 100px;
 /*overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp:2; -webkit-box-orient: vertical;*/
 }
-
+.texts-top .more{color: #0093dd;text-align: right;display: block;}
 .texts-bot {
   padding: 0px 23px 14px 23px;
 }
@@ -2795,7 +2818,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 
 .case-item {
   overflow: hidden;
-  margin-top: 60px;
+  padding-top: 60px;
 }
 
 .serv {
@@ -2895,6 +2918,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   margin-top: 30px;
   font-size: 14px;
   line-height: 25px;
+  height: 125px;
 }
 
 .benefit {
@@ -2965,14 +2989,14 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   -wenkit-transform: scale(1.2,1.2);
   transform: scale(1.2,1.2);
 }
-.cliset li .v_txt{height: 240px;overflow-y: auto;}
+/*.cliset li .v_txt{height: 240px;overflow-y: auto;}*/
 .cliset li h4 {
   font-size: 18px;
   position: relative;
   color: #1d1d1d;
   padding: 13px 0;
   border-bottom: 1px solid #dadada;
-/*white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*/
+white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
 .cliset li h4::after {
@@ -2994,7 +3018,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   font-size: 14px;
   color: #959696;
   line-height: 25px;
-  /*height: 150px;*/
+  height: 125px;
 /*overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp:6; -webkit-box-orient: vertical;*/
 }
 
@@ -3019,7 +3043,20 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   cursor: pointer;
   z-index: 999;
 }
-
+.slick-prev {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: -50px;
+  border: none;
+  background: #578eff;
+  color: #fff;
+  cursor: pointer;
+  z-index: 999;
+}
 .cliset .slick-next {
   width: 30px;
   height: 30px;
@@ -3034,7 +3071,20 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   cursor: pointer;
   z-index: 999;
 }
-
+.slick-next {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  right: -50px;
+  border: none;
+  background: #578eff;
+  color: #fff;
+  cursor: pointer;
+  z-index: 999;
+}
 .scenariolist .slick-prev {
   width: 30px;
   height: 30px;
@@ -3065,7 +3115,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   z-index: 999;
 }
 
-.caseys ul li{height: 80px;}
+/*.caseys ul li{height: 80px;}*/
 .caseys ul li:nth-child(2n) {
   float: left;
   margin-left: 26px;
@@ -3095,7 +3145,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   font-size: 14px;
   color: #9c9c9c;
   line-height: 20px;
-  height: 40px;
+  height: 100px;
   overflow: hidden;
 }
 
@@ -3134,7 +3184,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   float: left;
   width: 260px;
   /*height: 54px;*/
-  height: 95px;overflow-y: auto;
+  /*height: 95px;overflow-y: auto;*/
 }
 
 .stand li .text h4 {
@@ -3147,7 +3197,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   color: #a5a5a5;
   margin-top: 15px;
   font-size: 14px;
-  /*height: 54px;*/
+  height: 95px;
 /*overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;*/
 }
 
@@ -3170,7 +3220,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   overflow-y:auto;
-  height: 355px; 
+  /*height: 355px; */
 }
 
 .prolist ul li:nth-child(2n) {
@@ -3189,7 +3239,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   color: #292929;
   text-align: center;
   margin: 15px auto 25px auto;
-  /*white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*/
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
 .prolist ul li .text {
@@ -3197,7 +3247,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   line-height: 25px;
   color: #9c9c9c;
   margin-top: 10px;
-  /*height: 125px;*/
+  height: 125px;
   overflow: hidden;
 }
 
@@ -3345,7 +3395,13 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   .cliset .slick-prev {
     left: 0;
   }
+  .slick-prev {
+    left: 0;
+  }
   .cliset .slick-next {
+    right: 0;
+  }
+  .slick-next {
     right: 0;
   }
   .cliset li .pic {
@@ -3457,6 +3513,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   }
   .scenariolist li .txt {
     margin-top: 15px;
+    height: auto;
   }
   .understand {
     margin: 20px 5%;
@@ -3534,6 +3591,11 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   }
   .cliset .slick-prev,
   .cliset .slick-next {
+    width: 25px;
+    line-height: 25px;
+    height: 25px;
+  }
+  .slick-prev, .slick-next {
     width: 25px;
     line-height: 25px;
     height: 25px;
@@ -4008,9 +4070,10 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 .caelise dd .text .txt {
   font-size: 14px;
   line-height: 25px;
-  overflow: hidden;
+  /*overflow: hidden;*/
   color: #808080;
   margin-top: 13px;
+  max-height: 125px;
 }
 
 .caelise dd .text .td {
@@ -4551,7 +4614,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 .bdlist dl dd {
   float: left;
   width: 31.33%;
-  margin: 0 1%;
+  margin: 0 11px;
   padding: 16px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -5284,9 +5347,9 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     margin: 10px auto;
   }
   .bdlist dl dd {
-    float: none;
+    /*float: none;*/
     width: 100%;
-    margin: 15px 0;
+    margin: 15px 11px;
   }
   .bdlist dl dd h4 {
     font-size: 14px;

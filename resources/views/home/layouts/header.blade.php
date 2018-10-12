@@ -1,6 +1,6 @@
 @section('header')
     <div class="header">
-        <div class="header-feixd clearfix">
+        <div class="header-feixd clearfix" id="header-feixd">
             <div class="headerbox">
                 <a href="/" class="logo">
                     <img src="{{asset(ConfigGet('logo'))}}" alt="华矩科技" title="华矩科技">

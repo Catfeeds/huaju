@@ -149,16 +149,6 @@ class ArticleController extends Controller
                     $assign['two_category'] = $two_category;
                 }
                 break;
-            // case 'love3':
-            //     $cate_list = ArticleCategory::orderBy('order',"ASC")->where('parent_id',$cate_info['id'])->get();//获取一级分类
-            //     foreach($cate_list as $k=>$v){
-            //         $v['article'] = Article::ArticleList([
-            //             'cate_id'=>$v['id'],
-            //             'paginate'=>0,
-            //         ]);
-            //     }
-            //     $assign['cate_list'] = $cate_list;
-            //     break;
             case 'news'://动态
             case 'photo'://相册
             case 'video'://视频
@@ -182,16 +172,9 @@ class ArticleController extends Controller
                     );
                     return response()->json($return);
                 }
-                // sub_category_slug
-                // isLastPage
-                // html
                 break;
-            // case 'activity':
             case 'anli'://案例
                 //获取列表数据
-                // if(!Auth::check()){
-                //     return redirect("login");
-                // }
                 $article_list = Article::ArticleList([
                     'cate_id_in'    => sub_cate_in($cate_info['id']),
                     "search_type"   => $request['search_type'],
@@ -203,91 +186,33 @@ class ArticleController extends Controller
                 ]);
                 $assign['article_list'] = $article_list;
                 break;
-            // case 'video'://视频
-            //     $cate_list = ArticleCategory::orderBy('order',"ASC")->where('parent_id',$cate_info['id'])->get();//获取一级分类
-            //     foreach($cate_list as $k=>$v){
-            //         $v['article'] = Article::ArticleList([
-            //             'cate_id'=>$v['id'],
-            //             'paginate'=>0,
-            //         ]);
-            //     }
-            //     $assign['cate_list'] = $cate_list;
-            //     break;
-            // case 'master'://导师中心
-            //     $cate_list = ArticleCategory::orderBy('order',"ASC")->where('parent_id',$cate_info['id'])->get();//获取一级分类
-            //     foreach($cate_list as $k=>$v){
-            //         $v['article'] = Article::ArticleList([
-            //             'cate_id'=>$v['id'],
-            //             'paginate'=>0,
-            //         ]);
-            //     }
-            //     $assign['cate_list'] = $cate_list;
-            //     break;
-            // case 'introduce'://介绍
-            //     $cate_list = ArticleCategory::with(['MoreImageMany'])->orderBy('order',"ASC")->where('parent_id',$cate_info['id'])->get();//获取一级分类
-            //     $assign['cate_list'] = $cate_list;
-            //     $daoshi = Article::ArticleList([
-            //         'cate_id'=>'353',
-            //         'order'=>'is_top',
-            //         'sort'=>'DESC',
-            //         'take'=>8,
-            //     ]);
-            //     $daoshi_cate = ArticleCategory::find('353');
-            //     $assign['daoshi'] = $daoshi;
-            //     $assign['daoshi_cate'] = $daoshi_cate;
-            //     break;
-            // case 'course'://全部课程
-            //     foreach($sub_category as $k=>$v){
-            //         $v['article'] = Article::ArticleList([
-            //             'cate_id'=>$v['id'],
-            //             'sort'=>'DESC',
-            //             'paginate'=>0,
-            //         ]);
-            //     }
-            //     $assign['sub_category'] = $sub_category;
-            //     break;
-            // case 'contact-us'://萌货故事
-            // case 'single-detail'://萌货故事
-            //     $cate_list = ArticleCategory::orderBy('order',"ASC")->where('parent_id',$cate_info['id'])->get();//获取一级分类
-            //     foreach($cate_list as $k=>$v){
-            //         $v['article'] = Article::ArticleList([
-            //             'cate_id'=>$v['id'],
-            //             'sort'=>'DESC',
-            //             'paginate'=>0,
-            //         ]);
-            //     }
-            //     $assign['cate_list'] = $cate_list;
-            //     $assign['banner'] = ads_image_name($top_category['title']);
-            //     break;
-            // case 'news'://新闻列表
-            // case 'school'://新闻列表
-            // case 'works'://作品
-            // case 'cases'://案例
-            // case 'teacher'://师资
-            //     //获取列表数据
-            //     $article_list = Article::ArticleList([
-            //         'cate_id'=>$cate_info['id'],
-            //         'paginate'=>12,
-            //     ]);
-            //     $assign['article_list'] = $article_list;
-            //     //获取推荐
-            //     $article_recommend_list = Article::ArticleList([
-            //         'cate_id'=>$recommend_cate,
-            //         'order'=>'is_top',
-            //         'sort'=>'DESC',
-            //         'take'=>$take,
-            //     ]);
-            //     $assign['article_recommend_list'] = $article_recommend_list;
-            //     $assign['banner'] = ads_image_name($top_category['title']);
-            //     break;
-            // case 'single-detail'://单页
-            //     //获取全部列表数据
-            //     $article_list = Article::ArticleList([
-            //         'cate_id'=>$cate_info['id'],
-            //         'paginate'=>0,
-            //     ]);
-            //     $assign['article_list'] = $article_list;
-            //     break;
+            case 'index2-gaishu':
+            case 'index2-gongneng':
+            case 'index2-youshi':
+            case 'index2-changjing':
+            case 'index2-anli':
+            case 'index2-liaojie':
+            case 'index2-tongdian':
+            case 'index2-xiaoyi':
+            case 'index2-fuwu-jishu':
+            case 'index2-fuwu-bianxian':
+            case 'index2-architecture':
+            case 'index2-course':
+            case 'index2-honor':
+            case 'index2-contact-us':
+            case 'index2-fuli':
+            case 'index2-sihhui-zhaopin':
+            case 'index2-zhaoping-shijisheng':
+            case 'index2-shixijidi':
+                $cate_info['article'] = Article::ArticleList([
+                    'cate_id_in'  => sub_cate_in($cate_info['id']),
+                    'paginate'    => 0,
+                ]);
+
+                $sub_nav = ArticleCategory::orderBy('order',"ASC")->where('parent_id',$cate_info['parent_id'])->get();//获取同级分类
+                $assign['sub_nav'] = $sub_nav;
+                return view('home.article.index3',$assign);//特殊模版
+                break;
         }
         if(isMobile()){
             return view('mobile.article.'.$cate_info['template'],$assign);

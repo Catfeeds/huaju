@@ -98,8 +98,8 @@ img{max-width: 100%;}
 .m-btn2 li.on{background: #0093dd;}
 
 
-.caelise dd .text h4{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right: 30px;}
-.caelise dd .text .txt{overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}
+.caelise dd .text h4{/*white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*/padding-right: 30px;}
+/*.caelise dd .text .txt{overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}*/
 .caelise dd .text{position: relative;}
 .caelise dd .text .shouchang{position: absolute;right: 0;top: 0;border: 0;padding: 0;width: auto;height: auto;cursor:pointer;line-height: 1.5;}
 .caelise dd .text .shouchang:hover{color:#0068b7;background: none;}
@@ -245,9 +245,9 @@ img{max-width: 100%;}
 .mi-teh .table table th{background: #0091dd;padding: 10px 13px;color: #fff;border-right: 1px solid #fff;}
 .mi-teh .table table td{background: #fff; padding: 10px 13px; border-right: 1px solid #fff;}
 .mi-teh .table table tr:nth-child(2n) td{background: #e2f5ff;}
-.bdlist{padding-top:20px;}
-.bdlist dl dd{margin-bottom:35px;padding:15px 15px 10px;}
-.bdlist dl dd:nth-child(3n+1){clear:left;}
+/*.bdlist{padding-top:20px;}*/
+.bdlist dl dd{margin-bottom:35px;padding:15px 15px 10px;margin-top: 10px;}
+/*.bdlist dl dd:nth-child(3n+1){clear:left;}*/
 .bdlist dl dd h4{overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp:2; -webkit-box-orient: vertical;line-height: 1.75;margin-top: 15px;height: 56px;}
 .bdlist dl dd .text{overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp:4; -webkit-box-orient: vertical;margin-top: 10px;line-height: 2;height: 112px;}
 .bdlist dl dd .txt{line-height: 2;padding: 0;}
@@ -398,8 +398,8 @@ img{max-width: 100%;}
   .martlist ul li:nth-child(3n+1){clear:none;}
   .martlist ul li:nth-child(2n+1){clear:left;}
 
-  .bdlist dl dd:nth-child(3n+1){clear:none;}
-  .bdlist dl dd:nth-child(2n+1){clear:left;}
+  /*.bdlist dl dd:nth-child(3n+1){clear:none;}*/
+  /*.bdlist dl dd:nth-child(2n+1){clear:left;}*/
   .teiBox .pic{margin:40px auto 0;}
   .teiBox .text{width: 100%;padding-top: 10px;}
   .goods .ptc img{display: block;margin:0 auto 30px;}
@@ -493,7 +493,7 @@ img{max-width: 100%;}
   .mi-teb dl dd{margin-left: 0;margin-right: 0;margin-top: 15px;}
   .mi-teb dl{box-sizing: border-box;padding:0 15px;width: 100%;}
   .bdlist{margin-top: 0;}
-  .bdlist dl{box-sizing: border-box;padding:0 15px;width: 100%;}
+  .bdlist dl{box-sizing: border-box;/*padding:0 15px;*/width: 100%;}
   /*.mphotos{box-sizing: border-box;padding:0 15px;width: 100%;}*/
   .mibox{box-sizing: border-box;padding:0 10px;width: 100%;}
   .caelise dd{padding: 15px;}
@@ -552,7 +552,7 @@ img{max-width: 100%;}
   .stand li .text .txt{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
   /*.cliset li .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}*/
   .nslick dd .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
-  .catelist li .txt .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
+  /*.catelist li .txt .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}*/
   .texts-top .txt{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
   .benefit ul li .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
   .serive ul li .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}

@@ -11,7 +11,14 @@ $(document).ready(function () {
         })
     }
 
-
+    
+    $(window).scroll(function() {
+        if($(window).scrollTop()>200&&document.body.scrollWidth>=1180){
+            $(".header-feixd").addClass("mini");
+        }else{
+            $(".header-feixd").removeClass("mini");
+        }
+    });
     $('.fo-item').each(function () {
         var _this = $(this)
         $(this).children('.f-title').click(function () {
@@ -36,7 +43,7 @@ $(document).ready(function () {
         },
         theme:"dark",
         scrollbarPosition:"outside",
-        autoHideScrollbar:true,
+        // autoHideScrollbar:true,
     });
     $(".mCustomScrollbar2").mCustomScrollbar({
         axis:"y",
@@ -46,7 +53,7 @@ $(document).ready(function () {
             scrollSpeed: 20
         },
         theme:"dark",
-        autoHideScrollbar:true,
+        // autoHideScrollbar:true,
     });
 
     $('.hsebtn dd').click(function(){
@@ -136,6 +143,25 @@ $(document).ready(function () {
     //     watch: "window",
     // });
     $('.cliset').slick({
+        dots: false,
+        slidesToShow: 3,
+        responsive: [{
+                breakpoint: 1180,
+                settings: {
+                    slidesToShow: 2,
+
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+    $('.bdlist dl').slick({
         dots: false,
         slidesToShow: 3,
         responsive: [{
@@ -291,7 +317,16 @@ $(document).ready(function () {
         }
     })
     $('.devlist a').click(function(){
-        $('.devlist ul li').removeClass('hide')
+        $(this).toggleClass("on");
+        if($(this).is(".on")){
+            $(this).html('隐藏更多历程');
+            $('.devlist ul li').removeClass('hide')
+        }else{
+            $(this).html('查看更多历程');
+            $('.devlist ul li').eq(10).nextAll().addClass("hide");
+        }
+        
+        
         return false
     })
 

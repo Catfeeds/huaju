@@ -467,7 +467,7 @@ img{max-width: 100%;}
   .bdlist dl dd .text{font-size: 12px;height: 96px;}
   .mi-teb dl dd a{margin-top: 15px;}
 
-  .mar-trhee ul li .col .pt{width: 70px;height: 70px;}
+  .mar-trhee ul li .col .pt{width:50px;height:50px;}
 
   .pic_fix{width: 80%;left: 10%;margin-left: 0;}
   .pic_fix .img img{max-height:360px;}
@@ -483,8 +483,8 @@ img{max-width: 100%;}
   .texts-top{padding: 15px;}
   .texts-bot{padding-left: 15px;padding-right: 15px;}
   .casetitle{margin-bottom: 15px;}
-  .case-item{margin-top: 15px;}
-  .case-item.ys{padding-top: 15px;padding-bottom: 15px;}
+  /*.case-item{margin-top: 15px;}*/
+  /*.case-item.ys{padding-top: 15px;padding-bottom: 15px;}*/
   .marketTop{margin: 0;}
   .martlist ul li{margin-left: 0;margin-right: 0;margin-top: 15px;}
   .ser-ach{margin-top: 15px;}

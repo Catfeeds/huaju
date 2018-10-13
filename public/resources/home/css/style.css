@@ -145,6 +145,7 @@
   z-index: 1000;
   background: #0093dd;
   padding: 15px 0;
+  font-size: 15px;
 }
 
 .seconed dl {
@@ -389,6 +390,7 @@
     text-align: center;
     line-height: 30px;
   }
+  .msbtn.active{    background: #0091de;}
   .serach {
     position: absolute;
     height: 30px;
@@ -1253,9 +1255,10 @@
 }
 
 .catePic {
-  float: left;
+  /*float: left;*/
   overflow: hidden;
-  width: 885px;
+  /*width: 885px;*/
+  margin-left: -5px;
 }
 
 .catePic dd {
@@ -1522,6 +1525,7 @@
   border-bottom: 1px solid #dcdcdc;
   position: relative;
   font-size: 18px;
+  color: #696969;
 }
 
 .f-title i {
@@ -2036,7 +2040,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 .dcontent table tr.title {
   background: #e5e5e5;
   border: 1px solid #fff;
-  border-top: none;
+  /*border-top: none;*/
 }
 
 .dcontent table tr {
@@ -2235,9 +2239,11 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 .nlist li .txt .text .xtx {
   font-size: 14px;
   color: #1c1c1c;
-  line-height: 24px;
-  height: 150px;
+  line-height: 1.85;
+  height: 125px;
   overflow: hidden;
+  padding-top:2px;
+  margin-bottom: 4px;
 }
 
 .nlist li .txt {
@@ -2447,7 +2453,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 }
 
 .item .hot li span {
-  font-size: 14px;
+  font-size: 11px;
   padding: 10px 0;
   color: #a8a8a8;
   display: block;
@@ -2839,6 +2845,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 .case-item {
   overflow: hidden;
   padding-top: 60px;
+  padding-bottom:30px;
 }
 
 .serv {
@@ -3335,7 +3342,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     padding: 0 2%;
   }
   .case-item {
-    margin-top: 30px;
+    padding-top: 30px;
   }
   .case-item.ys {
     padding-top: 30px;
@@ -3585,6 +3592,9 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 
   .benefit ul li .pic{width: 76px;height: 76px;line-height: 76px;}
   .benefit ul li .pic img{width: 46px;height: 46px;}
+
+  .case-item{padding-top: 30px;padding-bottom: 15px;}
+
 }
 
 @media screen and (max-width: 460px) {
@@ -3882,7 +3892,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   text-align: center;
   line-height: 40px;
   background: #b6b6b6;
-  border-right: 1px solid #bbbbbb;
+  border-right: 1px solid #fff;
 }
 
 .m-btn2 li a {
@@ -4540,12 +4550,12 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 
 .mar-title {
   width: 195px;
-  height: 76px;
+  /*height: 76px;*/
   background: url(../images/ps2.png) no-repeat;
   margin: 0 auto;
   font-size: 30px;
   text-align: center;
-  line-height: 76px;
+  line-height:68px;
 }
 
 .mitem {}
@@ -4985,15 +4995,15 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 .mar-trhee ul li .col h6 {
   font-size: 14px;
   text-align: center;
-  padding: 10px 0;
+  padding:24px 0 10px 0;
   color: #fff;
 white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
 .mar-trhee ul li .col h3 {
-  font-size: 16px;
+  font-size:24px;
   text-align: center;
-  padding: 10px 0;
+  padding:0 0 10px 0;
   color: #fff;
 white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
@@ -5404,9 +5414,16 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   .teiBox .pic {
     margin-top: 20px;
   }
+  .mi-teh{padding:30px 0;}
+  .mi-tei{padding-top: 30px;}
   .mi-teh .table .title span {
     font-size: 14px;
   }
+  .mar-trhee ul li .col h6{font-size: 12px;padding: 10px 0 5px 0;}
+  .mar-trhee ul li .col{padding:15px 0;}
+  .mar-trhee ul li .col:nth-child(2n){padding: 15px 0;}
+  .mar-trhee ul li .col h3{padding: 0;}
+
 }
 
 @media screen and (max-width: 640px) {

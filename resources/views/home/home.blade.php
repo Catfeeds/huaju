@@ -126,7 +126,7 @@ $mobile_banner = ads_image(32);
 <div class="in-case">
     <div class="com-title">{{$case['title']}}</div>
     <div class="caseBox clearfix">
-        @if(isset($case['child']['0']))
+        {{--@if(isset($case['child']['0']))
         <ul class="case-nav">
             @foreach($case['child']['0']['child'] as $k=>$v)
             <li class="wow fadeInLeftBig" data-wow-delay="{{($k+1)/10}}s">
@@ -134,11 +134,12 @@ $mobile_banner = ads_image(32);
             </li>
             @endforeach
         </ul>
-        @endif
+        @endif--}}
         @if(isset($case['child']['1']))
         <dl class="catePic">
-            @foreach($case['child']['1']['child'] as $k=>$v)
-            <dd class="wow fadeInUp" data-wow-delay="{{($k+1)/10}}s">
+            <?php $i1_k=0; ?>
+            @foreach($case['child']['0']['child'] as $k=>$v)
+            <dd class="wow fadeInUp" data-wow-delay="{{($i1_k+1)/10}}s">
                 <a href="{{url('category',$v['id'])}}" title="{{$v['title']}}">
                     <div class="pic">
                         <img src="{{asset($v['img2'])}}" alt="{{$v['alt2']}}">
@@ -149,6 +150,21 @@ $mobile_banner = ads_image(32);
                     </div>
                 </a>
             </dd>
+            <?php $i1_k++; ?>
+            @endforeach
+            @foreach($case['child']['1']['child'] as $k=>$v)
+            <dd class="wow fadeInUp" data-wow-delay="{{($i1_k+1)/10}}s">
+                <a href="{{url('category',$v['id'])}}" title="{{$v['title']}}">
+                    <div class="pic">
+                        <img src="{{asset($v['img2'])}}" alt="{{$v['alt2']}}">
+                    </div>
+                    <div class="text">
+                        <em></em>
+                        <span>{{$v['title']}}</span>
+                    </div>
+                </a>
+            </dd>
+            <?php $i1_k++; ?>
             @endforeach
         </dl>
         @endif

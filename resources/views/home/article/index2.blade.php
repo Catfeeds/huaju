@@ -19,7 +19,7 @@
                 @endforeach
             </ul>
         </div>
-        <div class="aboutbtn nav-wrap"  id="nav-wrap" style="position:static;opacity: 0;">
+        <div class="aboutbtn nav-wrap" style="position:static;opacity: 0;">
             <ul class="clearfix">
                 @foreach($sub_nav as $k=>$v)
                 <li>
@@ -85,9 +85,11 @@
         var el3 = document.getElementById('navHeight'); 
         $(window).scroll(function() {
             if(el3.getBoundingClientRect().top<=$('.header-feixd').height()){
-                $(el3).find(".sub_nav").css({"position":"fixed","top":$('.header-feixd').height()});
+                $(el3).find(".sub_nav").addClass("fix");
+                // $(el3).find(".sub_nav").css({"position":"fixed","top":$('.header-feixd').height()});
             }else{
-                $(el3).find(".sub_nav").css({"position":"absolute","top":0});
+                $(el3).find(".sub_nav").removeClass("fix");
+                // $(el3).find(".sub_nav").css({"position":"absolute","top":'25px'});
             }
             
         });

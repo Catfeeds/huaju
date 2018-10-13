@@ -433,8 +433,8 @@
                     box_w = pageWidth-50
                     //ipad,电脑板4列30%,20%
                     var columns = 4;
-                    var i1 = 0.3*box_w;
-                    var i2 = 0.2*box_w;
+                    var i1 = 0.25*box_w;
+                    var i2 = 0.25*box_w;
                 }
                 var arr = [];
                 for (var i = 0; i < items.length; i++) {

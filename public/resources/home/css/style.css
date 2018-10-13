@@ -136,7 +136,7 @@
 }
 
 .nav ul li:hover .seconed {
-  display: block;
+  /*display: block;*/
 }
 
 .seconed {
@@ -167,11 +167,13 @@
   margin-top: 13px;
 }
 
-.seconed dl dd a {
+.seconed a{
   color: #bbdaf2;
+  display: block;
 }
-
-.seconed dl dd a:hover {
+.seconed a.n2{padding:0 15px;margin-top: 13px;}
+.seconed a.n2:first-child{margin-top: 0;}
+.seconed a:hover {
   color: #fff;
 }
 
@@ -466,9 +468,10 @@
   }
   .nav ul li {
     float: none;
-    padding: 0 15px;
+    padding: 0 0;
     border-bottom: 1px solid #dbdbdb;
   }
+  .nav ul li a{display: block;}
   .nav ul li span i {
     float: right;
     color: #fff;
@@ -481,28 +484,41 @@
   .nav ul li span a {
     color: #fff;
     font-size: 14px;
-    width: 80%;
-    padding: 15px 0;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
   }
-  .seconed {
+  .nav ul li:hover{background: none;}
+
+  .seconed,.nav ul li:hover .seconed {
     position: static;
     display: none;
     background: none;
-    padding: 0;
+    padding: 0 30px 10px 30px;
   }
+  .seconed dl dt{padding:10px 0;}
   .seconed dl {
     width: 100%;
     border: none;
-    
-    padding: 2% 2% 2% 2%;
+    padding: 0;
+    /*padding: 2% 2% 2% 2%;*/
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
   .seconed dl dd {
     margin-top: 0;
+    /*padding: 10px 0;*/
+    font-size: 14px;
+  }
+  .seconed a{
+    display: block;
     padding: 10px 0;
     font-size: 14px;
+  }
+  .seconed a.n2{
+    padding:10px 0;
+    margin-top: 0;
   }
   /*.nav ul li span i.on {
     -webkit-transition: all 0.5s;
@@ -747,7 +763,7 @@
   background: #5f646e;
   border: none;
   position: absolute;
-  color: #052c7d;
+  color: #1f1f29;
   z-index: 999;
   font-weight: bold;
   cursor: pointer;
@@ -761,7 +777,7 @@
   background: #5f646e;
   border: none;
   position: absolute;
-  color: #052c7d;
+  color: #1f1f29;
   z-index: 999;
   font-weight: bold;
   cursor: pointer;
@@ -1815,6 +1831,10 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
     .email:hover .sa1{display: none;}
 .tel:hover .sa2{display: none;}
 .qrcode:hover .sa3{display: none;}
+
+
+  #toTop{right:-60px;-webkit-transition: all 0.5s;transition: all 0.5s;}
+  #toTop.on{right:20px;}
 }
 
 @media screen and (max-width: 960px) {
@@ -3842,8 +3862,9 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   text-align: center;
   line-height: 40px;
   background: #b6b6b6;
+  border-left: 1px solid #fff;
 }
-
+.m-btn li:first-child{border-left: 0;}
 .m-btn li a {
   color: #fff;
   display: block;
@@ -3970,6 +3991,7 @@ overflow: hidden;
   font-size: 18px;
   color: #1e1e1e;
   overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp:2; -webkit-box-orient: vertical;
+  height: 53px;
 }
 
 .martlist ul li .text .td .time span {
@@ -4228,6 +4250,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
     width: 33.33%;
     line-height: 35px;
     height: 35px;
+    box-sizing: border-box;
   }
   .m-btn2 {
     float: none;
@@ -4562,7 +4585,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   -moz-border-radius: 50%;
   border-radius: 50%;
   overflow: hidden;
-  width: 255px;
+  width:160px;
   margin: 0 auto;
 }
 
@@ -5070,7 +5093,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
 .teiBox .pic {
-  padding: 12px;
+  padding:8px;
   background: #0093dd;
   float: left;
   position: relative;
@@ -5182,7 +5205,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     margin-top: 30px;
   }
   .mi-teb dl dd .pic {
-    width: 80%;
+    width:60%;
   }
   .mi-teb dl dd .pic img {
     width: 100%;
@@ -5274,7 +5297,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   .teiBox .pic {
     float: none;
     width: 100%;
-    padding: 10px;
+    padding:6px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -5416,10 +5439,10 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   background-size: cover;
   background-repeat: no-repeat
 }
-.nav-height{position: relative;}
+.nav-height{position: relative;margin: 25px 0;}
 .aboutbtn {
   position: absolute;
-  padding: 40px 0;
+  padding: 15px 0;
   text-align: center;
   top:0;
   width: 100%;
@@ -5427,7 +5450,8 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   z-index: 999;
   background-color: #fff;
 }
-
+.aboutbtn.sub_nav{padding:5px 0 15px;position: absolute;top: 0;}
+.aboutbtn.sub_nav.fix{position: fixed;width: 100%;top: 71px;}
 .aboutbtn ul li {
   width: 140px;
   height: 35px;
@@ -5436,7 +5460,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   background: #eceff4;
   position: relative;
   z-index: 999;
-  margin: 0 15px;
+  margin:10px 15px 0 15px;
 }
 
 .aboutbtn ul li a {
@@ -6020,9 +6044,9 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 .band ul li .text .pt img{width: 100%;height: 100%;}
 .cnitem {
   padding: 60px 0 48px 0;
-  background: url(../images/deve.jpg);
-  background-size: cover;
-  background-position: center bottom;
+  background: url(../images/deve.jpg) no-repeat;
+  background-size:auto 100%;
+  background-position: right 77px;
 }
 
 .devlist {
@@ -6198,7 +6222,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
 .contact {
-  padding: 60px 0
+  padding: 60px 0;
 }
 
 .contbox {
@@ -6245,7 +6269,12 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
 
-
+.index3 .contact{padding-top: 0;}
+.index3 .cnitem{padding-top: 0;}
+.index3 .case-item{padding-top: 0;padding-bottom: 30px;}
+.index3 .gnitem{padding-top: 0;}
+.index3 .fnitem{padding-top: 0;}
+.index3 .bnitem{margin-top: 0;}
 @media screen and (max-width: 1680px) {
   .goods {
     width: 1440px;
@@ -6306,7 +6335,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     display: block;
     float: left;
     width: 23%;
-    margin: 0 1%;
+    margin:10px 1% 0 1%;
     font-size: 14px;
   }
   .slidebox {
@@ -6495,6 +6524,9 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     width: 96%;
     padding: 0 2%;
   }
+  .aboutbtn.sub_nav{top: 0;}
+  .aboutbtn.sub_nav.fix{top:60px;}
+  .nav-height{position: relative;margin:0 0;}
 }
 
 @media screen and (max-width: 960px) {
@@ -6558,9 +6590,8 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     display: block;
     float: left;
     width: 48%;
-    margin: 0 1%;
+    margin:10px 1% 0 1%;
     font-size: 14px;
-    margin-bottom: 10px;
   }
   .slideslick {
     float: none;

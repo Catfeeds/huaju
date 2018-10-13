@@ -140,7 +140,7 @@
             <a class="iconfont2 bds_more iconfont" data-cmd="more">&#xe610;</a>
         </span>
         @if(isset($collection_id)&&$collection_id>0)
-            <div class="iconfont2 shouchang2 @if(isset($collection_on)&&$collection_on>0) icon-yduixingxingshixin @else icon-yduixingxingkongxin @endif" data-id={{$collection_id}} data-type='{{$collection_type}}'></div>
+            <div class="iconfont2 iconfont shouchang2 @if(isset($collection_on)&&$collection_on>0) icon-yduixingxingshixin @else icon-yduixingxingkongxin @endif" data-id={{$collection_id}} data-type='{{$collection_type}}'></div>
         @endif
         <div href="jacascript::void(0)" class="iconfont2 iconfont" id="tops">&#xe60f;</div>
     </div>

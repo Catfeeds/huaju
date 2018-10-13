@@ -23,13 +23,16 @@ $(document).ready(function () {
         var _this = $(this)
         $(this).children('.f-title').click(function () {
             if ($(window).width() > 1180) {
-
-                return
+                return false;
             } else {
-                _this.siblings('').children('.f-title').find('i').html('&#xe605;')
-                $(this).find('i').html('&#xe6d3;')
-                _this.children('.td').slideDown()
-                _this.siblings('').children('.td').slideUp()
+                if(_this.children('.td').is(":hidden")){
+                    _this.siblings('').children('.f-title').find('i').html('&#xe605;')
+                    $(this).find('i').html('&#xe6d3;')
+                    _this.children('.td').slideDown()
+                    _this.siblings('').children('.td').slideUp()
+                }else{
+                    _this.children('.td').slideUp()
+                }
             }
         })
     })
@@ -55,12 +58,50 @@ $(document).ready(function () {
         theme:"dark",
         // autoHideScrollbar:true,
     });
-
+    $(".nav ul li").hover(function(){
+        if(document.body.scrollWidth>=1180){
+            $(this).find(".seconed").show();
+        }
+    },function(){
+        if(document.body.scrollWidth>=1180){
+            $(this).find(".seconed").hide();
+        }
+    })
+    $(".nav ul li").hover(function(){
+        if(document.body.scrollWidth>=1180){
+            $(this).find(".seconed").show();
+        }
+    },function(){
+        if(document.body.scrollWidth>=1180){
+            $(this).find(".seconed").hide();
+        }
+    })
+    $(".nav ul li span a").click(function(){
+        if(document.body.scrollWidth<1180){
+            if($(this).parents("li").find(".seconed").length){
+                if($(this).parents("li").find(".seconed").is(":hidden")){
+                    $(this).parents("li").find(".seconed").show();
+                }else{
+                    $(this).parents("li").find(".seconed").hide();
+                }
+                return false;
+            }
+        }
+    })
     $('.hsebtn dd').click(function(){
         $(this).addClass('active').siblings().removeClass();
         $('.join').hide().eq($(this).index()).show()
     })
-
+    var set_tops='';
+    $(window).scroll(function() {
+        if(document.body.scrollWidth<1180){
+            $('#toTop').addClass("on");
+            clearTimeout(set_tops);
+            set_tops = setTimeout(function(){
+                $('#toTop').removeClass("on");
+            },3000)
+        }
+    });
     $('#tops').click(function () {
         $('body,html').animate({
             'scrollTop': '0'
@@ -145,6 +186,7 @@ $(document).ready(function () {
     $('.cliset').slick({
         dots: false,
         slidesToShow: 3,
+        autoplay: true,
         responsive: [{
                 breakpoint: 1180,
                 settings: {
@@ -164,6 +206,7 @@ $(document).ready(function () {
     $('.bdlist dl').slick({
         dots: false,
         slidesToShow: 3,
+        autoplay: true,
         responsive: [{
                 breakpoint: 1180,
                 settings: {
@@ -191,6 +234,7 @@ $(document).ready(function () {
         infinite: false,
         speed: 300,
         slidesToShow: 4,
+        autoplay: true,
         responsive: [{
                 breakpoint: 1180,
                 settings: {
@@ -333,6 +377,7 @@ $(document).ready(function () {
     $('.stop').slick({
         dots: false,
         slidesToShow:2,
+        autoplay: true,
         responsive: [
             {
               breakpoint: 768,
@@ -366,6 +411,7 @@ $(document).ready(function () {
     $('.srt').slick({
         dots: false,
         slidesToShow:2,
+        autoplay: true,
         responsive: [
             {
               breakpoint: 768,
@@ -386,6 +432,7 @@ $(document).ready(function () {
     $('.sbot').slick({
         dots: false,
         slidesToShow:3,
+        autoplay: true,
         responsive: [
             {
               breakpoint: 768,
@@ -414,7 +461,8 @@ $(document).ready(function () {
     
     $('.slideslick').slick({
         dots: true,
-        arrows:false
+        arrows:false,
+        autoplay: true,
     })
 
     if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){

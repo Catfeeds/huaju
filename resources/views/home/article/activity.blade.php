@@ -61,7 +61,9 @@
                     <select name="tag">
                         <option value="">全部应用</option>
                         @foreach($tag_list as $k=>$v)
+                        @if(!empty($v['tag']))
                         <option value="{{$v['tag']}}" @if(request()->tag==$v['tag']) selected="selected" @endif>{{$v['tag']}}</option>
+                        @endif
                         @endforeach
                     </select>
                     <select name="time">

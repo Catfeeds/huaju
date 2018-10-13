@@ -21,7 +21,7 @@
                 </li>
                 @endforeach
             </ul>
-            <div class="ser-ach clearfix">
+            <!-- <div class="ser-ach clearfix">
                 <div class="mcate">
                     <form method="get" action="">
                         @csrf
@@ -40,6 +40,28 @@
                         </div>
                     </form>
                 </div>
+            </div> -->
+            <div class="activity_search">
+                <form method="get" action="{{url("category",[$cate_info['id']])}}">
+                    @csrf
+                    <select name="tag">
+                        <option value="">全部产品</option>
+                        @foreach($tag_list as $k=>$v)
+                        @if(!empty($v['tag']))
+                        <option value="{{$v['tag']}}" @if(request()->tag==$v['tag']) selected="selected" @endif>{{$v['tag']}}</option>
+                        @endif
+                        @endforeach
+                    </select>
+                    <select name="title2">
+                        <option value="">全部行业</option>
+                        @foreach($tag_list2 as $k=>$v)
+                        @if(!empty($v['title2']))
+                        <option value="{{$v['title2']}}" @if(request()->title2==$v['title2']) selected="selected" @endif>{{$v['title2']}}</option>
+                        @endif
+                        @endforeach
+                    </select>
+                    <input type="submit" class="submit" value="搜索">
+                </form>
             </div>
         </div>
         <dl class="caelise">
@@ -57,7 +79,9 @@
                     </div>
                     <i class="shouchang iconfont @if(isset($v['is_collection'])&&$v['is_collection']) on @endif" id="{{$v['id']}}"></i>
                     <!-- <a class="shouchang @if(isset($v['is_collection'])&&$v['is_collection']) on @endif" id="{{$v['id']}}">收藏</a> -->
-                    @if(!empty($v['file']))
+                    @if(!empty($v['url']))
+                    <a href="{{$v['url']}}" target="_blank">了解详情</a>
+                    @elseif(!empty($v['file']))
                     <a href="{{URL('download-save',[$v['id']])}}" class="down_btn">了解详情</a>
                     @endif
                 </div>

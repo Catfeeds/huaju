@@ -1,6 +1,6 @@
 img{max-width: 100%;}
 /*a{cursor:pointer;}*/
-.seconed a.n2{color: #bbdaf2;display: block;margin-top: 13px;padding:0 15px;width: 150px;}
+/*.seconed a.n2{color: #fff;display: block;margin-top: 13px;padding:0 15px;width: 150px;}*/
 
 .slicks dd .txt .more {
   display: block;
@@ -372,7 +372,7 @@ img{max-width: 100%;}
 
   /*.hnitem{overflow: hidden;}*/
   .hsebtn dd.active:after{border:0;}
-  .nav ul li:hover .seconed{margin-bottom: 10px;padding: 2% 2% 2% 2%;}
+  /*.nav ul li:hover .seconed{margin-bottom: 10px;padding: 2% 2% 2% 2%;}*/
 
 
   .wrap{width: 100%;padding:0 15px;box-sizing: border-box;}
@@ -412,6 +412,7 @@ img{max-width: 100%;}
   .serive ul li:nth-child(3n+1){clear:left;}
 
   .activity_search{margin-top: 15px;}
+  .cnitem{background: none;}
 }
 @media screen and (max-width: 768px) {
   .showBox .txt .td .mx .submit{margin-left: 0;}
@@ -499,7 +500,7 @@ img{max-width: 100%;}
   .caelise dd{padding: 15px;}
   .showBox .txt .tx h5{text-align: center;}
   .anitem{padding: 0;width: 100%;}
-  .aboutbtn{padding:0 13px}
+  .aboutbtn{padding:15px 13px}
   .bnitem{margin-top: 15px;box-sizing: border-box;padding:15px;width: 100%;}
   .band ul li:nth-child(2n+1){clear:left;}
   .band ul li{margin-bottom: 0;margin-top: 15px;}

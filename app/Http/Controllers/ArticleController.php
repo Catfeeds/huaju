@@ -181,10 +181,19 @@ class ArticleController extends Controller
                     "keyword"       => $request['keyword'],
                     "start_time"       => $request['start_time'],
                     "end_time"       => $request['end_time'],
+                    "tag"       => $request['tag'],
+                    "title2"       => $request['title2'],
                     'paginate'      => 6,
                     'is_collection' =>4,
                 ]);
                 $assign['article_list'] = $article_list;
+
+                //获取筛选项
+                $tag_list = Article::whereIn('cate_id',sub_cate_in($cate_info['id']))->groupBy('tag')->get();
+                $assign['tag_list'] = $tag_list;
+                $tag_list2 = Article::whereIn('cate_id',sub_cate_in($cate_info['id']))->groupBy('title2')->get();
+                $assign['tag_list2'] = $tag_list2;
+
                 break;
             case 'index2-gaishu':
             case 'index2-gongneng':

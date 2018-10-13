@@ -217,6 +217,7 @@ $(document).ready(function() {
         dots: true,
         arrows: false,
         slidesToShow: 1,
+        autoplay: true,
         // responsive: [{
         //  breakpoint: 960,
         //  settings: {
@@ -236,6 +237,7 @@ $(document).ready(function() {
         dots: false,
         arrows: true,
         slidesToShow: 3,
+        autoplay: true,
         responsive: [{
                 breakpoint: 960,
                 settings: {

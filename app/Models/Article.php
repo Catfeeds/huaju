@@ -57,7 +57,12 @@ class Article extends Model
         if(isset($attributes['is_top'])&&trim($attributes['is_top'])!=''){
             $list = $list->where('is_top',$attributes['is_top']);
         }
-
+        if(isset($attributes['title2'])&&trim($attributes['title2'])!=''){
+            $list = $list->where('title2',$attributes['title2']);
+        }
+        if(isset($attributes['tag'])&&trim($attributes['tag'])!=''){
+            $list = $list->where('tag',$attributes['tag']);
+        }
         if((isset($attributes['keyword'])&&trim($attributes['keyword'])!='')||(isset($attributes['search_type'])&&trim($attributes['search_type']))){
             if(isset($attributes['search_type'])&&trim($attributes['search_type'])){
                 switch ($attributes['search_type']) {

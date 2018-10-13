@@ -1,7 +1,7 @@
 @section('script')
     <script type="text/javascript" src="{{asset('resources/home/js/wow.min.js')}}?version={{env('VERSION')}}"></script>
     <script type="text/javascript" src="{{asset('resources/home/js/ifie8.js')}}?version={{env('VERSION')}}"></script>
-    <script type="text/javascript" src="{{asset('resources/home/js/fastclick.js')}}?version={{env('VERSION')}}"></script>
+    <!-- <script type="text/javascript" src="{{asset('resources/home/js/fastclick.js')}}?version={{env('VERSION')}}"></script> -->
     <script type="text/javascript" src="{{asset('resources/home/js/_swiper.min.js')}}?version={{env('VERSION')}}"></script>
     <script type="text/javascript" src="{{asset('resources/home/js/slick.min.js')}}?version={{env('VERSION')}}"></script>
     <!-- <script type="text/javascript" src="{{asset('resources/home/js/jquery.dotdotdot.js')}}?version={{env('VERSION')}}"></script> -->

@@ -195,7 +195,7 @@ $mobile_banner = ads_image(32);
                 <img src="{{asset($v['img2'])}}" alt="{{$v['alt2']}}">
             </div>
             <div class="text">
-                <div class="texts-top">
+                <div class="texts-top clearfix">
                     <div class="title">{{$v['title']}}</div>
                     <div class="txt mCustomScrollbar2">{!!nl2br($v['cat_desc'])!!}</div>
                     <a class="more" href="{{URL('category',[$server['id']])}}#a_{{$k}}">了解更多</a>

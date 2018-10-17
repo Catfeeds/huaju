@@ -75,15 +75,15 @@
                             <h6>{{$v['desc']}}</h6>
                             <h3>{{$v['title']}}</h3>
                         </div>
-                        <div class="cos">
+                        <!-- <div class="cos">
                             <img src="{{asset($v['image2'])}}">
-                        </div>
+                        </div> -->
                     </li>
                     @else
                     <li>
-                        <div class="cos">
+                        <!-- <div class="cos">
                             <img src="{{asset($v['image2'])}}">
-                        </div>
+                        </div> -->
                         <div class="col">
                             <div class="pt" style="background-image: url({{asset($v['image'])}});"></div>
                             <h6>{{$v['desc']}}</h6>
@@ -162,47 +162,7 @@
         </div>
         <div class="mitem mi-ted">
             <div class="mar-title">精彩瞬间</div>
-            <div class="mphotos my-simple-gallery clearfix" id="mphotos">
-                @foreach($info['MoreImageMany'] as $k=>$v)
-                <img src="{{asset($v['image'])}}" itemprop="thumbnail" alt="" class="pic_btn" data-src="{{asset($v['image'])}}" itemprop="contentUrl" data-size="" data-title="{{$v['title']}}" / >
-
-                {{--@if($k%8==0)
-                <div class="pf clearfix">
-                @endif
-                @if($k%8==3)
-                <div class="pr clearfix">
-                @endif
-                    @if(in_array($k%8,[0,3]))
-                    <div class="left" @if($k%8==0) style="background-image: url({{asset($v['image'])}});" @endif>
-                    @endif
-                    @if(in_array($k%8,[1,5]))
-                    <div class="right">
-                    @endif
-                        @if(in_array($k%8,[1,3,5]))
-                        <div class="top" style="background-image: url({{asset($v['image'])}});">
-                        @endif
-                        @if(in_array($k%8,[2,4,7]))
-                        <div class="bot" style="background-image: url({{asset($v['image'])}});">
-                        @endif
-                        @if(in_array($k%8,[6]))
-                        <div class="center" style="background-image: url({{asset($v['image'])}});">
-                        @endif
-                        <figure itemscope itemtype="">
-                            <a class="pic_btn" data-src="{{asset($v['image'])}}" itemprop="contentUrl" data-size="" data-title="{{$v['title']}}" >
-                                <img src="{{asset($v['image'])}}" itemprop="thumbnail" alt="" / >
-                            </a>
-                        </figure>
-                        @if($k%8!=0)
-                        </div>
-                        @endif
-                    @if(in_array($k%8,[0,2,4,7])||count($info['MoreImageMany'])-1==$k)
-                    </div>
-                    @endif
-                @if(in_array($k%8,[2,7])||count($info['MoreImageMany'])-1==$k)
-                </div>
-                @endif--}}
-                @endforeach
-            </div>
+            <div class="mphotos my-simple-gallery clearfix" id="mphotos">@foreach($info['MoreImageMany'] as $k=>$v)<div class="pic_btn" style="background-image: url('{{asset($v['image'])}}');" data-src="{{asset($v['image'])}}" itemprop="contentUrl" data-size="" data-title="{{$v['title']}}"></div>@endforeach</div>
         </div>
         <div class="mitem mi-tef">
             <div class="mar-title">合作伙伴</div>
@@ -413,96 +373,96 @@
     <script>
     $(function(){
         //瀑布流
-        var items = $("#mphotos").children();
-        // 定义每一列之间的间隙 为10像素
-        var gap = 10;
-        window.onload = function() {
-            // 一进来就调用一次
-            waterFall();
-            // 封装成一个函数
-            function waterFall() {
-                var window_w = parseInt($(window).width());
-                var pageWidth = parseInt($("#mphotos").width());
-                if(window_w<=768){
-                    box_w = pageWidth-30
-                    //手机版两列平等
-                    var columns = 2;
-                    var i1 = 0.5*box_w;
-                    var i2 = 0.5*box_w;
-                }else{
-                    box_w = pageWidth-50
-                    //ipad,电脑板4列30%,20%
-                    var columns = 4;
-                    var i1 = 0.25*box_w;
-                    var i2 = 0.25*box_w;
-                }
-                var arr = [];
-                for (var i = 0; i < items.length; i++) {
-                    if (i < columns) {
-                        // 2- 确定第一行
-                        items[i].style.top = 0;
-                        if(i>0){
-                            if(i%2==0){
-                                l = items[i-1].offsetLeft+i2;
-                            }else{
-                                l = items[i-1].offsetLeft+i1;
-                            }
-                        }else{
-                            l = 0;
-                        }
-                        if(i%2==0){
-                            items[i].style.left = (l + gap) + 'px';
-                            items[i].style.width = i1 + 'px';
-                        }else{
-                            items[i].style.left = (l + gap) + 'px';
-                            items[i].style.width = i2 + 'px';
-                        }
-                        arr.push(items[i].offsetHeight);
-                    } else {
-                        // 其他行
-                        // 3- 找到数组中最小高度  和 它的索引
-                        var minHeight = arr[0];
-                        var index = 0;
-                        for (var j = 0; j < arr.length; j++) {
-                            if (minHeight > arr[j]) {
-                                minHeight = arr[j];
-                                index = j;
-                            }
-                        }
-                        // 4- 设置下一行的第一个盒子位置
-                        // top值就是最小列的高度 + gap
-                        items[i].style.top = arr[index] + gap + 'px';
+        // var items = $("#mphotos").children();
+        // // 定义每一列之间的间隙 为10像素
+        // var gap = 10;
+        // window.onload = function() {
+        //     // 一进来就调用一次
+        //     waterFall();
+        //     // 封装成一个函数
+        //     function waterFall() {
+        //         var window_w = parseInt($(window).width());
+        //         var pageWidth = parseInt($("#mphotos").width());
+        //         if(window_w<=768){
+        //             box_w = pageWidth-30
+        //             //手机版两列平等
+        //             var columns = 2;
+        //             var i1 = 0.5*box_w;
+        //             var i2 = 0.5*box_w;
+        //         }else{
+        //             box_w = pageWidth-50
+        //             //ipad,电脑板4列30%,20%
+        //             var columns = 4;
+        //             var i1 = 0.25*box_w;
+        //             var i2 = 0.25*box_w;
+        //         }
+        //         var arr = [];
+        //         for (var i = 0; i < items.length; i++) {
+        //             if (i < columns) {
+        //                 // 2- 确定第一行
+        //                 items[i].style.top = 0;
+        //                 if(i>0){
+        //                     if(i%2==0){
+        //                         l = items[i-1].offsetLeft+i2;
+        //                     }else{
+        //                         l = items[i-1].offsetLeft+i1;
+        //                     }
+        //                 }else{
+        //                     l = 0;
+        //                 }
+        //                 if(i%2==0){
+        //                     items[i].style.left = (l + gap) + 'px';
+        //                     items[i].style.width = i1 + 'px';
+        //                 }else{
+        //                     items[i].style.left = (l + gap) + 'px';
+        //                     items[i].style.width = i2 + 'px';
+        //                 }
+        //                 arr.push(items[i].offsetHeight);
+        //             } else {
+        //                 // 其他行
+        //                 // 3- 找到数组中最小高度  和 它的索引
+        //                 var minHeight = arr[0];
+        //                 var index = 0;
+        //                 for (var j = 0; j < arr.length; j++) {
+        //                     if (minHeight > arr[j]) {
+        //                         minHeight = arr[j];
+        //                         index = j;
+        //                     }
+        //                 }
+        //                 // 4- 设置下一行的第一个盒子位置
+        //                 // top值就是最小列的高度 + gap
+        //                 items[i].style.top = arr[index] + gap + 'px';
           
-                        // left值就是最小列距离左边的距离
-                        if(items[index].offsetWidth>=i1-2){
-                            items[i].style.left = items[index].offsetLeft + 'px';
-                            items[i].style.width = i1 + 'px';
-                        }else{
-                            items[i].style.left = items[index].offsetLeft + 'px';
-                            items[i].style.width = i2 + 'px';
-                        }
+        //                 // left值就是最小列距离左边的距离
+        //                 if(items[index].offsetWidth>=i1-2){
+        //                     items[i].style.left = items[index].offsetLeft + 'px';
+        //                     items[i].style.width = i1 + 'px';
+        //                 }else{
+        //                     items[i].style.left = items[index].offsetLeft + 'px';
+        //                     items[i].style.width = i2 + 'px';
+        //                 }
 
                         
-                        // 5- 修改最小列的高度 
-                        // 最小列的高度 = 当前自己的高度 + 拼接过来的高度 + 间隙的高度
-                        arr[index] = arr[index] + items[i].offsetHeight + gap;
-                    }
-                }
-                var maxHeight = arr[0];
-                var index = 0;
-                for (var j = 0; j < arr.length; j++) {
-                    if (maxHeight < arr[j]) {
-                        maxHeight = arr[j];
-                    }
-                }
-                $("#mphotos").height(maxHeight);
-                $("#mphotos").css("opacity",1);
-            }
-            // 页面尺寸改变时实时触发
-            window.onresize = function() {
-                waterFall();
-            };
-        };
+        //                 // 5- 修改最小列的高度 
+        //                 // 最小列的高度 = 当前自己的高度 + 拼接过来的高度 + 间隙的高度
+        //                 arr[index] = arr[index] + items[i].offsetHeight + gap;
+        //             }
+        //         }
+        //         var maxHeight = arr[0];
+        //         var index = 0;
+        //         for (var j = 0; j < arr.length; j++) {
+        //             if (maxHeight < arr[j]) {
+        //                 maxHeight = arr[j];
+        //             }
+        //         }
+        //         $("#mphotos").height(maxHeight);
+        //         $("#mphotos").css("opacity",1);
+        //     }
+        //     // 页面尺寸改变时实时触发
+        //     window.onresize = function() {
+        //         waterFall();
+        //     };
+        // };
 
 
         $(".pic_btn").click(function(){

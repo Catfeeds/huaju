@@ -175,8 +175,7 @@
 		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<div class="benefit">
 			<ul class="benefitlist clearfix">
-				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="wow fadeInLeftBig" data-wow-delay="{{($b_k+1)/10}}s">
+				@foreach($index2_box['article'] as $b_k=>$b_v)<li class="wow fadeInLeftBig" data-wow-delay="{{($b_k+1)/10}}s">
 					<div class="pic">
 						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 					</div>
@@ -184,8 +183,7 @@
 					<div class="text">
 						{!!nl2br($b_v['desc'])!!}
 					</div>
-				</li>
-				@endforeach
+				</li>@endforeach
 			</ul>
 		</div>
 	</div>

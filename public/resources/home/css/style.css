@@ -1402,7 +1402,7 @@
 }
 
 .texts-top {
-  padding: 30px 20px 20px 20px;
+  padding: 30px 20px 10px 20px;
   border-bottom: 1px dashed #007dfd;
   /*height: 94px;overflow-y:auto; */
 }
@@ -1421,7 +1421,8 @@
   height: 100px;
 /*overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp:2; -webkit-box-orient: vertical;*/
 }
-.texts-top .more{color: #0093dd;text-align: right;display: block;}
+.texts-top .more{color: #fff;background-color: #0093dd;float: right;margin-top: 10px;border-radius: 8px;padding:6px 8px;}
+.texts-top .more:hover{background-color: #2761d8;}
 .texts-bot {
   padding: 0px 23px 14px 23px;
 }
@@ -2798,7 +2799,8 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   text-align: center;
   margin-bottom: 50px;
 }
-.more_title{text-align: center;display: block;font-size: 14px;color: #333;position: relative;top: -10px;}
+.more_title{text-align: center;display: block;font-size: 14px;position: relative;top: -10px;color: #fff;background-color: #0093dd;border-radius: 8px;padding:6px 8px;width: 72px;margin:0 auto;}
+.more_title:hover{background-color: #2761d8;}
 .casetitle .lt {
   display: inline-block;
   height: 1px;
@@ -2955,6 +2957,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 
 .benefit ul {
   margin-top: 45px;
+  text-align: center;
 }
 
 .benefit ul li .pic {
@@ -2968,7 +2971,8 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 
 .benefit ul li {
   width: 25%;
-  float: left;
+  /*float: left;*/
+  display: inline-block;
 }
 
 .benefit ul li h4 {
@@ -4694,9 +4698,11 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   width: 1200px;
   margin: 70px auto 0 auto;
   position: relative;
-  opacity: 0;
+  text-align: center;
+  /*opacity: 0;*/
 }
-.mphotos .pic_btn{cursor: pointer;position: absolute;}
+/*.mphotos .pic_btn{cursor: pointer;position: absolute;}*/
+.mphotos .pic_btn{cursor: pointer;margin: 10px 5px 0 5px;width: 287px;height: 287px;background: no-repeat center/cover;display: inline-block;}
 .mphotos .pf {
   width: 49.5%;
   float: left;
@@ -4950,7 +4956,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   height: 212px;
 }
 
-.mar-trhee ul li .col::after {
+/*.mar-trhee ul li .col::after {
   content: "";
   display: block;
   width: 0;
@@ -4961,16 +4967,16 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   border-width: 10px;
   border-style: solid;
   border-color: #44aeff transparent transparent transparent;
-}
+}*/
 
-.mar-trhee ul li:nth-child(2) .col {
-  padding-top: 23px;
+.mar-trhee ul li:nth-child(2n) .col {
+  /*padding-top: 23px;*/
   position: relative;
-  height: 212px;
+  /*height: 212px;*/
   background: #00bc61;
 }
 
-.mar-trhee ul li:nth-child(2) .col::after {
+/*.mar-trhee ul li:nth-child(2) .col::after {
   content: "";
   display: block;
   width: 0;
@@ -4981,7 +4987,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   border-width: 10px;
   border-style: solid;
   border-color: transparent transparent #00bc61 transparent;
-}
+}*/
 
 .mar-trhee ul li .col .pt {
   width: 110px;
@@ -4997,7 +5003,8 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   text-align: center;
   padding:24px 0 10px 0;
   color: #fff;
-white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  height:19px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
 .mar-trhee ul li .col h3 {
@@ -5005,7 +5012,8 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   text-align: center;
   padding:0 0 10px 0;
   color: #fff;
-white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  height: 34px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
 .mar-trhee ul li .cos img {
@@ -5336,6 +5344,8 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   .iWant .close {
     font-size: 20px;
   }
+
+  .mphotos .pic_btn{width: 230px;height: 230px;}
 }
 
 @media screen and (max-width: 768px) {
@@ -5419,11 +5429,12 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   .mi-teh .table .title span {
     font-size: 14px;
   }
-  .mar-trhee ul li .col h6{font-size: 12px;padding: 10px 0 5px 0;}
+  .mar-trhee ul li .col h6{font-size: 12px;padding: 10px 0 5px 0;height: 17px;}
   .mar-trhee ul li .col{padding:15px 0;}
   .mar-trhee ul li .col:nth-child(2n){padding: 15px 0;}
   .mar-trhee ul li .col h3{padding: 0;}
-
+  
+  .mphotos .pic_btn{width: 46%;margin:10px 2% 0;height: 175px;}
 }
 
 @media screen and (max-width: 640px) {

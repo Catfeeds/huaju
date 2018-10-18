@@ -109,7 +109,9 @@ class MoreImageController extends Controller
 
             $form->saving(function (Form $form) {
                 // $AdsPosition = AdsPosition::find($form->cate_id);
-                // $form->image = Image($form->image,$AdsPosition['width'],$AdsPosition['height'],"uploads/images/".date("Ymd")."/");
+                if($form->more_id==471){
+                    $form->image = Image($form->image,575,292,"uploads/images/".date("Ymd")."/");
+                }
             });
             $form->saved(function (Form $form) {
                 admin_toastr(trans('admin.update_succeeded'));

@@ -66,32 +66,13 @@
         <div class="mitem mi-teg fadeInUp wow">
             <div class="mar-title">合作伙伴</div>
             <div class="mar-trhee clearfix">
-                <ul>
-                    @foreach($info['MoreActivityMany2'] as $k=>$v)
-                    @if($k%2==0)
-                    <li>
+                <ul>@foreach($info['MoreActivityMany2'] as $k=>$v)<li>
                         <div class="col">
                             <div class="pt" style="background-image: url({{asset($v['image'])}});"></div>
                             <h6>{{$v['desc']}}</h6>
                             <h3>{{$v['title']}}</h3>
                         </div>
-                        <!-- <div class="cos">
-                            <img src="{{asset($v['image2'])}}">
-                        </div> -->
-                    </li>
-                    @else
-                    <li>
-                        <!-- <div class="cos">
-                            <img src="{{asset($v['image2'])}}">
-                        </div> -->
-                        <div class="col">
-                            <div class="pt" style="background-image: url({{asset($v['image'])}});"></div>
-                            <h6>{{$v['desc']}}</h6>
-                            <h3>{{$v['title']}}</h3>
-                        </div>
-                    </li>
-                    @endif
-                    @endforeach
+                    </li>@endforeach
                 </ul>
             </div>
         </div>

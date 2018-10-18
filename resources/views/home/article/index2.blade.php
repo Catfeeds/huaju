@@ -9,27 +9,31 @@
     @if(!empty($cate_info['mobile_banner']))
     <div class="conBanner mobile_box" ><img src="{{asset($cate_info['mobile_banner'])}}"></div>
     @endif
-    <div class="nav-height" id="navHeight">
-        <div class="aboutbtn nav-wrap sub_nav"  id="nav-wrap">
-            <ul class="clearfix">
-                @foreach($sub_nav as $k=>$v)
-                <li>
-                    <a data-id="a_{{$k}}" href="{{URL('category',[$v['id']])}}" @if($v['id']==$cate_info['id']) class="active" @endif>{{$v['title']}}</a>
-                </li>
-                @endforeach
-            </ul>
+    @if($sub_nav->count()>1)
+        <div class="nav-height" id="navHeight">
+            <div class="aboutbtn nav-wrap sub_nav"  id="nav-wrap">
+                <ul class="clearfix">
+                    @foreach($sub_nav as $k=>$v)
+                    <li>
+                        <a data-id="a_{{$k}}" href="{{URL('category',[$v['id']])}}" @if($v['id']==$cate_info['id']) class="active" @endif>{{$v['title']}}</a>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="aboutbtn nav-wrap" style="position:static;opacity: 0;">
+                <ul class="clearfix">
+                    @foreach($sub_nav as $k=>$v)
+                    <li>
+                        <a data-id="a_{{$k}}" href="{{URL('category',[$v['id']])}}" @if($v['id']==$cate_info['id']) class="active" @endif>{{$v['title']}}</a>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
-        <div class="aboutbtn nav-wrap" style="position:static;opacity: 0;">
-            <ul class="clearfix">
-                @foreach($sub_nav as $k=>$v)
-                <li>
-                    <a data-id="a_{{$k}}" href="{{URL('category',[$v['id']])}}" @if($v['id']==$cate_info['id']) class="active" @endif>{{$v['title']}}</a>
-                </li>
-                @endforeach
-            </ul>
-        </div>
-    </div>
-    <div class="casedetail index2">
+    @else
+        <div class="nav-height2"></div>
+    @endif
+    <div class="casedetail index3">
         @foreach($cate_list as $k=>$v)
             @include('home.layouts.index2-box',['index2_box'=>$v,'index2_box_k'=>$k])
         @endforeach

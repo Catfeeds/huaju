@@ -5,7 +5,6 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<div class="bdian content_con wow fadeInLeftBig">
 			{!!$index2_box['content']!!}
 		</div>
@@ -17,7 +16,6 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<div class="prolist">
 			<ul>
 				@foreach($index2_box['article'] as $b_k=>$b_v)
@@ -41,7 +39,6 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<div class="caseys">
 			<ul class="clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
@@ -67,11 +64,11 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<div class="scenario">
 			@if(!empty($index2_box['cat_desc']))
 			<h4>{!!nl2br($index2_box['cat_desc'])!!}</h4>
 			@endif
+			@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 			<ul class="scenariolist clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
 				<li class="wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
@@ -96,7 +93,6 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<div class="caseslist">
 			<ul class="cliset clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
@@ -126,7 +122,6 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<div class="understand">
 			<ul class="stand">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
@@ -154,7 +149,6 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<div class="serv">
 			<div class="serv-box clearfix">
 				<div class="pic wow fadeInLeftBig" style="background-image: url({{asset($index2_box['img'])}})">
@@ -172,7 +166,6 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<div class="benefit">
 			<ul class="benefitlist clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)<li class="wow fadeInLeftBig" data-wow-delay="{{($b_k+1)/10}}s">
@@ -194,11 +187,11 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<div class="serive">
 			@if(!empty($index2_box['cat_desc']))
 				<h4>{!!nl2br($index2_box['cat_desc'])!!}</h4>
 			@endif
+			@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 			<ul>
 				@foreach($index2_box['article'] as $b_k=>$b_v)
 				<li class="wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
@@ -223,11 +216,11 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<div class="serive">
 			@if(!empty($index2_box['cat_desc']))
 				<h4>{!!nl2br($index2_box['cat_desc'])!!}</h4>
 			@endif
+			@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 			<div class="datalist clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
 				<div class="serdata wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
@@ -252,7 +245,6 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<div class="band">
 			<ul class="clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
@@ -281,7 +273,6 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<div class="devlist">
 			<ul>
 				@foreach($index2_box['article'] as $b_k=>$b_v)
@@ -301,7 +292,6 @@
 			<span style="color: #fff">{{$index2_box['title']}}</span>
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<?php 
 		$honro = \App\Models\ArticleCategory::where("parent_id",$index2_box['id'])->take(3)->get();
 		foreach($honro as $v){
@@ -346,7 +336,6 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<div class="contbox clearfix">
 			<div class="map contact_map wow fadeInLeftBig" id="contact_map">
 				
@@ -403,7 +392,6 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<!-- <div class="hseui2 clearfix">
 			<div class="hseuibox clearfix wow fadeInUp">
 				<dl class="hsebtn">
@@ -476,7 +464,6 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<div class="goods clearfix style="background-image: url({{asset($index2_box['img'])}});"">
 			<div class="ptc wow fadeInLeftBig" style="background-image: url({{asset($index2_box['img'])}});"><img src="{{asset($index2_box['img'])}}"></div>
 			<div class="td2 shixi wow fadeInRightBig clearfix">
@@ -537,7 +524,6 @@
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
-		@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 		<div class="bigdata">
 			<div class="text">{!!nl2br($index2_box['cat_desc'])!!}</div>
 			<ul class="datalisx clearfix">

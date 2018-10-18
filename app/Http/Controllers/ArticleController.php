@@ -123,6 +123,10 @@ class ArticleController extends Controller
                 ]);
                 $assign['collection_id'] = $cate_info['id'];
                 $assign['collection_type'] = 3;
+
+                $sub_nav = ArticleCategory::orderBy('order',"ASC")->where('parent_id',$cate_info['parent_id'])->get();//获取同级分类
+                $assign['sub_nav'] = $sub_nav;
+                
                 break;
             case 'problem'://问题
                 $c_sub = ArticleCategory::where('parent_id',$cate_info['id'])->orderBy('order',"ASC")->first();
@@ -193,7 +197,6 @@ class ArticleController extends Controller
                 $assign['tag_list'] = $tag_list;
                 $tag_list2 = Article::whereIn('cate_id',sub_cate_in($cate_info['id']))->groupBy('title2')->get();
                 $assign['tag_list2'] = $tag_list2;
-
                 break;
             case 'index2-gaishu':
             case 'index2-gongneng':
@@ -217,7 +220,6 @@ class ArticleController extends Controller
                     'cate_id_in'  => sub_cate_in($cate_info['id']),
                     'paginate'    => 0,
                 ]);
-
                 $sub_nav = ArticleCategory::orderBy('order',"ASC")->where('parent_id',$cate_info['parent_id'])->get();//获取同级分类
                 $assign['sub_nav'] = $sub_nav;
                 return view('home.article.index3',$assign);//特殊模版

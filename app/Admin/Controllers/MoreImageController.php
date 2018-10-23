@@ -103,17 +103,22 @@ class MoreImageController extends Controller
             $form->text('alt', 'alt');
             $form->number('order', '排序');
             // $form->text('url', '链接');
-            $form->image('image','图片')->move('uploads/images/'.date('Ymd'))->uniqueName()->help('薪酬福利图片尺寸575 X 292');
+            $form->image('image','图片')->move('uploads/images/'.date('Ymd'))->uniqueName()->help('薪酬福利图片尺寸575 X 292')->removable();
 
             // $form->setAction('/admin/ads-image');//提交地址
 
             $form->saving(function (Form $form) {
+                if($form->image=='_file_del_'){
+                    $form->image = '';
+                }
                 // $AdsPosition = AdsPosition::find($form->cate_id);
                 // $form->image = Image($form->image,$AdsPosition['width'],$AdsPosition['height'],"uploads/images/".date("Ymd")."/");
             });
             $form->saved(function (Form $form) {
                 admin_toastr(trans('admin.update_succeeded'));
-                return redirect('/admin/more-image?cate_id='.$form->cate_id.'&more_id='.$form->more_id);
+                if(isset($form->_file_del_)){
+                    return redirect('/admin/more-image?cate_id='.$form->cate_id.'&more_id='.$form->more_id);
+                }
             });
         });
     }

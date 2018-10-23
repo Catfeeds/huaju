@@ -156,7 +156,7 @@ class ArticleController extends Controller
             $form->hidden('id','ID');
             $form->text('title','标题')->rules('required');
             $form->text('title2','副标题/成功案例行业');
-            $form->file('file','资料上传')->move('uploads/article/'.date('Ymd'));
+            $form->file('file','资料上传')->move('uploads/article/'.date('Ymd'))->removable();
             // $form->text('en_title','英文标题');
 
             $cate = ArticleCategory::orderBy('order',"ASC")->orderBy('id',"ASC")->get()->toarray();
@@ -171,9 +171,9 @@ class ArticleController extends Controller
             $form->textarea('desc','描述')->rows(3);
             $form->textarea('desc2','描述2')->rows(3);
             $form->editor('content','内容');
-            $form->image('img','图片')->move('uploads/article/'.date('Ymd'))->uniqueName()->help('荣誉资质图片量尺寸左侧 151 X 54，右侧 252 X 346');
+            $form->image('img','图片')->move('uploads/article/'.date('Ymd'))->uniqueName()->help('荣誉资质图片量尺寸左侧 151 X 54，右侧 252 X 346')->removable();
             $form->text('alt','图片alt');
-            $form->image('img2','图片2')->move('uploads/article/'.date('Ymd'))->uniqueName()->help('品牌架构图片量尺寸 71 X 71');
+            $form->image('img2','图片2')->move('uploads/article/'.date('Ymd'))->uniqueName()->help('品牌架构图片量尺寸 71 X 71')->removable();
             $form->text('alt2','图片2alt');
             // $form->currency('price','价格');
             $form->text('url', '链接');
@@ -231,6 +231,16 @@ class ArticleController extends Controller
             // }
 
             $form->saving(function (Form $form) {
+      
+                if($form->file=='_file_del_'){
+                    $form->file = '';
+                }
+                if($form->img=='_file_del_'){
+                    $form->img = '';
+                }
+                if($form->img2=='_file_del_'){
+                    $form->img2 = '';
+                }
                 if($form->video){
                     $form->video = upload_file($form->video);
                     $form->video_text = $form->video;
@@ -250,9 +260,11 @@ class ArticleController extends Controller
             });
             $form->saved(function (Form $form) {
                 //链接推送
-                baidu_url(env('APP_URL').'/show-'.$form->cate_id.'-'.$form->id.'-1.html');
+                // baidu_url(env('APP_URL').'/show-'.$form->cate_id.'-'.$form->id.'-1.html');
                 admin_toastr(trans('admin.update_succeeded'));
-                return redirect('/admin/article?cate_id='.$form->cate_id);
+                if(isset($form->_file_del_)){
+                    return redirect('/admin/article?cate_id='.$form->cate_id);
+                }
             });
             // $form->setAction('/admin/article-save');//提交地址
 

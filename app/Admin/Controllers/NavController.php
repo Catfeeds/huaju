@@ -130,7 +130,7 @@ EOT;
             ];
             $form->switch('is_blank','新窗口')->states($states);
             // if($type==3){
-              $form->image('ico','图标')->move('uploads/ico/'.date('Ymd'))->uniqueName();
+              // $form->image('ico','图标')->move('uploads/ico/'.date('Ymd'))->uniqueName();
             // }
             
             $form->saved(function (Form $form) {

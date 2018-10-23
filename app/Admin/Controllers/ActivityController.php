@@ -166,7 +166,7 @@ class ActivityController extends Controller
             $form->switch('is_apply','报名')->states($states);
 
             $form->editor('content','内容');
-            $form->image('img','图片')->move('uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片尺寸377*158');
+            $form->image('img','图片')->move('uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片尺寸377*158')->removable();
             $form->text('alt','图片alt');
 
             $form->text('seo_title','seo title');
@@ -175,7 +175,7 @@ class ActivityController extends Controller
 
             // $form->text('address', '地址');
             $form->textarea('desc2','参会指引')->rows(3);
-            $form->image('img2','参会指引图片')->move('uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片尺寸680*310');
+            $form->image('img2','参会指引图片')->move('uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片尺寸680*310')->removable();
             $form->text('alt2','参会指引图片alt');
             $form->text('url', '外部报名链接');
 
@@ -196,9 +196,9 @@ class ActivityController extends Controller
             $form->multipleSelect('news_related',"专题报道")->options($news_related_list);
             // }
 
-            $form->image('banner','banner图')->move('uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片尺寸1920*600');
-            $form->image('mobile_banner','手机banner图')->move('uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片量尺寸750*545');
-            $form->image('ewm','二维码')->move('uploads/article/'.date('Ymd'))->uniqueName()->help('图片尺寸 200 X 200');
+            $form->image('banner','banner图')->move('uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片尺寸1920*600')->removable();
+            $form->image('mobile_banner','手机banner图')->move('uploads/Activity/'.date('Ymd'))->uniqueName()->help('图片量尺寸750*545')->removable();
+            $form->image('ewm','二维码')->move('uploads/article/'.date('Ymd'))->uniqueName()->help('图片尺寸 200 X 200')->removable();
 
             $form->text('tag','应用');
 
@@ -210,6 +210,24 @@ class ActivityController extends Controller
                     $form->video = $form->video_text;
                 }
 
+                if($form->img=='_file_del_'){
+                    $form->img = '';
+                }
+                if($form->img2=='_file_del_'){
+                    $form->img2 = '';
+                }
+                if($form->banner=='_file_del_'){
+                    $form->banner = '';
+                }
+                if($form->mobile_banner=='_file_del_'){
+                    $form->mobile_banner = '';
+                }
+                if($form->ewm=='_file_del_'){
+                    $form->ewm = '';
+                }
+                
+                
+
                 // $caregory_info = ArticleCategory::find($form->cate_id);
                 $form->img = Image($form->img,377,158,"uploads/Activity/".date("Ymd")."/");
                 $form->img2 = Image($form->img2,680,310,"uploads/Activity/".date("Ymd")."/");
@@ -219,7 +237,7 @@ class ActivityController extends Controller
             });
             $form->saved(function (Form $form) {
                 //链接推送
-                baidu_url(env('APP_URL').'/show-'.$form->cate_id.'-'.$form->id.'-1.html');
+                // baidu_url(env('APP_URL').'/show-'.$form->cate_id.'-'.$form->id.'-1.html');
                 admin_toastr(trans('admin.update_succeeded'));
                 // return redirect('/admin/Activity?cate_id='.$form->cate_id);
             });

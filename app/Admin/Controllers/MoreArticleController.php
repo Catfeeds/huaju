@@ -103,13 +103,22 @@ class MoreArticleController extends Controller
             $form->number('order', '排序');
             // $form->text('video', '视频链接');
             $form->textarea('desc','描述')->rows(3);
-            $form->image('image','图片')->move('uploads/images/'.date('Ymd'))->uniqueName()->help('宾客图片尺寸255 X 255<br/>合作伙伴图片尺寸222 X 89');
-            $form->file('file','资料上传')->move('uploads/article/'.date('Ymd'));
-            $form->image('image2','图片2')->move('uploads/images/'.date('Ymd'))->uniqueName()->help('合作伙伴图片尺寸379 X 243');
+            $form->image('image','图片')->move('uploads/images/'.date('Ymd'))->uniqueName()->help('宾客图片尺寸255 X 255<br/>合作伙伴图片尺寸222 X 89')->removable();
+            $form->file('file','资料上传')->move('uploads/article/'.date('Ymd'))->removable();
+            $form->image('image2','图片2')->move('uploads/images/'.date('Ymd'))->uniqueName()->help('合作伙伴图片尺寸379 X 243')->removable();
 
             // $form->setAction('/admin/ads-image');//提交地址
 
             $form->saving(function (Form $form) {
+                if($form->image=='_file_del_'){
+                    $form->image = '';
+                }
+                if($form->file=='_file_del_'){
+                    $form->file = '';
+                }
+                if($form->image2=='_file_del_'){
+                    $form->image2 = '';
+                }
                 $width2 = null;
                 $height2 = null;
                 switch ($form->cate_id) {
@@ -137,7 +146,10 @@ class MoreArticleController extends Controller
             });
             $form->saved(function (Form $form) {
                 admin_toastr(trans('admin.update_succeeded'));
-                return redirect('/admin/more-article?cate_id='.$form->cate_id.'&more_id='.$form->more_id);
+                if(isset($form->_file_del_)){
+                    return redirect('/admin/more-article?cate_id='.$form->cate_id.'&more_id='.$form->more_id);
+                }
+                
             });
         });
     }

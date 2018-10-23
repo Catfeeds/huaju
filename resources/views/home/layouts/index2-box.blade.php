@@ -104,8 +104,9 @@
 						<div class="v_txt ">
 							<h4>{{$b_v['title']}}</h4>
 							<div class="text mCustomScrollbar2">
-								{!!nl2br($b_v['desc'])!!}
-								<span>{{date("Y-m-d",strtotime($b_v['add_time']))}}</span>
+								<!-- {!!nl2br($b_v['desc'])!!} -->
+								{!!$b_v['content']!!}
+								<span class="time">{{date("Y-m-d",strtotime($b_v['add_time']))}}</span>
 							</div>
 							
 						</div>

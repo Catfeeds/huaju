@@ -455,6 +455,7 @@ function xml_parser($str){
  * @return [type]          [description]
  */
 function sms_send($phone,$content){
+
     $arr = [
         'username'=>'hjkj',
         'userpwd'=>'832195',
@@ -462,9 +463,6 @@ function sms_send($phone,$content){
         'content'=>$content,
     ];
     $data = cUrl('http://sms.ue35.net/sms/interface/sendmess.htm','',$arr);
-    if($data['errorcode']==1){
-        return true;
-    }else{
-        return false;
-    }
+    error_log($data."\r\n",3,'sms.log');
+    return true;
 }

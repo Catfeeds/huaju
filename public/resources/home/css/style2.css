@@ -278,11 +278,11 @@ img{max-width: 100%;}
 .tmain .tds .big .text{overflow: hidden;}
 .goods .ptc img{display: none;}
 .datalisx{margin-top: 0;}
-.datalisx li{margin-top: 30px;height: 482px;overflow: hidden;}
-.datalisx li:nth-child(3n+1){clear:left;}
+.datalisx .li{margin-top: 30px;height: 482px;overflow: hidden;}
+.datalisx .li:nth-child(3n+1){clear:left;}
 .casetitle{margin-bottom: 20px;}
 .band ul li{margin-top: 30px;}
-.band ul li h6{color: #777;}
+.band ul li h6{color: #777;height: 38px;overflow: hidden;}
 .band ul li:nth-child(4n+1){clear:left;}
 
 .stop{padding-right: 60px;}
@@ -319,12 +319,13 @@ img{max-width: 100%;}
 
 .index2{position: relative;}
 .index2>div{display: none;}
-.serive ul li:nth-child(4n+1){clear:left;}
+.serive .ul li:nth-child(4n+1){clear:left;}
 
 
 .activity_search{float: right;font-size: 14px;}
 .activity_search select{width: 123px;line-height: 38px;height: 38px;border:1px solid #cccccc;float: left;margin-right: 13px;color: #000;padding-left: 10px;padding-right: 20px;}
 .activity_search .submit{line-height:39px;width: 52px;background-color: #0093dd;color: #fff;text-align: center;float: left;border:0;cursor: pointer;}
+
 @media screen and (max-width: 1480px) {
   .goods .ptc{width:485px;height:344px;}
   .goods .td2{width: 695px;}
@@ -408,8 +409,8 @@ img{max-width: 100%;}
   .showBox .title{padding-left: 15px;padding-right: 15px;}
   .initem{padding-top: 30px;}
 
-  .serive ul li:nth-child(4n+1){clear:none;}
-  .serive ul li:nth-child(3n+1){clear:left;}
+  .serive .ul li:nth-child(4n+1){clear:none;}
+  .serive .ul li:nth-child(3n+1){clear:left;}
 
   .activity_search{margin-top: 15px;}
   .cnitem{background: none;}
@@ -418,9 +419,9 @@ img{max-width: 100%;}
   .showBox .txt .td .mx .submit{margin-left: 0;}
   .understand{box-sizing: border-box;padding:0 15px;width: 100%;margin-left: 0;margin-right: 0;}
   .stand li{margin-top: 15px;}
-  .prolist ul li{padding: 15px 15px 0}
+  .prolist .ul .li{padding: 15px 15px 0}
 
-  .datalisx li{height: auto;}
+  .datalisx .li{height: auto;}
   .contact_map{height: 250px;}
   .conBanner{height: 220px;}
   .conBanner2{height:300px}
@@ -532,38 +533,38 @@ img{max-width: 100%;}
   .nmain .timesw span:nth-child(2){font-size: 10px;}
   .nmain .timesw span:nth-child(3){font-size: 10px;}
   .nmain .timesw span:nth-child .iconfont{font-size: 12px;}
-  .prolist ul li .text{height: auto;padding-bottom: 10px;}
-  .prolist ul li h4{white-space:inherit;}
+  .prolist .ul .li .text{height: auto;padding-bottom: 10px;}
+  .prolist .ul .li .h4{white-space:inherit;}
   .nslick dd .title{white-space:inherit;}
   .catelist li .txt .tag{white-space:inherit;}
   .caseys ul li .text h3{white-space:inherit;}
   .texts-top .title{white-space:inherit;}
-  .cliset li h4{white-space:inherit;}
+  .cliset .li .h4{white-space:inherit;}
   .stand li .text h4{white-space:inherit;}
   .texts-bot .ques a{white-space:inherit;}
   .benefit ul li h4{white-space:inherit;}
-  .serive ul li h1{white-space:inherit;}
+  .serive .ul li h1{white-space:inherit;}
   .mi-teb dl dd h4{white-space:inherit;}
   .band ul li .text h4{white-space:inherit;}
   .showbox .dxyzm{position:relative;padding-right: 130px;}
   .showbox .mz input.get-msg{position: absolute;right: 0;bottom: 0;}
   .showbox .mz input[name="verify_code"]{width: 100%;}
   
-  .datalisx li h3{white-space:inherit;background-position: left top;}
+  .datalisx .li .h3{white-space:inherit;background-position: left top;}
   .stand li .text .txt{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
-  /*.cliset li .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}*/
+  /*.cliset .li .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}*/
   .nslick dd .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
   /*.catelist li .txt .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}*/
   .texts-top .txt{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
   .benefit ul li .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
-  .serive ul li .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
+  .serive .ul li .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
   .martlist ul li .text h4{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
   .martlist ul li .text .txt{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
   .bdlist dl dd h4{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
   .bdlist dl dd .text{height: auto;white-space:inherit;-webkit-line-clamp: inherit;}
   .catelist li:nth-child(2n+1){clear:left;}
-  .serive ul li:nth-child(3n+1){clear:none;}
-  .serive ul li:nth-child(2n+1){clear:left;}
+  .serive .ul li:nth-child(3n+1){clear:none;}
+  .serive .ul li:nth-child(2n+1){clear:left;}
   .band ul li:nth-child(2n+1){clear:left;}
 
   .item .hot li .wz{line-height: 1.7;}
@@ -592,13 +593,13 @@ img{max-width: 100%;}
 
   .texts-bot .ques i{top:1px;}
 
-  .cliset li{box-shadow:none;}
+  .cliset .li{box-shadow:none;}
   .activity_search{position: relative;padding-right: 52px;float:none;}
   .activity_search .submit{position: absolute;right: 0;top: 0;}
   .activity_search select{margin-right:2%;width: 48%;box-sizing: border-box;}
 }
 @media screen and (max-width: 480px) {
-  .cliset li{margin-left: 0;margin-right: 0;padding: 15px;}
+  .cliset .li{margin-left: 0;margin-right: 0;padding: 15px;}
   .conBanner2 .conText h1{font-size: 24px;}
   .slicks dd .txt span{width: auto;}
   

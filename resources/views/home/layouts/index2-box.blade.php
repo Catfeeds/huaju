@@ -1,5 +1,6 @@
 @if($index2_box['template']=='index2-gaishu')
 	<div class="case-item " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle">
 			<i class="lt"></i>
 			{{$index2_box['title']}}
@@ -11,21 +12,22 @@
 	</div>
 @elseif($index2_box['template']=='index2-gongneng')
 	<div class="case-item ys " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle">
 			<i class="lt"></i>
 			{{$index2_box['title']}}
 			<i class="rt"></i>
 		</div>
 		<div class="prolist">
-			<ul>
+			<ul class="ul">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="wow fadeInUp light" data-wow-delay="{{($b_k+1)/10}}s">
+				<li class="wow fadeInUp light li" data-wow-delay="{{($b_k+1)/10}}s">
 					<div class="pic">
 						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 					</div>
-					<h4>{{$b_v['title']}}</h4>
-					<div class="text mCustomScrollbar2">
-						{!!nl2br($b_v['desc'])!!}
+					<h4 class="h4">{{$b_v['title']}}</h4>
+					<div class="text mCustomScrollbar2 content_con">
+						{!!$b_v['content']!!}
 					</div>
 				</li>
 				@endforeach
@@ -34,6 +36,7 @@
 	</div>
 @elseif($index2_box['template']=='index2-youshi')
 	<div class="case-item " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle">
 			<i class="lt"></i>
 			{{$index2_box['title']}}
@@ -59,6 +62,7 @@
 	</div>
 @elseif($index2_box['template']=='index2-changjing')
 	<div class="case-item ys " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle">
 			<i class="lt"></i>
 			{{$index2_box['title']}}
@@ -88,6 +92,7 @@
 	</div>
 @elseif($index2_box['template']=='index2-anli')
 	<div class="case-item " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle">
 			<i class="lt"></i>
 			{{$index2_box['title']}}
@@ -96,14 +101,14 @@
 		<div class="caseslist">
 			<ul class="cliset clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
+				<li class="li wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
 					<a @if(!empty($b_v['url'])) href="{{$b_v['url']}}" @endif>
 						<div class="pic">
 							<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 						</div>
 						<div class="v_txt ">
-							<h4>{{$b_v['title']}}</h4>
-							<div class="text mCustomScrollbar2">
+							<h4 class="h4">{{$b_v['title']}}</h4>
+							<div class="text content_con mCustomScrollbar2">
 								<!-- {!!nl2br($b_v['desc'])!!} -->
 								{!!$b_v['content']!!}
 								<span class="time">{{date("Y-m-d",strtotime($b_v['add_time']))}}</span>
@@ -118,6 +123,7 @@
 	</div>
 @elseif($index2_box['template']=='index2-liaojie')
 	<div class="case-item " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle">
 			<i class="lt"></i>
 			{{$index2_box['title']}}
@@ -145,6 +151,7 @@
 	</div>
 @elseif($index2_box['template']=='index2-tongdian')
 	<div class="case-item " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle ">
 			<i class="lt"></i>
 			{{$index2_box['title']}}
@@ -162,6 +169,7 @@
 	</div>
 @elseif($index2_box['template']=='index2-xiaoyi')
 	<div class="case-item ys " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle">
 			<i class="lt"></i>
 			{{$index2_box['title']}}
@@ -183,6 +191,7 @@
 	</div>
 @elseif($index2_box['template']=='index2-fuwu-jishu')
 	<div class="case-item " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle">
 			<i class="lt"></i>
 			{{$index2_box['title']}}
@@ -190,10 +199,10 @@
 		</div>
 		<div class="serive">
 			@if(!empty($index2_box['cat_desc']))
-				<h4>{!!nl2br($index2_box['cat_desc'])!!}</h4>
+				<h4 class="h4">{!!nl2br($index2_box['cat_desc'])!!}</h4>
 			@endif
 			@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
-			<ul>
+			<ul class="ul">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
 				<li class="wow fadeInUp" data-wow-delay="{{($b_k+1)/10}}s">
 					<a @if(!empty($b_v['url'])) href="{{URL($b_v['url'])}}" target="_blank" @endif>
@@ -201,7 +210,7 @@
 							<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 						</div>
 						<h1>{{$b_v['title']}}</h1>
-						<div class="text">
+						<div class="text mCustomScrollbar2">
 							{!!nl2br($b_v['desc'])!!}
 						</div>
 					</a>
@@ -212,6 +221,7 @@
 	</div>
 @elseif($index2_box['template']=='index2-fuwu-bianxian')
 	<div class="case-item ys " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle">
 			<i class="lt"></i>
 			{{$index2_box['title']}}
@@ -219,7 +229,7 @@
 		</div>
 		<div class="serive">
 			@if(!empty($index2_box['cat_desc']))
-				<h4>{!!nl2br($index2_box['cat_desc'])!!}</h4>
+				<h4 class="h4">{!!nl2br($index2_box['cat_desc'])!!}</h4>
 			@endif
 			@if(!empty($index2_box['url']))<a class="more_title" href="{{$index2_box['url']}}" target="_blank">了解更多</a>@endif
 			<div class="datalist clearfix">
@@ -229,7 +239,7 @@
 						<img src="{{asset($b_v['img'])}}" alt="{{$b_v['alt']}}">
 					</div>
 					<div class="text">
-						<h5>{{$b_v['title']}}</h5>
+						<h5 class="h5">{{$b_v['title']}}</h5>
 						<div class="content_con">
 							{!!$b_v['content']!!}
 						</div>
@@ -241,6 +251,7 @@
 	</div>
 @elseif($index2_box['template']=='index2-architecture')
 	<div class="bnitem "  id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle">
 			<i class="lt"></i>
 			{{$index2_box['title']}}
@@ -269,6 +280,7 @@
 	</div>
 @elseif($index2_box['template']=='index2-course')
 	<div class="cnitem " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle">
 			<i class="lt"></i>
 			{{$index2_box['title']}}
@@ -288,6 +300,7 @@
 	</div>
 @elseif($index2_box['template']=='index2-honor')
 	<div class="dnitem " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle">
 			<i class="lt"></i>
 			<span style="color: #fff">{{$index2_box['title']}}</span>
@@ -332,6 +345,7 @@
 	</div>
 @elseif($index2_box['template']=='index2-contact-us')
 	<div class="contact " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle">
 			<i class="lt"></i>
 			{{$index2_box['title']}}
@@ -368,6 +382,7 @@
 	</script>
 @elseif($index2_box['template']=='index2-fuli')
 	<div class="initem " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="slide wow fadeInRightBig">
 			<div class="slidebox clearfix ">
 				<dl class="slideslick">
@@ -388,6 +403,7 @@
 	</div>
 @elseif($index2_box['template']=='index2-sihhui-zhaopin')
 	<div class="hnitem " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle">
 			<i class="lt"></i>
 			{{$index2_box['title']}}
@@ -460,6 +476,7 @@
 	</div>
 @elseif($index2_box['template']=='index2-zhaoping-shijisheng')
 	<div class="gnitem " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle">
 			<i class="lt"></i>
 			{{$index2_box['title']}}
@@ -520,6 +537,7 @@
 	</div>
 @elseif($index2_box['template']=='index2-shixijidi')
 	<div class="fnitem " id="a_{{$index2_box_k}}">
+		<span class="id_t" id="a_{{$index2_box_k}}_t"></span>
 		<div class="casetitle">
 			<i class="lt"></i>
 			{{$index2_box['title']}}
@@ -529,8 +547,8 @@
 			<div class="text">{!!nl2br($index2_box['cat_desc'])!!}</div>
 			<ul class="datalisx clearfix">
 				@foreach($index2_box['article'] as $b_k=>$b_v)
-				<li class="wow fadeInUp mCustomScrollbar" data-wow-delay="{{($b_k+1)/10}}s">
-					<h3 style="background-image: url({{asset($b_v['img'])}});">{{$b_v['title']}}</h3>
+				<li class="li wow fadeInUp mCustomScrollbar" data-wow-delay="{{($b_k+1)/10}}s">
+					<h3 class="h3" style="background-image: url({{asset($b_v['img'])}});">{{$b_v['title']}}</h3>
 					<div class="td content_con">{!!$b_v['content']!!}</div>
 				</li>
 				@endforeach

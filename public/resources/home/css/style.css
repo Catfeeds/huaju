@@ -2715,9 +2715,9 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
     display: none;
     font-size: 14px;
   }
-  .nmain .content img {
+  /*.nmain .content img {
     width: 100%;
-  }
+  }*/
   .asg .tag {
     font-size: 16px;
     padding-left: 25px;
@@ -2846,10 +2846,11 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 
 .case-item {
   overflow: hidden;
-  padding-top: 60px;
+  padding-top: 67px;
   padding-bottom:30px;
+  position: relative;
 }
-
+.case-item .id_t{position: absolute;top: -10px;}
 .serv {
   position: relative;
   background: url("../images/tdbg.jpg") no-repeat;
@@ -3005,7 +3006,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   margin-bottom: 30px;
 }
 
-.cliset li {
+.cliset .li {
   outline: none;
   padding: 17px;
   -webkit-box-sizing: border-box;
@@ -3015,13 +3016,13 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   float: left;
   box-shadow: 0 0 10px #d7d7d7;
 }
-.cliset li:hover .pic img{
+.cliset .li:hover .pic img{
 
   -wenkit-transform: scale(1.2,1.2);
   transform: scale(1.2,1.2);
 }
-/*.cliset li .v_txt{height: 240px;overflow-y: auto;}*/
-.cliset li h4 {
+/*.cliset .li .v_txt{height: 240px;overflow-y: auto;}*/
+.cliset .li .h4 {
   font-size: 18px;
   position: relative;
   color: #1d1d1d;
@@ -3030,7 +3031,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
 white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
-.cliset li h4::after {
+.cliset .li .h4::after {
   content: "";
   width: 45px;
   height: 4px;
@@ -3039,10 +3040,10 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   bottom: -2px;
   left: 0;
 }
-.cliset li .pic{height: 215px;overflow: hidden;}
-.cliset li .pic img{-webkit-transition: all 0.5s;
+.cliset .li .pic{height: 215px;overflow: hidden;}
+.cliset .li .pic img{-webkit-transition: all 0.5s;
   transition: all 0.5s;}
-.cliset li .text {
+.cliset .li .text {
   margin-top: 25px;
   color: #959696;
   line-height: 23px;
@@ -3053,7 +3054,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 /*overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp:6; -webkit-box-orient: vertical;*/
 }
 
-.cliset li .time {
+.cliset .li .time {
   display: block;
   text-align: right;
   font-size: 12px;
@@ -3237,11 +3238,11 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   margin: 0 auto;
 }
 
-.prolist ul {
+.prolist .ul {
   overflow: hidden;
 }
 
-.prolist ul li {
+.prolist .ul .li {
   background: #fff;
   width: 49%;
   float: left;
@@ -3254,18 +3255,18 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   /*height: 355px; */
 }
 
-.prolist ul li:nth-child(2n) {
+.prolist .ul .li:nth-child(2n) {
   float: right;
 }
 
-.prolist ul li .pic {
+.prolist .ul .li .pic {
   width: 70px;
   height: 70px;overflow: hidden;
   margin: 0 auto;
   padding:15px;
 }
 
-.prolist ul li h4 {
+.prolist .ul .li .h4 {
   font-size: 18px;
   color: #292929;
   text-align: center;
@@ -3273,7 +3274,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
-.prolist ul li .text {
+.prolist .ul .li .text {
   font-size: 14px;
   line-height: 25px;
   color: #9c9c9c;
@@ -3349,6 +3350,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   .case-item {
     padding-top: 30px;
   }
+  .case-item .id_t{top: -40px;}
   .case-item.ys {
     padding-top: 30px;
     padding-bottom: 20px;
@@ -3436,11 +3438,11 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   .slick-next {
     right: 0;
   }
-  .cliset li .pic {
+  .cliset .li .pic {
     width: 100%;
     height: auto;
   }
-  .cliset li .pic img {
+  .cliset .li .pic img {
     width: 100%;
   }
   .understand {
@@ -3474,7 +3476,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     width: 96%;
     padding: 0 2%;
   }
-  .prolist ul li {
+  .prolist .ul .li {
     padding: 2%;
   }
 
@@ -3576,21 +3578,21 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     height: auto;
     width: 100%;
   }
-  .prolist ul li {
+  .prolist .ul .li {
     width: 100%;
     font: none;
     height: auto;
   }
-  .prolist ul li:nth-child(2n) {
+  .prolist .ul .li:nth-child(2n) {
     font: none;
   }
-  .prolist ul li .pic {
+  .prolist .ul .li .pic {
     width: 50px;
   }
-  .prolist ul li .pic img {
+  .prolist .ul .li .pic img {
     width: 100%;
   }
-  .prolist ul li h4 {
+  .prolist .ul .li .h4 {
     font-size: 16px;
     margin: 10px auto 10px auto;
   }
@@ -3620,7 +3622,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     height: 25px;
     line-height: 25px;
   }
-  .cliset li h4 {
+  .cliset .li .h4 {
     font-size: 16px;
     /*white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*/
   }
@@ -4380,39 +4382,40 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   margin: 0 auto;
 }
 
-.serive h4 {
+.serive .h4 {
   text-align: center;
   color: #a3a3a3;
 }
 
-.serive ul {
+.serive .ul {
   overflow: hidden;
 }
 
-.serive ul li {
+.serive .ul li {
   width: 23%;
   padding: 0 1%;
   float: left;
   margin-top: 50px;
 }
 
-.serive ul li .pic {
+.serive .ul li .pic {
   margin: 0 auto;
   width: 113px;
 }
 
-.serive ul li h1 {
-  font-size: 24px;
+.serive .ul li h1 {
+  font-size:18px;
   color: #222222;
   text-align: center;
   margin: 20px 0;
 /*white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*/
 }
 
-.serive ul li .text {
+.serive .ul li .text {
   font-size: 12px;
   color: #909090;
   line-height: 25px;
+  max-height: 125px;
   /*height: 125px;
   overflow: hidden;*/
 }
@@ -4446,7 +4449,7 @@ overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-cl
   float: right;
 }
 
-.serdata .text h5 {
+.serdata .text .h5 {
   font-size: 20px;
   color: #000000;
   margin-top: 14px;
@@ -4490,11 +4493,11 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     width: 96%;
     padding: 0 2%;
   }
-  .serive ul li h1 {
+  .serive .ul li h1 {
     font-size: 20px;
     margin: 10px 0;
   }
-  .serive ul li {
+  .serive .ul li {
     width: 31.33%;
   }
   .serdata .pic {
@@ -4505,7 +4508,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     float: none;
     width: 100%;
   }
-  .serdata .text h5 {
+  .serdata .text .h5 {
     font-size: 16px;
     margin-bottom: 10px;
   }
@@ -4516,23 +4519,23 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
 @media screen and (max-width: 768px) {
-  .serive ul li {
+  .serive .ul li {
     width: 48%;
     margin-top: 20px;
   }
-  .serive ul li .pic {
+  .serive .ul li .pic {
     width: 80px;
   }
-  .serive ul li .pic img {
+  .serive .ul li .pic img {
     width: 100%;
   }
-  .serive ul li h1 {
+  .serive .ul li h1 {
     font-size: 16px;
   }
-  .serive ul li .text {
+  .serive .ul li .text {
     font-size: 13px;
   }
-  .serive h4 {
+  .serive .h4 {
     font-size: 14px;
     line-height: 25px;
   }
@@ -5968,7 +5971,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   /*line-height: 25px*/
 }
 .datalisx{overflow: hidden;}
-.datalisx li {
+.datalisx .li {
   min-height: 480px;
   padding: 20px;
   border: 1px solid #dddddd;
@@ -5980,7 +5983,7 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   box-sizing: border-box;
 }
 
-.datalisx li h3 {
+.datalisx .li .h3 {
 white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   background-position: left center;
   font-size: 18px;
@@ -5990,23 +5993,23 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   margin-bottom: 30px
 }
 
-.datalisx li .pic img {
+.datalisx .li .pic img {
   width: 100%;
 }
 
-.datalisx li .td {
+.datalisx .li .td {
   font-size: 16px;
   color: #4e4e4e;
   line-height: 25px;
   margin-bottom: 20px;
 
 }
-.datalisx li{overflow-y: auto;}
-.datalisx li .pic {
+.datalisx .li{overflow-y: auto;}
+.datalisx .li .pic {
   margin-bottom: 20px;
 }
 
-.datalisx li h4 {
+.datalisx .li h4 {
   margin-bottom: 20px;
 }
 
@@ -6285,16 +6288,16 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   margin-top: 16px;
 }
 .contbox .txt .t:first-child{margin-top: 0;}
-.contbox .txt dl {
+.contbox .txt .dl {
   margin-bottom: 20px;
 }
 
-.contbox .txt dl dt {
+.contbox .txt .dl dt {
   font-size: 16px;
   margin-bottom: 5px;
 }
 
-.contbox .txt dl dd {
+.contbox .txt .dl dd {
   font-size: 15px;
   color: #6f6a6a;
 }
@@ -6463,11 +6466,11 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     width: 96%;
     padding: 0 2%;
   }
-  .datalisx li .td {
+  .datalisx .li .td {
     font-size: 14px;
   }
-  .datalisx li h4,
-  .datalisx li .td {
+  .datalisx .li h4,
+  .datalisx .li .td {
     margin-bottom: 10px;
   }
   .bigdata {
@@ -6689,14 +6692,14 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   .btnlist .btnex {
     width: 100%;
   }
-  .datalisx li {
+  .datalisx .li {
     float: none;
     width: 100%;
     padding: 15px;
     margin: 10px 0;
     min-height: auto;
   }
-  .datalisx li h3 {
+  .datalisx .li .h3 {
     margin-bottom: 13px;
     font-size: 16px
   }
@@ -6732,10 +6735,10 @@ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     line-height: 30px;
   }
   .contbox .txt{margin-top: 16px;}
-  .contbox .txt dl dt {
+  .contbox .txt .dl dt {
     font-size: 14px;
   }
-  .contbox .txt dl dd {
+  .contbox .txt .dl dd {
     font-size: 12px;
   }
 }

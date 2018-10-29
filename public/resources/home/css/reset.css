@@ -41,3 +41,10 @@ a:focus{outline:none;}
     border-radius: 10px;
     background: #EDEDED;
 }
+
+
+.content_con dl, .content_con ol, .content_con ul{list-style-type:initial;}
+.content_con h1, .content_con h2, .content_con h3, .content_con h4, .content_con h5, .content_con h6{font-size:initial;font-weight:initial;}
+.content_con address, .content_con b, .content_con caption, .content_con cite, .content_con code, .content_con dfn, .content_con em, .content_con i, .content_con th, .content_con var{font-style:initial;font-weight:initial;}
+.content_con dl, .content_con ol, .content_con ul{list-style-type:initial;}
+.content_con ul{padding-left: 40px;margin:14px 0;}

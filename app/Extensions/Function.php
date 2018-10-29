@@ -455,7 +455,6 @@ function xml_parser($str){
  * @return [type]          [description]
  */
 function sms_send($phone,$content){
-
     $arr = [
         'username'=>'hjkj',
         'userpwd'=>'832195',
